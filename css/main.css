@@ -1,0 +1,70 @@
+*{
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+body>h1{
+    font-size: 36px;
+    margin: 5%;
+}
+
+body>h1::after{
+    content: "";
+    display: block;
+    height: 3px;  width: 10%;
+    margin: 0 auto;
+    background: skyblue;
+    margin-top: 5%;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    margin: 0 10% 8% 10%;
+}
+
+.container li{
+    list-style: none;
+    text-align: left;
+    display: inline-block;
+    width: calc(50% - 31px);
+    margin: 15px;
+    border: solid 5px skyblue;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 36px;
+    border-radius: 5px;
+}
+
+.container::after{
+    content: "";
+    display: inline-block;
+    width: 50%;
+}
+
+.container li a{
+    text-decoration: none;
+    display: block;
+    color: black;
+    padding: 5px;
+    transition: all .3s;
+}
+
+.container li a:hover{
+    color: white;
+    background: skyblue;
+}
+
+.container li a:after{
+    content: "";
+    width: 100%; height: 100%;
+}
+
+@media screen and (max-width: 720px){
+    .container li{
+        width: calc(100% - 30px);
+    }
+}
