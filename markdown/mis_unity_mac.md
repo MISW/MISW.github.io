@@ -58,7 +58,9 @@ Agreeを押しましょう
 
 インストールするものが選べるので必要なものを選択してContinueをクリックしましょう
 
-最新バージョンの(一番上の)Unityと、Visual Studio for Macをインストールすれば十分だと思います
+最新バージョンの(一番上の)Unityと、Visual Studio for Macをインストールすれば十分だと思います  
+Xcodeを使いたい人は[Xcodeインストールガイド](https://misw.github.io/markdown/mis_xcode.html)を参考にインストールしてみて下さい。
+
 
 ![](https://misw.github.io/markdown/images/Unity/u_12.png)
 
