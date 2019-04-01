@@ -2,7 +2,7 @@
 
 ## 必要なもの
 - Xcodeがインストール済みのMac
-    - Xcodeがインストール済みでない場合は[Xcodeのインストール方法](./Xcode-installation.md)を参照してインストールしてください。
+    - Xcodeがインストール済みでない場合は[Xcodeのインストール方法](https://misw.github.io/markdown/mis_xcode.html)を参照してインストールしてください。
 
 ## 手順
 ### ダウンロード

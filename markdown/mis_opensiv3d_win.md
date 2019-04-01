@@ -1,6 +1,6 @@
 
 # OpenSiv3Dの始め方(for windows)
-この記事はC++のフレームワークOpenSiv3D(windows版)の始め方について解説した記事です。Macの方は[こちら(リンクを入れてださい)]()をご覧ください。
+この記事はC++のフレームワークOpenSiv3D(windows版)の始め方について解説した記事です。Macの方は[こちら](https://misw.github.io/markdown/mis_opensiv3d_mac.html)をご覧ください。
 ## OpenSiv3Dとは
 OpenSiv3Dはプログラミング言語C++のゲーム制作やヴィジュアルプログラミングのためのフレームワークです。早稲田大学表現工学科博士課程の[Ryo Suzuki](https://twitter.com/reputeless)さんが中心となって開発されていいます。コンソールに文字を表示するのと同じような感覚で、図形,Emojiや様々な形式の画像を表示したり、効果音、BGMを鳴らしたりできます。その他、物理エンジン、QRコード読み取り、NintendoSwitchのJoyConの使用など様々な機能が用意されています。2019年3月時点ではVersion 0.3.1がリリースされていて、現在も開発が続いているフレームワークです。
 
@@ -93,4 +93,4 @@ Windowsキーを押して「visual stuido」と検索してVisual Studio 2017を
 
 ## 参考文献
 
-OpenSiv3Dリファレンス  https://scrapbox.io/Siv3D/OpenSiv3D_%E3%82%92%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E6%BA%96%E5%82%99_(Windows)
+[OpenSiv3Dリファレンス](https://scrapbox.io/Siv3D/OpenSiv3D_%E3%82%92%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E6%BA%96%E5%82%99)(Windows)
