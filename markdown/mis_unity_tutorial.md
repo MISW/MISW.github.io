@@ -273,12 +273,6 @@
 ![](https://misw.github.io/markdown/images/Unity_tutorial/50.png)
 
 中身を書いていきましょう  
-`
-void Update()
-    {
-        transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime);
-    }
-`
 
 ![](https://misw.github.io/markdown/images/Unity_tutorial/51.png)
 
