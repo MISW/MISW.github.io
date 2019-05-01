@@ -69,7 +69,7 @@ Python, JavaScriptの始め方
 ![](./images/python_javascript/Node.js_logo.svg)
 
 - https://nodejs.org/ja/ でダウンロードして実行する。
-  [LTS](https://en.wikipedia.org/wiki/Long-term_support)はLong-term supportの略で、安定版のこと。LTSでも最新版でもどちらでもよい。
+  [LTS](https://en.wikipedia.org/wiki/Long-term_support)はLong-term supportの略。基本的にはどちらでもよいが、このページにあるサンプルプログラムはLTSでしか動作確認していないため、LTSを推奨。
 - Node.jsはV8を使用したJavaScript環境。
   Wikipedia: https://ja.wikipedia.org/wiki/Node.js
 
