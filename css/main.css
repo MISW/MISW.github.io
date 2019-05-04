@@ -1,11 +1,13 @@
 *{
     text-align: center;
     letter-spacing: 1px;
+       font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic' ;
 }
 
 body>h1{
     font-size: 36px;
-    margin: 5%;
+    margin: 70px 10%;
+    letter-spacing: 3px;
 }
 
 body>h1::after{
@@ -14,18 +16,43 @@ body>h1::after{
     height: 3px;  width: 10%;
     margin: 0 auto;
     background: skyblue;
-    margin-top: 5%;
+    margin-top: 50px;
 }
 
-.container{
+.Introduction p{
+    margin: 30px 10%;
+    font-size: 18px;
+}
+
+.Introduction a{
+    display: inline-block;
+    width: 30%;
+    border: solid 5px rgb(255,181,170);
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 36px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    transition: all .3s;
+}
+
+.Introduction a:hover{
+    color: white;
+    background: rgb(255,181,170);
+}
+
+.Container>div{
     display: flex;
     justify-content: center;
     align-content: flex-start;
     flex-wrap: wrap;
-    margin: 0 10% 8% 10%;
+    margin: 5% 10%;
+    padding-top: 30px;
+    border-top: solid 1px #CCC;
 }
 
-.container li{
+.Container>div li{
     list-style: none;
     text-align: left;
     display: inline-block;
@@ -39,13 +66,28 @@ body>h1::after{
     border-radius: 5px;
 }
 
-.container::after{
+.Container>div h2{
+    width: 100%;
+    font-size: 32px;
+    padding: 5%;
+}
+
+.Container>div h2::after{
+    content: "";
+    display: block;
+    height: 3px;  width: 10%;
+    margin: 0 auto;
+    background: skyblue;
+    margin-top: 50px;
+}
+
+.Container>div::after{
     content: "";
     display: inline-block;
     width: 50%;
 }
 
-.container li a{
+.Container>div li a{
     text-decoration: none;
     display: block;
     color: black;
@@ -53,18 +95,21 @@ body>h1::after{
     transition: all .3s;
 }
 
-.container li a:hover{
+.Container>div li a:hover{
     color: white;
     background: skyblue;
 }
 
-.container li a:after{
+.Container>div li a:after{
     content: "";
     width: 100%; height: 100%;
 }
 
 @media screen and (max-width: 720px){
-    .container li{
+    .Introduction a{
+        width: calc(80% - 30px);
+    }
+    .Container>div li{
         width: calc(100% - 30px);
     }
 }
