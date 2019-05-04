@@ -66,7 +66,7 @@ Array.prototype.forEach.call(document.getElementsByClassName("questionnaire"), (
 <h1>以下のデータを送信しています...</h1>
 節: ${questionnaire.id}<br>
 選択: ${button.innerText}<br>
-詳細: ${details}`;
+詳細: ${details === "" ? "なし （詳細を書いてくれると助かります！）" : details}`;
                 post({
                     details,
                     sectionId: questionnaire.id,

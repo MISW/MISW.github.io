@@ -1126,7 +1126,7 @@ body {
 </li>
 <li><a href="#%E7%B5%90%E8%AB%96">結論</a></li>
 </ul>
-<p>※ 以下の情報は、2019年3月時点のものです。</p>
+<p>※ 以下の情報は、2019年5月時点のものです。</p>
 <h1 id="はじめに">はじめに</h1>
 <h2 id="pythonとは">Pythonとは</h2>
 <p><img src="./images/python_javascript/python-logo-generic.svg" alt=""></p>
@@ -2414,7 +2414,7 @@ Array.prototype.forEach.call(document.getElementsByClassName("questionnaire"), f
                 throw new Error("'.connection-status-box' was not found");
             }
             box.classList.add("connection-status-box--show");
-            box.innerHTML = "\n<h1>\u4EE5\u4E0B\u306E\u30C7\u30FC\u30BF\u3092\u9001\u4FE1\u3057\u3066\u3044\u307E\u3059...</h1>\n\u7BC0: " + questionnaire.id + "<br>\n\u9078\u629E: " + button.innerText + "<br>\n\u8A73\u7D30: " + details;
+            box.innerHTML = "\n<h1>\u4EE5\u4E0B\u306E\u30C7\u30FC\u30BF\u3092\u9001\u4FE1\u3057\u3066\u3044\u307E\u3059...</h1>\n\u7BC0: " + questionnaire.id + "<br>\n\u9078\u629E: " + button.innerText + "<br>\n\u8A73\u7D30: " + (details === "" ? "なし （詳細を書いてくれると助かります！）" : details);
             post({
                 details: details,
                 sectionId: questionnaire.id,
