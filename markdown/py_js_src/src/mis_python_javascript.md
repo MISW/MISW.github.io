@@ -73,6 +73,8 @@ Python, JavaScriptの始め方
 - Node.jsはV8を使用したJavaScript環境。
   Wikipedia: https://ja.wikipedia.org/wiki/Node.js
 
+*QUESTIONNAIRE! はじめに*
+
 # ファイルから実行してみる
 ## Pythonをファイルから実行してみよう
 1. 好きな場所に`main.py`というファイルを作って、以下の内容を書き込む
@@ -151,6 +153,8 @@ Python, JavaScriptの始め方
     20
     ```
 
+*QUESTIONNAIRE! ファイルから実行してみる*
+
 # REPLを実行してみる
 ## REPLとは
 - 多くの言語には[REPL (Read-Eval-Print Loop) ](https://ja.wikipedia.org/wiki/REPL)が存在する。
@@ -206,6 +210,8 @@ Python, JavaScriptの始め方
    ```
 3. いろいろ入力してみてください。（`f(10)`や`2 + 4`など）
 
+*QUESTIONNAIRE! REPLを実行してみる*
+
 # テキストエディタ
 ![](./images/python_javascript/Visual_Studio_Code_1.18_icon.svg)
 
@@ -213,6 +219,8 @@ Python, JavaScriptの始め方
 - 起動が速くて高機能です。
 - 特に、VSCodeはTypeScript（後述）で開発されているのもあって、TypeScriptを使うならVSCodeを使うべきです。
 - 拡張機能の[Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)を入れて使うべきです。他にも、[Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)なども入れるといいと思います。（細かい使い方はネットで調べてください。）
+
+*QUESTIONNAIRE! テキストエディタ*
 
 # Python, JavaScriptの学習方法
 ## バージョンについて
@@ -339,6 +347,9 @@ PythonもJavaScriptも活発に開発されていて、アップデートが速�
             // スコープ
         }
         ```
+
+*QUESTIONNAIRE! Python, JavaScriptの学習方法*
+
 # 型付けしよう
 - PythonやJavaScriptは動的型付け言語であり、変数に型がありません。
 - これは不便なことが多いので、型付けする方法があります。積極的に使っていくべきです。
@@ -367,12 +378,16 @@ PythonもJavaScriptも活発に開発されていて、アップデートが速�
   `main.ts`のようなファイルを作り、コードを書き、コマンドプロンプト（ターミナル）上で`npx tsc`と打てば、TypeScriptからJavaScriptへ変換されます。
 - TypeScriptでは、変換先のJavaScriptのバージョンが低いときJavaScriptのいくつかの最新の機能（Arrayの関数やMapなど）を使えません。`tsconfig.json`の`"target"`を`"ES2017"`とかにすれば使えるようになります。
 
+*QUESTIONNAIRE! 型付けしよう*
+
 # クロスブラウザについて
 各ブラウザのJavaScriptのバージョン（実装状況）は[caniuse.com](https://caniuse.com/)で確認できます。
 
 ![](./images/python_javascript/can_i_use_es6.jpg)
 
 例えばES2015 (ES6)を使えるかは、https://caniuse.com/#search=ES6 で確認できます。これを見ると、IE (Internet Explorer)ではES6をほとんど使えないことがわかります。現在は[Babel](https://babeljs.io/)などを使ってES2015以降のコードをES5以前のコードに変換して対応するのが主流ですが、IEは2020年の1月にサポートが切れるので、それ以降はIEを切り捨てる方向になると思われます。（TypeScriptはデフォルトではES5のコードに変換されます。）
+
+*QUESTIONNAIRE! クロスブラウザについて*
 
 # サンプルプログラム1: 簡単なサーバ
 ## この節について
@@ -506,6 +521,8 @@ PythonもJavaScriptも活発に開発されていて、アップデートが速�
 
 ## @typesとは何か
 - npmにおいて、"@A/B"という名前のパッケージ名は、"ユーザーAが公開しているパッケージB"という意味。[@types](https://www.npmjs.com/~types)は[Definitely Typed](https://github.com/DefinitelyTyped/DefinitelyTyped)という団体が管理している。
+
+*QUESTIONNAIRE! サンプルプログラム1*
 
 # サンプルプログラム2: Parcel & p5.js
 ## この節について
@@ -1104,6 +1121,8 @@ npm install -D @types/p5
     </body>
     </html>
     ```
+
+*QUESTIONNAIRE! サンプルプログラム2*
 
 # 結論
 - [CPythonの公式ドキュメント](https://docs.python.org/ja/3/tutorial/index.html)や[uhyohyo.net](https://uhyohyo.net/javascript/)や[TypeScriptの型初級(uhyo)](https://qiita.com/uhyo/items/da21e2b3c10c8a03952f)などを読みましょう。

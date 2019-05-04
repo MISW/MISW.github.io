@@ -1,0 +1,22 @@
+{
+  "name": "py_js_src",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "build": "tsc src/questionnaire.ts --outDir tmp&&ts-node src/compile.ts"
+  },
+  "keywords": [],
+  "license": "",
+  "devDependencies": {
+    "@types/marked": "0.6.5",
+    "@types/node": "12.0.0",
+    "ts-node": "8.1.0",
+    "tslint": "5.16.0",
+    "typescript": "3.4.5"
+  },
+  "dependencies": {
+    "github-markdown-css": "3.0.1",
+    "marked": "0.6.2"
+  }
+}
