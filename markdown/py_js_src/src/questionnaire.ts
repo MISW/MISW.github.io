@@ -53,10 +53,7 @@ Array.prototype.forEach.call(document.getElementsByClassName("questionnaire"), (
                 (window as any).platform.name !== "Firefox" &&
                 (window as any).platform.name !== "Microsoft Edge") {
             // Safariは動作確認できないのでIEと同じ処理
-            const parent = questionnaire.parentElement;
-            if (parent) {
-                parent.removeChild(questionnaire);
-            }
+            questionnaire.innerHTML = "";
             return;
         }
         Array.prototype.forEach.call(questionnaire.getElementsByTagName("button"), (button: unknown) => {
@@ -64,7 +61,7 @@ Array.prototype.forEach.call(document.getElementsByClassName("questionnaire"), (
                 return;
             }
             button.addEventListener("click", () => {
-                disableAllButtons()
+                disableAllButtons();
 
                 const details = escapeHTMLSpecialChars(questionnaire.querySelector("textarea")!.value);
                 const box = document.getElementsByClassName("connection-status-box")[0];
