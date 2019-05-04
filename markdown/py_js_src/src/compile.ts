@@ -20,4 +20,3 @@ if (!fs.existsSync("dist")) {
     fs.mkdirSync("dist");
 }
 fs.writeFileSync(path.join("dist", "mis_python_javascript.html"), generatedHtml);
-

@@ -969,7 +969,7 @@ body {
 }
 
 .markdown-body {
-    font-size: 18px;
+    font-size: 20px;
     font-family: 'Noto Sans JP', sans-serif;
 }
 
@@ -1133,13 +1133,16 @@ body {
 <ul>
 <li>Wikipedia: <a href="https://ja.wikipedia.org/wiki/Python">https://ja.wikipedia.org/wiki/Python</a></li>
 <li>Pythonは動的型付けなプログラミング言語。</li>
-<li>実装にはCPython（<a href="https://www.python.org/%EF%BC%89%E3%80%81PyPy%EF%BC%88http://pypy.org/%EF%BC%89%E3%81%AA%E3%81%A9%E3%81%8C%E3%81%82%E3%82%8B%E3%80%82CPython%E3%81%8C%E6%9C%80%E3%82%82%E8%89%AF%E3%81%8F%E4%BD%BF%E3%82%8F%E3%82%8C%E3%82%8B%E3%80%82PyPy%E3%81%AFCPython%E3%82%88%E3%82%8A%E3%82%82%E5%AE%9F%E8%A1%8C%E9%80%9F%E5%BA%A6%E3%81%8C%E9%80%9F%E3%81%84%E3%81%8C%E3%80%81%E8%B5%B7%E5%8B%95%E3%81%AF%E9%81%85%E3%81%84%E3%80%82">https://www.python.org/）、PyPy（http://pypy.org/）などがある。CPythonが最も良く使われる。PyPyはCPythonよりも実行速度が速いが、起動は遅い。</a></li>
+<li>実装にはCPython ( <a href="https://www.python.org/">https://www.python.org/</a> ) 、PyPy ( <a href="http://pypy.org/">http://pypy.org/</a> ) などがある。CPythonが最も良く使われる。PyPyはCPythonよりも実行速度が速いが、起動は遅い。</li>
 </ul>
 <h2 id="pythonのインストール方法">Pythonのインストール方法</h2>
 <p><img src="./images/python_javascript/python_org.jpg" alt=""></p>
 <ul>
-<li><a href="https://www.python.org/">https://www.python.org/</a> のDownloadsでダウンロードして実行する。Python3を使用してください。</li>
-<li>ネット上では、PythonのインストールにAnacondaを使うことを推奨している記事がありますが、Anacondaは初心者が使うと多くの問題を引き起こすため、使わない方がよいです。（参考1: <a href="http://www.zopfco.de/entry/2017/04/03/233811">Pythonの環境管理ツール良し悪し - Zopfcode</a>, 参考2: <a href="http://onoz000.hatenablog.com/entry/2018/02/11/142347">condaとpip：混ぜるな危険 - onoz000’s blog</a>)</li>
+<li><p><a href="https://www.python.org/">https://www.python.org/</a> のDownloadsでダウンロードして実行する。Python3を使用してください。</p>
+</li>
+<li><p>ネット上では、PythonのインストールにAnacondaを使うことを推奨している記事がありますが、Anacondaは初心者が使うと多くの問題を引き起こすため、使わない方がよいです。</p>
+<p>（参考1: <a href="http://www.zopfco.de/entry/2017/04/03/233811">Pythonの環境管理ツール良し悪し - Zopfcode</a>, 参考2: <a href="http://onoz000.hatenablog.com/entry/2018/02/11/142347">condaとpip：混ぜるな危険 - onoz000’s blog</a>)</p>
+</li>
 </ul>
 <h2 id="javascriptとは">JavaScriptとは</h2>
 <ul>
@@ -1150,10 +1153,13 @@ body {
 <h2 id="javascript-nodejs-のインストール方法">JavaScript (Node.js) のインストール方法</h2>
 <p><img src="./images/python_javascript/Node.js_logo.svg" alt=""></p>
 <ul>
-<li><a href="https://nodejs.org/ja/">https://nodejs.org/ja/</a> でダウンロードして実行する。
-<a href="https://en.wikipedia.org/wiki/Long-term_support">LTS</a>はLong-term supportの略。基本的にはどちらでもよいが、このページにあるサンプルプログラムはLTSでしか動作確認していないため、LTSを推奨。</li>
-<li>Node.jsはV8を使用したJavaScript環境。
-Wikipedia: <a href="https://ja.wikipedia.org/wiki/Node.js">https://ja.wikipedia.org/wiki/Node.js</a></li>
+<li><p><a href="https://nodejs.org/ja/">https://nodejs.org/ja/</a> でダウンロードして実行する。
+<a href="https://en.wikipedia.org/wiki/Long-term_support">LTS</a>はLong-term supportの略。</p>
+<p>基本的にはどちらでもよいが、このページにあるサンプルプログラムはLTSでしか動作確認していないため、LTSを推奨。</p>
+</li>
+<li><p>Node.jsはV8を使用したJavaScript環境。</p>
+<p>Wikipedia: <a href="https://ja.wikipedia.org/wiki/Node.js">https://ja.wikipedia.org/wiki/Node.js</a></p>
+</li>
 </ul>
 <p><div class="questionnaire" id="はじめに">
 <section class="questionnaire__outline">
@@ -1607,8 +1613,8 @@ npx tsc --init  # TypeScriptの初期化。tsconfig.jsonが生成される。</c
 <p>  1 空のフォルダを好きな場所に作る</p>
 <p>  2 もしVSCodeで既に別のフォルダを開いていたら<code>Ctrl+K -&gt; O</code>で閉じる</p>
 <p>  3 <code>Ctrl+K -&gt; Ctrl+F</code>からフォルダを開く（あるいはコマンドプロンプト上で<code>code フォルダへのパス</code>）</p>
-<p>  4 <code>Ctrl+Shift+@</code>でコマンドプロンプト（ターミナル）を開いてコマンドを打つ</p>
-<pre><code>  - PowerShell/コマンドプロンプト/Bashの切り替えは`Ctrl+Shift+P` -&gt; `select default shell`からできます。</code></pre></li>
+<p>  4 <code>Ctrl+Shift+@</code>でコマンドプロンプト（ターミナル）を開いてコマンドを打つ（ PowerShell/コマンドプロンプト/Bashの切り替えは <code>Ctrl+Shift+P</code> -&gt; <code>select default shell</code> からできます。）</p>
+</li>
 <li><p><code>pip</code>コマンドが存在しないと表示された場合は、<code>py -m pip</code>（MacOSやLinuxでは<code>python3 -m pip</code>）を使ってください。</p>
 </li>
 <li><p>Windowsで「アクセスが拒否されました」と表示される場合、コマンドプロンプトを<a href="https://qiita.com/takuya0301/items/df6cde3bbaf9e13ef8f0">管理者権限で開いて</a>もう一度実行してください。</p>
@@ -1655,8 +1661,8 @@ app.run(&#39;0.0.0.0&#39;, 3000, False)
 <p>  1 空のフォルダを好きな場所に作る</p>
 <p>  2 もしVSCodeで既に別のフォルダを開いていたら<code>Ctrl+K -&gt; O</code>で閉じる</p>
 <p>  3 <code>Ctrl+K -&gt; Ctrl+F</code>からフォルダを開く（あるいはコマンドプロンプト上で<code>code フォルダへのパス</code>）</p>
-<p>  4 <code>Ctrl+Shift+@</code>でコマンドプロンプト（ターミナル）を開いてコマンドを打つ</p>
-<pre><code>  - PowerShell/コマンドプロンプト/Bashの切り替えは`Ctrl+Shift+P` -&gt; `select default shell`からできます。</code></pre></li>
+<p>  4 <code>Ctrl+Shift+@</code>でコマンドプロンプト（ターミナル）を開いてコマンドを打つ（PowerShell/コマンドプロンプト/Bashの切り替えは<code>Ctrl+Shift+P</code> -&gt; <code>select default shell</code>からできます。）</p>
+</li>
 <li><p>npmを使うには、最初に<code>npm init -y</code>での初期化が必要です。これによって、カレントディレクトリ下に<code>package.json</code>ファイルが生成されます。</p>
 </li>
 <li><p><code>npm install</code>を使うと、ライブラリをダウンロードできます。ライブラリは<code>-g</code>を付けなかった場合カレントディレクトリ下の<code>node_modules</code>フォルダ内に置かれます。中を見ると多くのファイルが存在することを確認できると思います。</p>
@@ -1747,34 +1753,34 @@ app.listen(port, () =&gt; console.log(&quot;Listening on port &quot; + port));</
 <h2 id="ライブラリのインストール">ライブラリのインストール</h2>
 <ul>
 <li>今回は、<a href="https://p5js.org/">p5.js</a>を使います。（最初は<a href="https://www.npmjs.com/package/pixi.js">PixiJSv4</a>を使おうと思ったが、型定義ファイルが不完全だったり難易度が高かったりするのでやめた。ただ、機能はPixiJSの方が上なはず。）</li>
-<li>ブラウザ上で複数ファイルのJavaScriptファイルを動かすために、Parcelを使います。（WebPackでもよいが、こちらの方が簡単。）<pre><code class="language-bash">npm init -y
-</code></pre>
-</li>
+<li>ブラウザ上で複数ファイルのJavaScriptファイルを動かすために、Parcelを使います。（WebPackでもよいが、こちらの方が簡単。）</li>
 </ul>
-<h1 id="parcel-typescript">Parcel, TypeScript</h1>
-<p>npm install -g parcel-bundler  # 既にparcel-bundlerをインストールしたならこの行は不要
+<pre><code class="language-bash">npm init -y
+
+# Parcel, TypeScript
+npm install -g parcel-bundler  # 既にparcel-bundlerをインストールしたならこの行は不要
 npm install -D typescript tslint
 npx tslint --init
-npx tsc --init</p>
-<h1 id="p5js">p5.js</h1>
-<p>npm install p5
-npm install -D @types/p5</p>
-<pre><code>
-## Parcelを試す
-- まず、上記のコマンドを打ったのと同じディレクトリで、`index.html`を作る。
-  ```html
-    &lt;!DOCTYPE html&gt;
-    &lt;html&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;UTF-8&quot;&gt;
-        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-        &lt;title&gt;Sample Game&lt;/title&gt;
-    &lt;/head&gt;     
-    &lt;body&gt;
-        &lt;script src=&quot;./main.ts&quot;&gt;&lt;/script&gt;
-    &lt;/body&gt;
-    &lt;/html&gt;</code></pre><ul>
+npx tsc --init
+
+# p5.js
+npm install p5
+npm install -D @types/p5</code></pre>
+<h2 id="parcelを試す">Parcelを試す</h2>
+<ul>
+<li>まず、上記のコマンドを打ったのと同じディレクトリで、<code>index.html</code>を作る。<pre><code class="language-html">  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;meta charset=&quot;UTF-8&quot;&gt;
+      &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+      &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+      &lt;title&gt;Sample Game&lt;/title&gt;
+  &lt;/head&gt;     
+  &lt;body&gt;
+      &lt;script src=&quot;./main.ts&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</code></pre>
+</li>
 <li><code>main.ts</code>も作る。<pre><code class="language-typescript">document.body.innerText = `3 + 2 = ${3 + 2}`;</code></pre>
 </li>
 <li>あとは、コマンドプロンプト（ターミナル）で<code>parcel index.html</code>と打てば、ビルドされて同時にサーバーが起動する。

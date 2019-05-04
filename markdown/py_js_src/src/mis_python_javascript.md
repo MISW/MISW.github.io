@@ -44,7 +44,7 @@ Python, JavaScriptの始め方
   - [シューティングゲーム](#%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%82%B2%E3%83%BC%E3%83%A0)
 - [結論](#%E7%B5%90%E8%AB%96)
 
-※ 以下の情報は、2019年3月時点のものです。
+※ 以下の情報は、2019年5月時点のものです。
 
 # はじめに
 ## Pythonとは
@@ -52,13 +52,15 @@ Python, JavaScriptの始め方
 
 - Wikipedia: https://ja.wikipedia.org/wiki/Python
 - Pythonは動的型付けなプログラミング言語。
-- 実装にはCPython（https://www.python.org/）、PyPy（http://pypy.org/）などがある。CPythonが最も良く使われる。PyPyはCPythonよりも実行速度が速いが、起動は遅い。
+- 実装にはCPython ( https://www.python.org/ ) 、PyPy ( http://pypy.org/ ) などがある。CPythonが最も良く使われる。PyPyはCPythonよりも実行速度が速いが、起動は遅い。
 
 ## Pythonのインストール方法
 ![](./images/python_javascript/python_org.jpg)
 
 - https://www.python.org/ のDownloadsでダウンロードして実行する。Python3を使用してください。
-- ネット上では、PythonのインストールにAnacondaを使うことを推奨している記事がありますが、Anacondaは初心者が使うと多くの問題を引き起こすため、使わない方がよいです。（参考1: [Pythonの環境管理ツール良し悪し - Zopfcode](http://www.zopfco.de/entry/2017/04/03/233811), 参考2: [condaとpip：混ぜるな危険 - onoz000’s blog](http://onoz000.hatenablog.com/entry/2018/02/11/142347))
+- ネット上では、PythonのインストールにAnacondaを使うことを推奨している記事がありますが、Anacondaは初心者が使うと多くの問題を引き起こすため、使わない方がよいです。
+
+  （参考1: [Pythonの環境管理ツール良し悪し - Zopfcode](http://www.zopfco.de/entry/2017/04/03/233811), 参考2: [condaとpip：混ぜるな危険 - onoz000’s blog](http://onoz000.hatenablog.com/entry/2018/02/11/142347))
 
 ## JavaScriptとは
 - Wikipedia: https://ja.wikipedia.org/wiki/JavaScript
@@ -69,8 +71,11 @@ Python, JavaScriptの始め方
 ![](./images/python_javascript/Node.js_logo.svg)
 
 - https://nodejs.org/ja/ でダウンロードして実行する。
-  [LTS](https://en.wikipedia.org/wiki/Long-term_support)はLong-term supportの略。基本的にはどちらでもよいが、このページにあるサンプルプログラムはLTSでしか動作確認していないため、LTSを推奨。
+  [LTS](https://en.wikipedia.org/wiki/Long-term_support)はLong-term supportの略。
+  
+  基本的にはどちらでもよいが、このページにあるサンプルプログラムはLTSでしか動作確認していないため、LTSを推奨。
 - Node.jsはV8を使用したJavaScript環境。
+  
   Wikipedia: https://ja.wikipedia.org/wiki/Node.js
 
 *QUESTIONNAIRE! はじめに*
@@ -413,8 +418,7 @@ PythonもJavaScriptも活発に開発されていて、アップデートが速�
         
         3 `Ctrl+K -> Ctrl+F`からフォルダを開く（あるいはコマンドプロンプト上で`code フォルダへのパス`）
         
-        4 `Ctrl+Shift+@`でコマンドプロンプト（ターミナル）を開いてコマンドを打つ
-            - PowerShell/コマンドプロンプト/Bashの切り替えは`Ctrl+Shift+P` -> `select default shell`からできます。
+        4 `Ctrl+Shift+@`でコマンドプロンプト（ターミナル）を開いてコマンドを打つ（ PowerShell/コマンドプロンプト/Bashの切り替えは `Ctrl+Shift+P` -> `select default shell` からできます。）
     - `pip`コマンドが存在しないと表示された場合は、`py -m pip`（MacOSやLinuxでは`python3 -m pip`）を使ってください。
     - Windowsで「アクセスが拒否されました」と表示される場合、コマンドプロンプトを[管理者権限で開いて](https://qiita.com/takuya0301/items/df6cde3bbaf9e13ef8f0)もう一度実行してください。
     - `pip`コマンドでダウンロードしたファイルは、バージョンやOSによって異なるが、Windowsでバージョン3.7なら`C:\Program Files\Python37`下らへんに置かれます。
@@ -456,8 +460,7 @@ PythonもJavaScriptも活発に開発されていて、アップデートが速�
         
         3 `Ctrl+K -> Ctrl+F`からフォルダを開く（あるいはコマンドプロンプト上で`code フォルダへのパス`）
         
-        4 `Ctrl+Shift+@`でコマンドプロンプト（ターミナル）を開いてコマンドを打つ
-            - PowerShell/コマンドプロンプト/Bashの切り替えは`Ctrl+Shift+P` -> `select default shell`からできます。
+        4 `Ctrl+Shift+@`でコマンドプロンプト（ターミナル）を開いてコマンドを打つ（PowerShell/コマンドプロンプト/Bashの切り替えは`Ctrl+Shift+P` -> `select default shell`からできます。）
     - npmを使うには、最初に`npm init -y`での初期化が必要です。これによって、カレントディレクトリ下に`package.json`ファイルが生成されます。
     - `npm install`を使うと、ライブラリをダウンロードできます。ライブラリは`-g`を付けなかった場合カレントディレクトリ下の`node_modules`フォルダ内に置かれます。中を見ると多くのファイルが存在することを確認できると思います。
     - TypeScriptで外部ライブラリを使うときには、同時に型定義ファイル（.d.tsで終わる名前を持つファイル）が必要になる。`@types/ライブラリ名`として型定義ファイルが配布されている場合が多い。
@@ -532,6 +535,7 @@ PythonもJavaScriptも活発に開発されていて、アップデートが速�
 ## ライブラリのインストール
 - 今回は、[p5.js](https://p5js.org/)を使います。（最初は[PixiJSv4](https://www.npmjs.com/package/pixi.js)を使おうと思ったが、型定義ファイルが不完全だったり難易度が高かったりするのでやめた。ただ、機能はPixiJSの方が上なはず。）
 - ブラウザ上で複数ファイルのJavaScriptファイルを動かすために、Parcelを使います。（WebPackでもよいが、こちらの方が簡単。）
+
 ```bash
 npm init -y
 
