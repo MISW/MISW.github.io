@@ -49,6 +49,16 @@ Array.prototype.forEach.call(document.getElementsByClassName("questionnaire"), (
         if (!(questionnaire instanceof HTMLElement)) {
             return;
         }
+        if ((window as any).platform.name !== "Chrome" &&
+                (window as any).platform.name !== "Firefox" &&
+                (window as any).platform.name !== "Microsoft Edge") {
+            // Safariは動作確認できないのでIEと同じ処理
+            const parent = questionnaire.parentElement;
+            if (parent) {
+                parent.removeChild(questionnaire);
+            }
+            return;
+        }
         Array.prototype.forEach.call(questionnaire.getElementsByTagName("button"), (button: unknown) => {
             if (!(button instanceof HTMLButtonElement)) {
                 return;
