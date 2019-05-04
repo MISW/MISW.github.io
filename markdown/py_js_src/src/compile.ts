@@ -19,4 +19,4 @@ const generatedHtml = htmlTemplate(style, article, script);
 if (!fs.existsSync("dist")) {
     fs.mkdirSync("dist");
 }
-fs.writeFileSync(path.join("dist", "mis_python_javascript.html"), generatedHtml);
+fs.writeFileSync(path.join("../", "mis_python_javascript.html"), generatedHtml);
