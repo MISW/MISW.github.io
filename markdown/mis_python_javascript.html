@@ -2358,15 +2358,18 @@ function draw() {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/typescript.min.js" integrity="sha256-LWmmFG1DeNLUUp0G4vr7vjaHOEFAvzYZ9exFbHFvg8w=" crossorigin="anonymous"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script>var url = "https://script.google.com/macros/s/AKfycbyZ8GSp5pl1Gb82gxPu_fndx4hSFo6mEUUsiJBSamiQhRmtz6k/exec";
-var escapeHTMLSpecialChars = function (str) {
-    return str.replace(/</g, "&lt;")
+    <script>var escapeHTMLSpecialChars = function (str) {
+    return str.replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
-        .replace(/&/g, "&amp;")
-        .replace(/"/, "&quot;")
-        .replace(/'/, "&#x27;")
-        .replace(/\//, "&#x2F;");
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#x27;")
+        .replace(/\//g, "&#x2F;");
 };
+var questionnaireAlertProgressTemplate = function (id, selection, details) {
+    return "\n<h1>\u4EE5\u4E0B\u306E\u30C7\u30FC\u30BF\u3092\u9001\u4FE1\u3057\u3066\u3044\u307E\u3059...</h1>\n\u7BC0: " + id + "<br>\n\u9078\u629E: " + selection + "<br>\n\u8A73\u7D30: " + (details === "" ? "なし （詳細を書いてくれると助かります！）" : escapeHTMLSpecialChars(details));
+};
+var url = "https://script.google.com/macros/s/AKfycbyZ8GSp5pl1Gb82gxPu_fndx4hSFo6mEUUsiJBSamiQhRmtz6k/exec";
 // 送信に成功したらPromiseの結果がtrue
 // 失敗したらfalseまたはエラー（catchが必要）
 var post = function (data) {
@@ -2375,11 +2378,11 @@ var post = function (data) {
     var id = Math.random().toString(32).substring(2);
     data.id = id;
     var options = {
-        method: "POST",
-        mode: "no-cors",
+        body: JSON.stringify(data),
         cache: "no-cache",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
+        method: "POST",
+        mode: "no-cors"
     };
     return fetch(url, options)
         .then(function () { return fetch(url); })
@@ -2389,20 +2392,25 @@ var post = function (data) {
             json.some(function (el) { return Array.isArray(el) && el[0] === id; });
     });
 };
-var disableAllButtons = function () {
+var showAlert = function () {
     Array.prototype.forEach.call(document.querySelectorAll(".questionnaire button"), function (button) {
         button.disabled = true;
     });
 };
-var enableAllButtons = function () {
-    Array.prototype.forEach.call(document.querySelectorAll(".questionnaire button"), function (button) {
-        button.disabled = false;
-    });
+var hideAlert = function (box, messageHTML) {
+    box.innerHTML = messageHTML;
+    setTimeout(function () {
+        box.classList.remove("connection-status-box--show");
+        Array.prototype.forEach.call(document.querySelectorAll(".questionnaire button"), function (button) {
+            button.disabled = false;
+        });
+    }, 800);
 };
 Array.prototype.forEach.call(document.getElementsByClassName("questionnaire"), function (questionnaire) {
     if (!(questionnaire instanceof HTMLElement)) {
         return;
     }
+    // IEとかならアンケートを表示しない
     if (window.platform.name !== "Chrome" &&
         window.platform.name !== "Firefox" &&
         window.platform.name !== "Microsoft Edge") {
@@ -2415,29 +2423,27 @@ Array.prototype.forEach.call(document.getElementsByClassName("questionnaire"), f
             return;
         }
         button.addEventListener("click", function () {
-            disableAllButtons();
-            var details = escapeHTMLSpecialChars(questionnaire.querySelector("textarea").value);
+            showAlert();
+            var details = questionnaire.querySelector("textarea").value;
             var box = document.getElementsByClassName("connection-status-box")[0];
             if (!(box instanceof HTMLElement)) {
                 throw new Error("'.connection-status-box' was not found");
             }
             box.classList.add("connection-status-box--show");
-            box.innerHTML = "\n<h1>\u4EE5\u4E0B\u306E\u30C7\u30FC\u30BF\u3092\u9001\u4FE1\u3057\u3066\u3044\u307E\u3059...</h1>\n\u7BC0: " + questionnaire.id + "<br>\n\u9078\u629E: " + button.innerText + "<br>\n\u8A73\u7D30: " + (details === "" ? "なし （詳細を書いてくれると助かります！）" : details);
+            box.innerHTML = questionnaireAlertProgressTemplate(questionnaire.id, button.innerText, details);
             post({
                 details: details,
                 sectionId: questionnaire.id,
                 text: button.innerText
             }).then(function (ok) {
-                box.innerHTML = "<h1>\u9001\u4FE1\u306B\u6210\u529F\u3057\u307E\u3057\u305F\u3002</h1>";
-                setTimeout(function () {
-                    box.classList.remove("connection-status-box--show");
-                    enableAllButtons();
-                }, 800);
+                if (!ok) {
+                    hideAlert(box, "<h1>\u9001\u4FE1\u306B\u5931\u6557\u3057\u307E\u3057\u305F\u3002</h1>");
+                    return;
+                }
+                hideAlert(box, "<h1>\u9001\u4FE1\u306B\u6210\u529F\u3057\u307E\u3057\u305F\u3002</h1>");
             })["catch"](function (err) {
-                box.innerHTML = "<h1>\u30A8\u30E9\u30FC\u304C\u767A\u751F\u3057\u307E\u3057\u305F</h1>" + err;
-                box.classList.remove("connection-status-box--show");
+                hideAlert(box, "<h1>\u30A8\u30E9\u30FC\u304C\u767A\u751F\u3057\u307E\u3057\u305F\u3002</h1>" + escapeHTMLSpecialChars("" + err));
                 console.error(err);
-                enableAllButtons();
             });
         });
     });
