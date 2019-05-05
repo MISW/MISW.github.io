@@ -1,5 +1,8 @@
 Python, JavaScriptの始め方
 ===
+
+*CHANGE_THEME!*
+
 - [Python, JavaScriptの始め方](#python-javascript%E3%81%AE%E5%A7%8B%E3%82%81%E6%96%B9)
 - [はじめに](#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB)
   - [Pythonとは](#python%E3%81%A8%E3%81%AF)
@@ -45,6 +48,8 @@ Python, JavaScriptの始め方
 - [結論](#%E7%B5%90%E8%AB%96)
 
 ※ 以下の情報は、2019年5月時点のものです。
+
+*CHANGE_THEME!*
 
 # はじめに
 ## Pythonとは

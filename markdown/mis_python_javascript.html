@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Python, JavaScriptの始め方</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" integrity="sha256-iAmWN8uaUdN6Y9FCf8srQdrx3eVVwouJ5QtEiyuTQ6A=" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Source+Code+Pro" rel="stylesheet">
     <style>@font-face {
   font-family: octicons-link;
@@ -964,7 +963,8 @@
 .markdown-body .pl-12 {
   padding-left: 128px!important;
 }
-body {
+</style>
+    <style>body {
     padding: 40px;
 }
 
@@ -1063,10 +1063,216 @@ body {
     font-size: 1em;
 }
 </style>
+    <style>/*
+以下、
+https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css
+https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai-sublime.min.css
+にbody.darkとbody:not(.dark)を付けて、色合い等を少し調整したもの
+*/
+
+body:not(.dark) .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: .5em;
+    color: #333;
+    background: #f8f8f8
+}
+
+body.dark .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: .5em;
+    background: #272822;
+    color: #ddd
+}
+
+body:not(.dark) .hljs-comment,
+body:not(.dark) .hljs-quote {
+    color: #998;
+}
+
+body:not(.dark) .hljs-keyword,
+body:not(.dark) .hljs-selector-tag,
+body:not(.dark) .hljs-subst {
+    color: rgb(16, 99, 207);
+}
+
+body:not(.dark) .hljs-number,
+body:not(.dark) .hljs-literal,
+body:not(.dark) .hljs-variable,
+body:not(.dark) .hljs-template-variable,
+body:not(.dark) .hljs-tag .hljs-attr {
+    color: #28cfcf
+}
+
+body:not(.dark) .hljs-string,
+body:not(.dark) .hljs-doctag {
+    color: #d14
+}
+
+body:not(.dark) .hljs-title,
+body:not(.dark) .hljs-section,
+body:not(.dark) .hljs-selector-id {
+    color: #900;
+}
+
+body:not(.dark) .hljs-subst {
+    font-weight: normal
+}
+
+body:not(.dark) .hljs-type,
+body:not(.dark) .hljs-class .hljs-title {
+    color: #458;
+}
+
+body:not(.dark) .hljs-tag,
+body:not(.dark) .hljs-name,
+body:not(.dark) .hljs-attribute {
+    color: #000080;
+    font-weight: normal
+}
+
+body:not(.dark) .hljs-regexp,
+body:not(.dark) .hljs-link {
+    color: #009926
+}
+
+body:not(.dark) .hljs-symbol,
+body:not(.dark) .hljs-bullet {
+    color: #990073
+}
+
+body:not(.dark) .hljs-built_in,
+body:not(.dark) .hljs-builtin-name {
+    color: #0086b3
+}
+
+body:not(.dark) .hljs-meta {
+    color: #999;
+}
+
+body:not(.dark) .hljs-deletion {
+    background: #fdd
+}
+
+body:not(.dark) .hljs-addition {
+    background: #dfd
+}
+
+body:not(.dark) .hljs-emphasis {
+    font-style: italic
+}
+
+body:not(.dark) .hljs-strong {
+    font-weight: bold
+}
+
+body.dark .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: .5em;
+    background: #23241f
+}
+
+body.dark .hljs,
+body.dark .hljs-tag,
+body.dark .hljs-subst {
+    color: #f8f8f2
+}
+
+body.dark .hljs-strong,
+body.dark .hljs-emphasis {
+    color: #a8a8a2
+}
+
+body.dark .hljs-bullet,
+body.dark .hljs-quote,
+body.dark .hljs-number,
+body.dark .hljs-regexp,
+body.dark .hljs-literal,
+body.dark .hljs-link {
+    color: #ae81ff
+}
+
+body.dark .hljs-code,
+body.dark .hljs-title,
+body.dark .hljs-section,
+body.dark .hljs-selector-class {
+    color: #a6e22e
+}
+
+body.dark .hljs-strong {
+    font-weight: bold
+}
+
+body.dark .hljs-emphasis {
+    font-style: italic
+}
+
+body.dark .hljs-keyword,
+body.dark .hljs-selector-tag,
+body.dark .hljs-name,
+body.dark .hljs-attr {
+    color: #f92672
+}
+
+body.dark .hljs-symbol,
+body.dark .hljs-attribute {
+    color: #66d9ef
+}
+
+body.dark .hljs-params,
+body.dark .hljs-class .hljs-title {
+    color: #f8f8f2
+}
+
+body.dark .hljs-string,
+body.dark .hljs-type,
+body.dark .hljs-built_in,
+body.dark .hljs-builtin-name,
+body.dark .hljs-selector-id,
+body.dark .hljs-selector-attr,
+body.dark .hljs-selector-pseudo,
+body.dark .hljs-addition,
+body.dark .hljs-variable,
+body.dark .hljs-template-variable {
+    color: #e6db74
+}
+
+body.dark .hljs-comment {
+    color: #e7ffb9
+}
+
+body.dark .hljs-deletion,
+body.dark .hljs-meta {
+    color: #e4e4e4
+}</style>
+    <style>body.dark, body.dark .markdown-body pre {
+    background: rgb(46, 74, 105);
+}
+body.dark .markdown-body pre {
+    border: white 1px solid;
+}
+body.dark, body.dark .markdown-body {
+    color: rgb(236, 236, 236);
+}
+body.dark .markdown-body table tr,
+body.dark .markdown-body table td {
+    background: rgb(46, 74, 105);
+}
+
+body.dark .markdown-body a {
+    color: #cee5ff;
+}
+</style>
 </head>
 <body>
     <main class="markdown-body">
         <h1 id="python-javascriptの始め方">Python, JavaScriptの始め方</h1>
+<p>
+<button class="light-mode-button">ライトモードへ</button>
+<button class="dark-mode-button">ダークモードへ</button>
+</p>
 <ul>
 <li><a href="#python-javascript%E3%81%AE%E5%A7%8B%E3%82%81%E6%96%B9">Python, JavaScriptの始め方</a></li>
 <li><a href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">はじめに</a><ul>
@@ -1127,6 +1333,10 @@ body {
 <li><a href="#%E7%B5%90%E8%AB%96">結論</a></li>
 </ul>
 <p>※ 以下の情報は、2019年5月時点のものです。</p>
+<p>
+<button class="light-mode-button">ライトモードへ</button>
+<button class="dark-mode-button">ダークモードへ</button>
+</p>
 <h1 id="はじめに">はじめに</h1>
 <h2 id="pythonとは">Pythonとは</h2>
 <p><img src="./images/python_javascript/python-logo-generic.svg" alt=""></p>
@@ -2358,7 +2568,8 @@ function draw() {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/typescript.min.js" integrity="sha256-LWmmFG1DeNLUUp0G4vr7vjaHOEFAvzYZ9exFbHFvg8w=" crossorigin="anonymous"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script>var escapeHTMLSpecialChars = function (str) {
+    <script>"use strict";
+var escapeHTMLSpecialChars = function (str) {
     return str.replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
@@ -2382,7 +2593,7 @@ var post = function (data) {
         cache: "no-cache",
         headers: { "Content-Type": "application/json" },
         method: "POST",
-        mode: "no-cors"
+        mode: "no-cors",
     };
     return fetch(url, options)
         .then(function () { return fetch(url); })
@@ -2434,19 +2645,33 @@ Array.prototype.forEach.call(document.getElementsByClassName("questionnaire"), f
             post({
                 details: details,
                 sectionId: questionnaire.id,
-                text: button.innerText
+                text: button.innerText,
             }).then(function (ok) {
                 if (!ok) {
                     hideAlert(box, "<h1>\u9001\u4FE1\u306B\u5931\u6557\u3057\u307E\u3057\u305F\u3002</h1>");
                     return;
                 }
                 hideAlert(box, "<h1>\u9001\u4FE1\u306B\u6210\u529F\u3057\u307E\u3057\u305F\u3002</h1>");
-            })["catch"](function (err) {
+            }).catch(function (err) {
                 hideAlert(box, "<h1>\u30A8\u30E9\u30FC\u304C\u767A\u751F\u3057\u307E\u3057\u305F\u3002</h1>" + escapeHTMLSpecialChars("" + err));
                 console.error(err);
             });
         });
     });
+});
+</script>
+    <script>"use strict";
+Array.prototype.forEach.call(document.getElementsByClassName("light-mode-button"), function (el) {
+    if (!(el instanceof HTMLElement)) {
+        return;
+    }
+    el.addEventListener("click", function () { return document.body.classList.remove("dark"); });
+});
+Array.prototype.forEach.call(document.getElementsByClassName("dark-mode-button"), function (el) {
+    if (!(el instanceof HTMLElement)) {
+        return;
+    }
+    el.addEventListener("click", function () { return document.body.classList.add("dark"); });
 });
 </script>
 </body>

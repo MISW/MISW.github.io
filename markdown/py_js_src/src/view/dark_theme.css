@@ -1,0 +1,22 @@
+body.dark,
+body.dark .markdown-body pre {
+    background: rgb(46, 74, 105);
+}
+
+body.dark .markdown-body pre {
+    border: white 1px solid;
+}
+
+body.dark,
+body.dark .markdown-body {
+    color: rgb(236, 236, 236);
+}
+
+body.dark .markdown-body table tr,
+body.dark .markdown-body table td {
+    background: rgb(46, 74, 105);
+}
+
+body.dark .markdown-body a {
+    color: #cee5ff;
+}

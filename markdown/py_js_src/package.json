@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "build": "tsc src/questionnaire.ts --outDir tmp&&ts-node src/compile.ts"
+    "build": "tsc&&ts-node src/node/compile.ts"
   },
   "keywords": [],
   "license": "",
