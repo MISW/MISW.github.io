@@ -21,3 +21,7 @@ body.dark .markdown-body table td {
 body.dark .markdown-body a {
     color: #cee5ff;
 }
+
+body.dark .connection-status-box {
+    color: black;
+}
