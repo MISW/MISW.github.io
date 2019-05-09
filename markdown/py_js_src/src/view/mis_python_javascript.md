@@ -3,6 +3,12 @@ Python, JavaScriptの始め方
 
 *CHANGE_THEME!*
 
+更新履歴:
+- 19/05/09 型付けしよう > TypeScriptを使う にTypeScriptの文法の簡単な説明を追記
+- 19/05/01 Node.jsのバージョンにLTSを推奨
+
+目次:
+
 - [Python, JavaScriptの始め方](#python-javascript%E3%81%AE%E5%A7%8B%E3%82%81%E6%96%B9)
 - [はじめに](#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB)
   - [Pythonとは](#python%E3%81%A8%E3%81%AF)
@@ -370,7 +376,6 @@ PythonもJavaScriptも活発に開発されていて、アップデートが速�
 
 ## TypeScriptを使う
 - JavaScriptではTypeScriptを使って型付けできます。TypeScriptは、JavaScriptに型付け用の文法を足した言語で、JavaScriptに変換されてから実行されます。
-- [公式サイトのチュートリアル](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)を見た後、[TypeScriptの型初級](https://qiita.com/uhyo/items/da21e2b3c10c8a03952f)らへんを見るとよいと思います。（TypeScriptはJavaScriptさえ分かっていれば学習コストが低いことが特徴なので、とりあえずは軽く使ってみて、興味が出たらTypeScriptの型初級を読むといいです。）
 - [TypeScriptの公式サイトのPlayground](http://www.typescriptlang.org/play/)ではブラウザ上で簡単にTypeScriptを試せます。
 - Node.jsでTypeScriptを使う場合、`ts-node`が便利です。
   コマンドプロンプト（ターミナル）上で`npm install -g ts-node typescript`と打つとts-nodeがインストールされます（ts-nodeの使用にはtypescriptのインストールも必要）。あとは、`ts-node ファイル名`と打てば、TypeScriptのファイルを実行できるはずです。
@@ -387,6 +392,69 @@ PythonもJavaScriptも活発に開発されていて、アップデートが速�
   ```
   `main.ts`のようなファイルを作り、コードを書き、コマンドプロンプト（ターミナル）上で`npx tsc`と打てば、TypeScriptからJavaScriptへ変換されます。
 - TypeScriptでは、変換先のJavaScriptのバージョンが低いときJavaScriptのいくつかの最新の機能（Arrayの関数やMapなど）を使えません。`tsconfig.json`の`"target"`を`"ES2017"`とかにすれば使えるようになります。
+- TypeScriptはJavaScriptとほとんど同じです。最低限覚えるべき文法を記しておきます。細かい使い方はサンプルプログラムを見てください。これを読んだら、次に[TypeScriptの型初級](https://qiita.com/uhyo/items/da21e2b3c10c8a03952f)を見ることをお勧めします。（TypeScriptはJavaScriptさえ分かっていれば学習コストが低いことが特徴なので、とりあえずは軽く使ってみて、興味が出たらTypeScriptの型初級を読むといいです。）
+  ```typescript
+  // 変数はつねに1つの型を持つ。変数の型は最初に代入された値の型によって決まる。
+  let x = 20  // xはnumber型になる
+  x = "foo"   // JavaScriptではこれは許されるが、TypeScriptではコンパイルエラー。
+
+  // 明示的に変数の型を指定できる
+  let y: number = 20  // 変数の型を指定して、同時に初期値を代入
+  let z: number  // 変数を型を指定して宣言
+
+  // 関数の引数と返り値の型を以下のように指定できる
+  const f = (x: number, y: string): string => {  // numberとstringを受け取ってstringを返す
+      return x + y;
+  }
+
+  console.log(f(20, "foo").length)  // fの使用例
+
+  // 型には他に以下のようなものが存在する
+  let a: boolean = true
+  let b: null = null
+  let c: { x: number, y: number } = { x: 20, y: 40 }
+  let d: (x: number) => void = (x: number) => { console.log(x) }  // numberを受け取ってundefinedを返す関数型
+  let e: number[] = []  // 数値の配列
+
+  // 型指定で毎回 { x: number, y: number } みたいに書くのは長くてつらいため、
+  // interface文で型に名前を付けられる
+  interface I {
+      x: number;
+      y: number;
+  }
+  let d: I = { x: 20, y: 40 }
+
+  // any型の変数はTypeScriptの型チェックから無視され、どんな操作も可能になる。
+  // asでキャストできる。anyは危険なため、本当に必要な時にしか使うべきでない。
+  console.log(undefined.foo)           // これはコンパイルエラーになる
+  console.log((undefined as any).foo)  // これはコンパイルはできるが実行時に TypeError: Cannot read property 'foo' of undefined
+
+  // ファイル外（scriptタグの埋め込みなど）で定義された変数は、TypeScriptでは
+  // 使おうとしても存在しないといわれてコンパイルエラーになるため、declare文が必要。
+  // declare let, declare const, declare class, ... を使える。
+  // あるいは、型定義ファイルというdeclare文を使ったファイルを別途用意する。
+  declare const someLibrary: any  // 変数 someLibrary が any型でグローバルに存在すると宣言
+  console.log(someLibrary)  // 変数 someLibrary を使えるようになった
+
+  // CommonJSの require() を使う場合、const x = require("foo") のように書くとTypeScript
+  // から認識されない。CommonJS用の文法 import x = require("foo") を使う必要がある。
+  import fs = require("fs")
+
+  // ES6の import はJavaScriptと同じ。
+  import fs from "fs"
+
+  // x | y で型xまたは型yである型を定義できる。
+  // そのような型の変数を値を使う場合、先にif文で型をチェックしておく必要がある。
+  let x: number | null = null
+  console.log(x + 20)  // コンパイルエラー: Object is possibly 'null'.
+  if (typeof x === "number") {
+      // このif文内ではxの型が一時的に number | null から number に変わる
+      console.log(x + 20)  // 問題なし
+  }
+
+  // 他にも extends/infer, typeof, keyof, ...といろいろあるが、軽く使う分には必要ない。
+
+  ```
 
 *QUESTIONNAIRE! 型付けしよう*
 
@@ -528,7 +596,7 @@ PythonもJavaScriptも活発に開発されていて、アップデートが速�
 - npmなら、weekly downloads で人気度を確認できる。pypiはダウンロード数を公開していないので、ライブラリのGitHubページのスター数を見るとよい。
 
 ## @typesとは何か
-- npmにおいて、"@A/B"という名前のパッケージ名は、"ユーザーAが公開しているパッケージB"という意味。[@types](https://www.npmjs.com/~types)は[Definitely Typed](https://github.com/DefinitelyTyped/DefinitelyTyped)という団体が管理している。
+- npmにおいて、"@A/B"という名前のパッケージ名は、"ユーザーAが公開しているパッケージB"という意味。[@types](https://www.npmjs.com/~types)は[Definitely Typed](https://github.com/DefinitelyTyped/DefinitelyTyped)という団体が管理していて、TypeScriptの型定義ファイルをまとめている。
 
 *QUESTIONNAIRE! サンプルプログラム1*
 

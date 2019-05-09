@@ -1,5 +1,5 @@
 import fs from "fs";
-// hogehoge
+
 export const htmlTemplate = (article: string) =>
 `<!DOCTYPE html>
 <html lang="ja">

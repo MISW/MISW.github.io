@@ -67,7 +67,8 @@ Array.prototype.forEach.call(document.getElementsByClassName("questionnaire"), (
     // IEとかならアンケートを表示しない
     if ((window as any).platform.name !== "Chrome" &&
             (window as any).platform.name !== "Firefox" &&
-            (window as any).platform.name !== "Microsoft Edge") {
+            (window as any).platform.name !== "Microsoft Edge" &&
+            (window as any).platform.name !== "Safari") {
         // Safariは動作確認できないのでIEと同じ処理
         questionnaire.innerHTML = "";
         return;
