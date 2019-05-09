@@ -1808,6 +1808,7 @@ let a: boolean = true
 let b: null = null
 let c: { x: number, y: number } = { x: 20, y: 40 }
 let d: (x: number) =&gt; void = (x: number) =&gt; { console.log(x) }  // numberを受け取ってundefinedを返す関数型
+let e: number[] = []  // 数値の配列
 
 // 型指定で毎回 { x: number, y: number } みたいに書くのは長くてつらいため、
 // interface文で型に名前を付けられる
@@ -1842,7 +1843,8 @@ if (typeof x === &quot;number&quot;) {
     console.log(x + 20)  // 問題なし
 }
 
-// 他にも extends/inferとかいろいろあるが、</code></pre>
+// 他にも extends/infer, typeof, keyof, ...といろいろあるが、軽く使う分には必要ない。
+</code></pre>
 </li>
 </ul>
 <p><div class="questionnaire" id="型付けしよう">

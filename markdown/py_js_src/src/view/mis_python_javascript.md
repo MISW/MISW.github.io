@@ -414,6 +414,7 @@ PythonもJavaScriptも活発に開発されていて、アップデートが速�
   let b: null = null
   let c: { x: number, y: number } = { x: 20, y: 40 }
   let d: (x: number) => void = (x: number) => { console.log(x) }  // numberを受け取ってundefinedを返す関数型
+  let e: number[] = []  // 数値の配列
 
   // 型指定で毎回 { x: number, y: number } みたいに書くのは長くてつらいため、
   // interface文で型に名前を付けられる
@@ -448,7 +449,8 @@ PythonもJavaScriptも活発に開発されていて、アップデートが速�
       console.log(x + 20)  // 問題なし
   }
 
-  // 他にも extends/inferとかいろいろあるが、
+  // 他にも extends/infer, typeof, keyof, ...といろいろあるが、軽く使う分には必要ない。
+
   ```
 
 *QUESTIONNAIRE! 型付けしよう*
