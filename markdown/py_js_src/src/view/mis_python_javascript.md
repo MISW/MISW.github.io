@@ -440,6 +440,9 @@ PythonもJavaScriptも活発に開発されていて、アップデートが速�
   // から認識されない。CommonJS用の文法 import x = require("foo") を使う必要がある。
   import fs = require("fs")
 
+  // ES6の import はJavaScriptと同じ。
+  import fs from "fs"
+
   // x | y で型xまたは型yである型を定義できる。
   // そのような型の変数を値を使う場合、先にif文で型をチェックしておく必要がある。
   let x: number | null = null

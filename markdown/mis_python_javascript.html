@@ -1252,7 +1252,6 @@ body.dark .hljs-meta {
 }
 
 body.dark .markdown-body pre {
-    border: white 1px solid;
     background: black;
     padding: 0;
 }
@@ -1273,6 +1272,12 @@ body.dark .markdown-body a {
 
 body.dark .connection-status-box {
     color: black;
+}
+
+body.dark .markdown-body code {
+    border: #ababab 1px solid;
+    border-radius: 4px;
+    background: black;
 }</style>
 </head>
 <body>
@@ -1833,6 +1838,9 @@ console.log(someLibrary)  // 変数 someLibrary を使えるようになった
 // CommonJSの require() を使う場合、const x = require(&quot;foo&quot;) のように書くとTypeScript
 // から認識されない。CommonJS用の文法 import x = require(&quot;foo&quot;) を使う必要がある。
 import fs = require(&quot;fs&quot;)
+
+// ES6の import はJavaScriptと同じ。
+import fs from &quot;fs&quot;
 
 // x | y で型xまたは型yである型を定義できる。
 // そのような型の変数を値を使う場合、先にif文で型をチェックしておく必要がある。
@@ -2696,7 +2704,8 @@ Array.prototype.forEach.call(document.getElementsByClassName("questionnaire"), f
     // IEとかならアンケートを表示しない
     if (window.platform.name !== "Chrome" &&
         window.platform.name !== "Firefox" &&
-        window.platform.name !== "Microsoft Edge") {
+        window.platform.name !== "Microsoft Edge" &&
+        window.platform.name !== "Safari") {
         // Safariは動作確認できないのでIEと同じ処理
         questionnaire.innerHTML = "";
         return;
