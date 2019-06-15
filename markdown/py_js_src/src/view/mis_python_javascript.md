@@ -487,9 +487,9 @@ PythonもJavaScriptも活発に開発されていて、アップデートが速�
         
         1 空のフォルダを好きな場所に作る
         
-        2 もしVSCodeで既に別のフォルダを開いていたら`Ctrl+K -> O`で閉じる
+        2 もしVSCodeで既に別のフォルダを開いていたら`Ctrl+K -> F`で閉じる
         
-        3 `Ctrl+K -> Ctrl+F`からフォルダを開く（あるいはコマンドプロンプト上で`code フォルダへのパス`）
+        3 `Ctrl+K -> Ctrl+O`からフォルダを開く（あるいはコマンドプロンプト上で`code フォルダへのパス`）
         
         4 `Ctrl+Shift+@`でコマンドプロンプト（ターミナル）を開いてコマンドを打つ（ PowerShell/コマンドプロンプト/Bashの切り替えは `Ctrl+Shift+P` -> `select default shell` からできます。）
     - `pip`コマンドが存在しないと表示された場合は、`py -m pip`（MacOSやLinuxでは`python3 -m pip`）を使ってください。
