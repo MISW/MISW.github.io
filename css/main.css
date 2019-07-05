@@ -95,9 +95,12 @@ body>h1::after{
     transition: all .3s;
 }
 
-.Container>div li a:hover{
-    color: white;
+.Container>div li:hover{
     background: skyblue;
+}
+
+.Container>div li:hover a{
+    color: white;
 }
 
 .Container>div li a:after{
