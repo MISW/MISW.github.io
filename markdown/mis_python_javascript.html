@@ -63,7 +63,7 @@
   color: #24292e;
   line-height: 1.5;
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-  font-size: 16px;
+  font-size: 1em;
   line-height: 1.5;
   word-wrap: break-word;
 }
@@ -318,7 +318,7 @@
 }
 
 .markdown-body h1 {
-  font-size: 32px;
+  font-size: 2rem;
 }
 
 .markdown-body h1,
@@ -327,11 +327,11 @@
 }
 
 .markdown-body h2 {
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .markdown-body h3 {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .markdown-body h3,
@@ -340,11 +340,11 @@
 }
 
 .markdown-body h4 {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .markdown-body h5 {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .markdown-body h5,
@@ -353,7 +353,7 @@
 }
 
 .markdown-body h6 {
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 .markdown-body p {
@@ -391,7 +391,7 @@
 .markdown-body code,
 .markdown-body pre {
   font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 .markdown-body pre {
@@ -563,7 +563,7 @@
   box-shadow: inset 0 -1px 0 #959da5;
   color: #444d56;
   display: inline-block;
-  font-size: 11px;
+  font-size: 0.6875rem;
   line-height: 10px;
   padding: 3px 5px;
   vertical-align: middle;
@@ -772,7 +772,7 @@
   color: rgba(27,31,35,.3);
   cursor: pointer;
   font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 20px;
   min-width: 50px;
   padding-left: 10px;
@@ -803,7 +803,7 @@
 .markdown-body .blob-code-inner {
   color: #24292e;
   font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-  font-size: 12px;
+  font-size: 0.75rem;
   overflow: visible;
   white-space: pre;
   word-wrap: normal;
@@ -964,104 +964,98 @@
   padding-left: 128px!important;
 }
 </style>
-    <style>body {
-    padding: 2% 8%;
+    <style>html {
+  font-size: calc(80% + 0.5vw);
+}
+
+body {
+  padding: 2% 8%;
 }
 
 .markdown-body {
-    font-size: 20px;
-    font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
 }
-
-.markdown-body code,
-.markdown-body pre {
-    font-family: 'Source Code Pro', monospace;
+.markdown-body code, .markdown-body pre {
+  font-family: "Source Code Pro", monospace;
 }
 
 .questionnaire {
-    text-align: right;
+  text-align: right;
 }
-
-.questionnaire__outline {
-    display: inline-flex;
-    box-shadow: inset #888888 1px 1px 8px;
-    border-radius: 6px;
-    padding: 20px;
-    flex-direction: column;
+.questionnaire section {
+  text-align: initial;
+  display: inline-flex;
+  border: 3px solid #ccc;
+  border-radius: 6px;
+  padding: 20px;
+  flex-direction: column;
 }
-
-.questionnaire__outline h1 {
-    display: inline-block;
-    font-size: 1em;
-    margin: 0 0 15px 0;
+.questionnaire section h1 {
+  display: inline-block;
+  margin: 0 0 15px 0;
+  font-size: 1.2rem;
 }
-
 .questionnaire button {
-    color: #001f29;
-    background: #e5f8ff;
-    border: 0;
-    border-radius: 6px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    transition-duration: 0.3s;
-    cursor: pointer;
-    text-decoration: none;
-    margin-bottom: 4px;
-    outline: 0;
+  color: #001f29;
+  background: #e5f8ff;
+  border: 0;
+  border-radius: 19px;
+  text-align: center;
+  display: inline-block;
+  font-size: 0.8em;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: 4px;
+  outline: 0;
 }
-
 .questionnaire button:hover {
-    background-color: #008cba;
-    color: white;
+  background-color: #008cba;
+  color: white;
 }
-
 .questionnaire button:active {
-    background-color: #a3d6ff;
-    color: rgba(0, 74, 160, 0.438);
+  background-color: #a3d6ff;
+  color: rgba(0, 74, 160, 0.438);
 }
-
 .questionnaire button:disabled {
-    background-color: #aaaaaa;
-    color: rgba(0, 0, 0, 0.767);
-    cursor: default;
+  background-color: #aaaaaa;
+  color: rgba(0, 0, 0, 0.767);
+  cursor: default;
 }
-
 .questionnaire textarea {
-    width: 100%;
-    resize: vertical;
-    font-size: 1em;
-    font-family: 'Noto Sans JP', sans-serif;
-    padding: 8px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
+  width: 100%;
+  resize: vertical;
+  font-size: 1em;
+  font-family: "Noto Sans JP", sans-serif;
+  padding: 8px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
 }
 
 .connection-status-box {
-    display: none;
-    left: 30%;
-    top: 30%;
-    width: 40%;
-    height: 40%;
-    background: #f0fbff;
-    border-radius: 20px;
-    padding: 50px;
-    position: fixed;
-    box-sizing: border-box;
-    font-size: 24px;
-    font-family: 'Noto Sans JP', sans-serif;
-    box-shadow: #aaa 0px 0px 10px;
-    transition-duration: 0.4s;
-    word-break: break-all;
-    overflow: hidden;
+  display: none;
+  left: 30%;
+  top: 30%;
+  width: 40%;
+  height: 40%;
+  background: #f0fbff;
+  border-radius: 20px;
+  padding: 50px;
+  position: fixed;
+  box-sizing: border-box;
+  font-size: 1em;
+  font-family: "Noto Sans JP", sans-serif;
+  box-shadow: #aaa 0px 0px 10px;
+  transition-duration: 0.4s;
+  word-break: break-all;
+  overflow: hidden;
 }
-
-.connection-status-box--show {
-    display: block;
+.connection-status-box.connection-status-box-visible {
+  display: block;
 }
-
 .connection-status-box h1 {
-    font-size: 1em;
+  font-size: 1em;
 }</style>
     <style>/*
 以下、
@@ -1248,36 +1242,36 @@ body.dark .hljs-meta {
     color: #e4e4e4
 }</style>
     <style>body.dark {
-    background: rgb(22, 37, 53);
+  background: #162535;
+  color: #ececec;
 }
-
-body.dark .markdown-body pre {
-    background: black;
-    padding: 0;
-}
-
-body.dark,
 body.dark .markdown-body {
-    color: rgb(236, 236, 236);
+  color: #ececec;
 }
-
-body.dark .markdown-body table tr,
-body.dark .markdown-body table td {
-    background: transparent;
+body.dark .markdown-body pre {
+  background: black;
+  padding: 0;
 }
-
+body.dark .markdown-body table tr, body.dark .markdown-body table td {
+  background: transparent;
+}
 body.dark .markdown-body a {
-    color: #cee5ff;
+  color: #cee5ff;
 }
-
-body.dark .connection-status-box {
-    color: black;
-}
-
 body.dark .markdown-body code {
-    border: #ababab 1px solid;
-    border-radius: 4px;
-    background: black;
+  border: #ababab 1px solid;
+  border-radius: 4px;
+  background: black;
+}
+body.dark .connection-status-box {
+  color: black;
+}
+body.dark .questionnaire section {
+  background: #d8d8d8;
+  border-color: #bdbdbd;
+}
+body.dark .questionnaire section h1 {
+  color: black;
 }</style>
 </head>
 <body>
@@ -1392,12 +1386,10 @@ body.dark .markdown-body code {
 </li>
 </ul>
 <p><div class="questionnaire" id="はじめに">
-<section class="questionnaire__outline">
-<h1>アンケート: ここまで理解できましたか？</h1>
-<button>分かった</button>
-<button>分からなかった</button>
-<button>実行したらエラーが出た</button>
-<textarea placeholder="詳細をここに書いてください（任意）"></textarea>
+<section>
+<h1>アンケート</h1>
+<textarea placeholder="コメント"></textarea>
+<button>送信</button>
 </section>
 </div></p>
 <h1 id="ファイルから実行してみる">ファイルから実行してみる</h1>
@@ -1474,12 +1466,10 @@ body.dark .markdown-body code {
  20</code></pre></li>
 </ol>
 <p><div class="questionnaire" id="ファイルから実行してみる">
-<section class="questionnaire__outline">
-<h1>アンケート: ここまで理解できましたか？</h1>
-<button>分かった</button>
-<button>分からなかった</button>
-<button>実行したらエラーが出た</button>
-<textarea placeholder="詳細をここに書いてください（任意）"></textarea>
+<section>
+<h1>アンケート</h1>
+<textarea placeholder="コメント"></textarea>
+<button>送信</button>
 </section>
 </div></p>
 <h1 id="replを実行してみる">REPLを実行してみる</h1>
@@ -1542,12 +1532,10 @@ undefined
 </li>
 </ol>
 <p><div class="questionnaire" id="REPLを実行してみる">
-<section class="questionnaire__outline">
-<h1>アンケート: ここまで理解できましたか？</h1>
-<button>分かった</button>
-<button>分からなかった</button>
-<button>実行したらエラーが出た</button>
-<textarea placeholder="詳細をここに書いてください（任意）"></textarea>
+<section>
+<h1>アンケート</h1>
+<textarea placeholder="コメント"></textarea>
+<button>送信</button>
 </section>
 </div></p>
 <h1 id="テキストエディタ">テキストエディタ</h1>
@@ -1559,12 +1547,10 @@ undefined
 <li>拡張機能の<a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a>, <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin">TSLint</a>を入れて使うべきです。他にも、<a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome">Debugger for Chrome</a>, <a href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker">Code Spell Checker</a>なども入れるといいと思います。（細かい使い方はネットで調べてください。）</li>
 </ul>
 <p><div class="questionnaire" id="テキストエディタ">
-<section class="questionnaire__outline">
-<h1>アンケート: ここまで理解できましたか？</h1>
-<button>分かった</button>
-<button>分からなかった</button>
-<button>実行したらエラーが出た</button>
-<textarea placeholder="詳細をここに書いてください（任意）"></textarea>
+<section>
+<h1>アンケート</h1>
+<textarea placeholder="コメント"></textarea>
+<button>送信</button>
 </section>
 </div></p>
 <h1 id="python-javascriptの学習方法">Python, JavaScriptの学習方法</h1>
@@ -1754,12 +1740,10 @@ undefined
 </li>
 </ul>
 <p><div class="questionnaire" id="Python, JavaScriptの学習方法">
-<section class="questionnaire__outline">
-<h1>アンケート: ここまで理解できましたか？</h1>
-<button>分かった</button>
-<button>分からなかった</button>
-<button>実行したらエラーが出た</button>
-<textarea placeholder="詳細をここに書いてください（任意）"></textarea>
+<section>
+<h1>アンケート</h1>
+<textarea placeholder="コメント"></textarea>
+<button>送信</button>
 </section>
 </div></p>
 <h1 id="型付けしよう">型付けしよう</h1>
@@ -1856,12 +1840,10 @@ if (typeof x === &quot;number&quot;) {
 </li>
 </ul>
 <p><div class="questionnaire" id="型付けしよう">
-<section class="questionnaire__outline">
-<h1>アンケート: ここまで理解できましたか？</h1>
-<button>分かった</button>
-<button>分からなかった</button>
-<button>実行したらエラーが出た</button>
-<textarea placeholder="詳細をここに書いてください（任意）"></textarea>
+<section>
+<h1>アンケート</h1>
+<textarea placeholder="コメント"></textarea>
+<button>送信</button>
 </section>
 </div></p>
 <h1 id="クロスブラウザについて">クロスブラウザについて</h1>
@@ -1869,12 +1851,10 @@ if (typeof x === &quot;number&quot;) {
 <p><img src="./images/python_javascript/can_i_use_es6.jpg" alt=""></p>
 <p>例えばES2015 (ES6)を使えるかは、<a href="https://caniuse.com/#search=ES6">https://caniuse.com/#search=ES6</a> で確認できます。これを見ると、IE (Internet Explorer)ではES6をほとんど使えないことがわかります。現在は<a href="https://babeljs.io/">Babel</a>などを使ってES2015以降のコードをES5以前のコードに変換して対応するのが主流ですが、IEは2020年の1月にサポートが切れるので、それ以降はIEを切り捨てる方向になると思われます。（TypeScriptはデフォルトではES5のコードに変換されます。）</p>
 <p><div class="questionnaire" id="クロスブラウザについて">
-<section class="questionnaire__outline">
-<h1>アンケート: ここまで理解できましたか？</h1>
-<button>分かった</button>
-<button>分からなかった</button>
-<button>実行したらエラーが出た</button>
-<textarea placeholder="詳細をここに書いてください（任意）"></textarea>
+<section>
+<h1>アンケート</h1>
+<textarea placeholder="コメント"></textarea>
+<button>送信</button>
 </section>
 </div></p>
 <h1 id="サンプルプログラム1-簡単なサーバ">サンプルプログラム1: 簡単なサーバ</h1>
@@ -2026,12 +2006,10 @@ app.listen(port, () =&gt; console.log(&quot;Listening on port &quot; + port));</
 <li>npmにおいて、&quot;@A/B&quot;という名前のパッケージ名は、&quot;ユーザーAが公開しているパッケージB&quot;という意味。<a href="https://www.npmjs.com/~types">@types</a>は<a href="https://github.com/DefinitelyTyped/DefinitelyTyped">Definitely Typed</a>という団体が管理していて、TypeScriptの型定義ファイルをまとめている。</li>
 </ul>
 <p><div class="questionnaire" id="サンプルプログラム1">
-<section class="questionnaire__outline">
-<h1>アンケート: ここまで理解できましたか？</h1>
-<button>分かった</button>
-<button>分からなかった</button>
-<button>実行したらエラーが出た</button>
-<textarea placeholder="詳細をここに書いてください（任意）"></textarea>
+<section>
+<h1>アンケート</h1>
+<textarea placeholder="コメント"></textarea>
+<button>送信</button>
 </section>
 </div></p>
 <h1 id="サンプルプログラム2-parcel--p5js">サンプルプログラム2: Parcel &amp; p5.js</h1>
@@ -2628,12 +2606,10 @@ function draw() {
 </li>
 </ul>
 <p><div class="questionnaire" id="サンプルプログラム2">
-<section class="questionnaire__outline">
-<h1>アンケート: ここまで理解できましたか？</h1>
-<button>分かった</button>
-<button>分からなかった</button>
-<button>実行したらエラーが出た</button>
-<textarea placeholder="詳細をここに書いてください（任意）"></textarea>
+<section>
+<h1>アンケート</h1>
+<textarea placeholder="コメント"></textarea>
+<button>送信</button>
 </section>
 </div></p>
 <h1 id="結論">結論</h1>
@@ -2658,25 +2634,23 @@ var escapeHTMLSpecialChars = function (str) {
         .replace(/\//g, "&#x2F;");
 };
 var questionnaireAlertProgressTemplate = function (id, selection, details) {
-    return "\n<h1>\u4EE5\u4E0B\u306E\u30C7\u30FC\u30BF\u3092\u9001\u4FE1\u3057\u3066\u3044\u307E\u3059...</h1>\n\u7BC0: " + id + "<br>\n\u9078\u629E: " + selection + "<br>\n\u8A73\u7D30: " + (details === "" ? "なし （詳細を書いてくれると助かります！）" : escapeHTMLSpecialChars(details));
+    return "\n<h1>\u4EE5\u4E0B\u306E\u30C7\u30FC\u30BF\u3092\u9001\u4FE1\u3057\u3066\u3044\u307E\u3059...</h1>\n\u7BC0: " + id + "<br>\n\u9078\u629E: " + selection + "<br>\n\u8A73\u7D30: " + escapeHTMLSpecialChars(details);
 };
 var url = "https://script.google.com/macros/s/AKfycbyZ8GSp5pl1Gb82gxPu_fndx4hSFo6mEUUsiJBSamiQhRmtz6k/exec";
-// 送信に成功したらPromiseの結果がtrue
-// 失敗したらfalseまたはエラー（catchが必要）
+// data -> Promise<ok> | throw error
 var post = function (data) {
     // ランダム文字列の生成
     // https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript/8084248#8084248
     var id = Math.random().toString(32).substring(2);
     data.id = id;
-    var options = {
+    return fetch(url, {
         body: JSON.stringify(data),
         cache: "no-cache",
         headers: { "Content-Type": "application/json" },
         method: "POST",
         mode: "no-cors",
-    };
-    return fetch(url, options)
-        .then(function () { return fetch(url); })
+    }) // データ送信
+        .then(function () { return fetch(url); }) // 送信できたかの確認
         .then(function (res) { return res.json(); })
         .then(function (json) {
         return Array.isArray(json) &&
@@ -2691,7 +2665,7 @@ var showAlert = function () {
 var hideAlert = function (box, messageHTML) {
     box.innerHTML = messageHTML;
     setTimeout(function () {
-        box.classList.remove("connection-status-box--show");
+        box.classList.remove("connection-status-box-visible");
         Array.prototype.forEach.call(document.querySelectorAll(".questionnaire button"), function (button) {
             button.disabled = false;
         });
@@ -2706,7 +2680,6 @@ Array.prototype.forEach.call(document.getElementsByClassName("questionnaire"), f
         window.platform.name !== "Firefox" &&
         window.platform.name !== "Microsoft Edge" &&
         window.platform.name !== "Safari") {
-        // Safariは動作確認できないのでIEと同じ処理
         questionnaire.innerHTML = "";
         return;
     }
@@ -2721,7 +2694,7 @@ Array.prototype.forEach.call(document.getElementsByClassName("questionnaire"), f
             if (!(box instanceof HTMLElement)) {
                 throw new Error("'.connection-status-box' was not found");
             }
-            box.classList.add("connection-status-box--show");
+            box.classList.add("connection-status-box-visible");
             box.innerHTML = questionnaireAlertProgressTemplate(questionnaire.id, button.innerText, details);
             post({
                 details: details,

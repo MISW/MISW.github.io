@@ -1,4 +1,6 @@
+// tslint:disable: max-line-length
 import fs from "fs";
+import sass from "sass";
 
 export const htmlTemplate = (article: string) =>
 `<!DOCTYPE html>
@@ -9,10 +11,10 @@ export const htmlTemplate = (article: string) =>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Python, JavaScriptの始め方</title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Source+Code+Pro" rel="stylesheet">
-    <style>${fs.readFileSync("node_modules/github-markdown-css/github-markdown.css").toString()}</style>
-    <style>${fs.readFileSync("src/view/style.css").toString()}</style>
+    <style>${fs.readFileSync("src/github-markdown-css/github-markdown.css").toString()}</style>
+    <style>${sass.renderSync({ file: "src/view/style.sass" }).css.toString()}</style>
     <style>${fs.readFileSync("src/view/hljs_theme.css").toString()}</style>
-    <style>${fs.readFileSync("src/view/dark_theme.css").toString()}</style>
+    <style>${sass.renderSync({ file: "src/view/dark_theme.sass" }).css.toString()}</style>
 </head>
 <body>
     <main class="markdown-body">
@@ -31,12 +33,10 @@ export const htmlTemplate = (article: string) =>
 
 export const questionnaireTemplate = (id: string) =>
 `<div class="questionnaire" id="${id}">
-<section class="questionnaire__outline">
-<h1>アンケート: ここまで理解できましたか？</h1>
-<button>分かった</button>
-<button>分からなかった</button>
-<button>実行したらエラーが出た</button>
-<textarea placeholder="詳細をここに書いてください（任意）"></textarea>
+<section>
+<h1>アンケート</h1>
+<textarea placeholder="コメント"></textarea>
+<button>送信</button>
 </section>
 </div>`;
 
