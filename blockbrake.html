@@ -8,10 +8,36 @@
         <link rel="icon" href="./images/misw_logo.ico">
         <link rel="stylesheet" type="text/css" href="./css/reset.css">
         <link rel="stylesheet" type="text/css" href="./css/main.css">
+        <link rel="stylesheet" type="text/css" href="./css/darkmode.css">      
+        <script>
+            let currentClass = localStorage.mode || "light-mode";
+            function toggleDarkLight() {
+                const body = document.getElementById("body");
+                body.classList.remove(currentClass);
+
+                currentClass = (currentClass == "dark-mode" ? "light-mode" : "dark-mode");
+                body.classList.add(currentClass);
+                save();
+            }
+            
+            document.addEventListener("DOMContentLoaded", function() {
+                const body = document.getElementById("body");
+                body.classList.add(currentClass);
+                save();
+                setTimeout(function() {
+                    body.classList.add("body-transition");
+                }, 500);
+            });
+
+            function save(){
+                localStorage.setItem("mode",currentClass);
+            }
+        </script>
     </head>
 
-    <body>
+    <body id="body">
         <h1>ブロック崩し記事一覧</h1>
+        <button type="button" name="dark_light" onclick="toggleDarkLight()" title="Toggle dark/light mode">☀</button>
         <div class="Container">
             <div>
                 <li><a href="https://misw.github.io/markdown/pdf/ブロック崩し/part0.pdf" target="_blank">part0</a></li>
