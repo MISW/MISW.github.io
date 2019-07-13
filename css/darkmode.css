@@ -11,6 +11,8 @@ button{
     border-radius: 50%;
     border-style: none;
     transition: ease .5s;
+    -webkit-appearance: none;
+    padding: 0;
 }
 
 .dark-mode{
