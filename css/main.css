@@ -22,6 +22,7 @@ body>h1::after{
 .Introduction p{
     margin: 30px 10%;
     font-size: 18px;
+    font-weight: bold;
 }
 
 .Introduction a{
@@ -55,10 +56,9 @@ body>h1::after{
 .Container>div li{
     list-style: none;
     text-align: left;
-    display: inline-block;
     width: calc(50% - 31px);
     margin: 15px;
-    border: solid 5px skyblue;
+    border: solid 4px skyblue;
     box-sizing: border-box;
     font-size: 16px;
     font-weight: bold;
@@ -89,15 +89,20 @@ body>h1::after{
 
 .Container>div li a{
     text-decoration: none;
-    display: block;
+    display: inline-block;
     color: black;
-    padding: 5px;
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
+    padding: 10px;
     transition: all .3s;
 }
 
-.Container>div li a:hover{
-    color: white;
+.Container>div li:hover{
     background: skyblue;
+}
+
+.Container>div li:hover a{
+    color: white;
 }
 
 .Container>div li a:after{
