@@ -22,6 +22,7 @@ body>h1::after{
 .Introduction p{
     margin: 30px 10%;
     font-size: 18px;
+    font-weight: bold;
 }
 
 .Introduction a{
@@ -55,15 +56,18 @@ body>h1::after{
 .Container>div li{
     list-style: none;
     text-align: left;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: calc(50% - 31px);
     margin: 15px;
-    border: solid 5px skyblue;
+    border: solid 4px skyblue;
     box-sizing: border-box;
     font-size: 16px;
     font-weight: bold;
     line-height: 36px;
     border-radius: 5px;
+    padding: 10px 0;
 }
 
 .Container>div h2{
