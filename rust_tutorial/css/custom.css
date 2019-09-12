@@ -9,7 +9,7 @@ section.header {
 
 body {
     font-family: 'Roboto', 'Noto Sans JP', 'Helvetica', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     color: #113;
 }
 
@@ -27,7 +27,8 @@ article h5 {
 article h6 {
     display: inline-block;
     border-bottom: 1px dashed #ccc;
-    font-weight: bold;
+    font-weight: 600;
+    color: #667;
 }
 
 code {
@@ -36,4 +37,23 @@ code {
 
 div.indent {
     padding-left: 20px;
+}
+
+div.column-section {
+    padding: 2em;
+    margin-bottom: 2em;
+    border-radius: 1em;
+    border: 1px dotted #ccc;
+}
+
+div.footer {
+    margin-top: 100px;
+    padding-top: 30px;
+    padding-bottom: 60px;
+    border-top: 1px dotted #ccc;
+    text-align:center;
+}
+
+code {
+    font-weight: 400;
 }

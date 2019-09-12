@@ -1,104 +1,118 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>プログラミング研究会資料置き場</title>
-        <meta name="description" content="MIS.W　プログラミング研究会の記事置き場">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="icon" href="./images/misw_logo.ico">
-        <link rel="stylesheet" type="text/css" href="./css/reset.css">
-        <link rel="stylesheet" type="text/css" href="./css/main.css">
-        <link rel="stylesheet" type="text/css" href="./css/darkmode.css">      
-        <script>
-            let currentClass = localStorage.mode || "light-mode";
-            function toggleDarkLight() {
-                const body = document.getElementById("body");
-                body.classList.remove(currentClass);
 
-                currentClass = (currentClass == "dark-mode" ? "light-mode" : "dark-mode");
-                body.classList.add(currentClass);
-                save();
-            }
-            
-            document.addEventListener("DOMContentLoaded", function() {
-                const body = document.getElementById("body");
-                body.classList.add(currentClass);
-                save();
-                setTimeout(function() {
-                    body.classList.add("body-transition");
-                }, 500);
-            });
+<head>
+    <meta charset="UTF-8">
+    <title>プログラミング研究会資料置き場</title>
+    <meta name="description" content="MIS.W　プログラミング研究会の記事置き場">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="./images/misw_logo.ico">
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/darkmode.css">
+    <script>
+        let currentClass = localStorage.mode || "light-mode";
+        function toggleDarkLight() {
+            const body = document.getElementById("body");
+            body.classList.remove(currentClass);
 
-            function save(){
-                localStorage.setItem("mode",currentClass);
-            }
-        </script>
-    </head>
+            currentClass = (currentClass == "dark-mode" ? "light-mode" : "dark-mode");
+            body.classList.add(currentClass);
+            save();
+        }
 
-    <body id="body">
-        <button type="button" name="dark_light" onclick="toggleDarkLight()" title="Toggle dark/light mode">☀</button>
-        <h1>プログラミング研究会<span style="display: inline-block">資料置き場</span></h1>
-        <div class="Introduction">
-            <p>ようこそプログラミング研究会へ！</p>
-            <p>ここではプログラミングを学ぶための資料を見ることができます。</p>
-            <a href="https://misw.github.io/markdown/guide.html" target="_blank">初めての方はこちら</a>
+        document.addEventListener("DOMContentLoaded", function () {
+            const body = document.getElementById("body");
+            body.classList.add(currentClass);
+            save();
+            setTimeout(function () {
+                body.classList.add("body-transition");
+            }, 500);
+        });
+
+        function save() {
+            localStorage.setItem("mode", currentClass);
+        }
+    </script>
+</head>
+
+<body id="body">
+    <button type="button" name="dark_light" onclick="toggleDarkLight()" title="Toggle dark/light mode">☀</button>
+    <h1>プログラミング研究会<span style="display: inline-block">資料置き場</span></h1>
+    <div class="Introduction">
+        <p>ようこそプログラミング研究会へ！</p>
+        <p>ここではプログラミングを学ぶための資料を見ることができます。</p>
+        <a href="https://misw.github.io/markdown/guide.html" target="_blank">初めての方はこちら</a>
+    </div>
+    <div class="Container">
+        <div class="Setup">
+            <h2>環境構築ガイド</h2>
+            <li><a href="https://misw.github.io/markdown/mis_github.html" target="_blank">GitHubアカウント作成ガイド</a></li>
+            <li><a href="https://misw.github.io/markdown/mis_sourcetree2.html" target="_blank">Sourcetree使い方、Git関連</a>
+            </li>
+            <li><a href="https://misw.github.io/markdown/mis_sourcetree.html"
+                    target="_blank">Sourcetreeインストールガイド(Mac版)</a></li>
+            <li><a href="https://misw.github.io/markdown/mis_sourcetree_win.html"
+                    target="_blank">Sourcetreeインストールガイド(Windows版)</a></li>
+            <li><a href="https://misw.github.io/markdown/mis_opensiv3d_mac.html"
+                    target="_blank">OpenSiv3Dインストールガイド(Mac版)</a></li>
+            <li><a href="https://misw.github.io/markdown/mis_opensiv3d_win.html"
+                    target="_blank">OpenSiv3Dインストールガイド(Windows版)</a></li>
+            <li><a href="https://misw.github.io/markdown/mis_unity_mac.html" target="_blank">Unityインストールガイド(Mac版)</a>
+            </li>
+            <li><a href="https://misw.github.io/markdown/mis_unity_win.html"
+                    target="_blank">Unityインストールガイド(Windows版)</a></li>
+            <li><a href="https://misw.github.io/markdown/mis_xcode.html" target="_blank">Xcodeインストールガイド</a></li>
         </div>
-        <div class="Container">
-            <div class="Setup">
-                <h2>環境構築ガイド</h2>
-                <li><a href="https://misw.github.io/markdown/mis_github.html" target="_blank">GitHubアカウント作成ガイド</a></li>
-                <li><a href="https://misw.github.io/markdown/mis_sourcetree2.html" target="_blank">Sourcetree使い方、Git関連</a></li>
-                <li><a href="https://misw.github.io/markdown/mis_sourcetree.html" target="_blank">Sourcetreeインストールガイド(Mac版)</a></li>
-                <li><a href="https://misw.github.io/markdown/mis_sourcetree_win.html" target="_blank">Sourcetreeインストールガイド(Windows版)</a></li>
-                <li><a href="https://misw.github.io/markdown/mis_opensiv3d_mac.html" target="_blank">OpenSiv3Dインストールガイド(Mac版)</a></li>
-                <li><a href="https://misw.github.io/markdown/mis_opensiv3d_win.html" target="_blank">OpenSiv3Dインストールガイド(Windows版)</a></li>
-                <li><a href="https://misw.github.io/markdown/mis_unity_mac.html" target="_blank">Unityインストールガイド(Mac版)</a></li>
-                <li><a href="https://misw.github.io/markdown/mis_unity_win.html" target="_blank">Unityインストールガイド(Windows版)</a></li>
-                <li><a href="https://misw.github.io/markdown/mis_xcode.html" target="_blank">Xcodeインストールガイド</a></li>
-            </div>
 
-            <div class="Manuals">
-                <h2>プログラミング言語入門</h2>
-                <li><a href="https://misw.github.io/markdown/mis_python_javascript.html" target="_blank">Python, JavaScriptの始め方</a></li>
-                <li><a href="https://misw.github.io/c_practice.html" target="_blank">C言語入門記事一覧</a></li>
-                <li><a href="https://misw.github.io/markdown/pdf/C言語講座2017.pdf" target="_blank">C言語講座2017年度資料</a></li>
-                <li><a href="https://misw.github.io/markdown/pdf/C言語講座2018.pdf" target="_blank">C言語講座2018年度資料</a></li>
-                <li><a href="https://misw.github.io/markdown/mis_cccprimer.html" target="_blank">C#入門(サイトリンク+α)</a></li>
-                <li><a href="https://misw.github.io/markdown/pdf/VBA講座.pdf" target="_blank">VBA入門</a></li>
-                <li><a href="https://misw.github.io/markdown/pdf/R講座.pdf" target="_blank">R入門</a></li>
-                <li><a href="https://misw.github.io/markdown/pdf/OpenProcessing1.pdf" target="_blank">OpenProcessing資料1</a></li>
-                <li><a href="https://misw.github.io/markdown/mis_openprocessing2.html" target="_blank">OpenProcessing資料2</a></li>
-                <li><a href="rust_tutorial.html" target="_blank">Rustプログラミング入門</a></li>
+        <div class="Manuals">
+            <h2>プログラミング言語入門</h2>
+            <li><a href="https://misw.github.io/markdown/mis_python_javascript.html" target="_blank">Python,
+                    JavaScriptの始め方</a></li>
+            <li><a href="https://misw.github.io/c_practice.html" target="_blank">C言語入門記事一覧</a></li>
+            <li><a href="https://misw.github.io/markdown/pdf/C言語講座2017.pdf" target="_blank">C言語講座2017年度資料</a></li>
+            <li><a href="https://misw.github.io/markdown/pdf/C言語講座2018.pdf" target="_blank">C言語講座2018年度資料</a></li>
+            <li><a href="https://misw.github.io/markdown/mis_cccprimer.html" target="_blank">C#入門(サイトリンク+α)</a></li>
+            <li><a href="https://misw.github.io/markdown/pdf/VBA講座.pdf" target="_blank">VBA入門</a></li>
+            <li><a href="https://misw.github.io/markdown/pdf/R講座.pdf" target="_blank">R入門</a></li>
+            <li><a href="https://misw.github.io/markdown/pdf/OpenProcessing1.pdf" target="_blank">OpenProcessing資料1</a>
+            </li>
+            <li><a href="https://misw.github.io/markdown/mis_openprocessing2.html" target="_blank">OpenProcessing資料2</a>
+            </li>
+            <li><a href="rust_tutorial/index.html" target="_blank">Rustプログラミング入門</a></li>
 
 
 
-            </div>
+        </div>
 
-            <div class="Games">
-                <h2>ゲーム制作入門</h2>
-                <li><a href="https://misw.github.io/markdown/mis_opensiv3d_tutorial.html" target="_blank">OpenSiv3D入門</a></li>
-                <li><a href="https://misw.github.io/blockbrake.html" target="_blank">ブロック崩し</a></li>
-                <li><a href="https://misw.github.io/unity_pra.html" target="_blank">Unity講座</a></li>
-            </div>
+        <div class="Games">
+            <h2>ゲーム制作入門</h2>
+            <li><a href="https://misw.github.io/markdown/mis_opensiv3d_tutorial.html" target="_blank">OpenSiv3D入門</a>
+            </li>
+            <li><a href="https://misw.github.io/blockbrake.html" target="_blank">ブロック崩し</a></li>
+            <li><a href="https://misw.github.io/unity_pra.html" target="_blank">Unity講座</a></li>
+        </div>
 
-            <div class="Others">
-                <h2>その他</h2>
-                <li><a href="https://misw.github.io/markdown/pdf/debugtool.pdf" target="_blank">デバッグツール入門</a></li>
-                <li><a href="https://misw.github.io/markdown/pdf/統計学.pdf" target="_blank">統計班詳細</a></li>
-                <li><a href="https://misw.github.io/markdown/mis_ruby_bot.html" target="_blank">おしゃべりBotを作ろう</a></li>
-                <li><a href="https://misw.github.io/markdown/mis_kyougiprogramming.html" target="_blank">競プロをやろう。</a></li>
-            </div>
+        <div class="Others">
+            <h2>その他</h2>
+            <li><a href="https://misw.github.io/markdown/pdf/debugtool.pdf" target="_blank">デバッグツール入門</a></li>
+            <li><a href="https://misw.github.io/markdown/pdf/統計学.pdf" target="_blank">統計班詳細</a></li>
+            <li><a href="https://misw.github.io/markdown/mis_ruby_bot.html" target="_blank">おしゃべりBotを作ろう</a></li>
+            <li><a href="https://misw.github.io/markdown/mis_kyougiprogramming.html" target="_blank">競プロをやろう。</a></li>
+        </div>
 
-            <div class="Columes">
-                <h2>コラム</h2>
-                <li><a href="https://misw.github.io/markdown/mis_twitter.html" target="_blank">今すぐフォローすべきツイッタラー8選</a></li>
-                <li><a href="https://misw.github.io/markdown/mis_document.html" target="_blank">プログラミングを始めたあなたに送る、いつか使える知識・サイトリンク</a></li>
-                <li><a href="https://misw.github.io/markdown/mis_document2.html" target="_blank">1年のネット放浪のまとめ</a></li>
-            </div>
-            <!-- <li><a href="#" target="_blank">hoge</a></li>
+        <div class="Columes">
+            <h2>コラム</h2>
+            <li><a href="https://misw.github.io/markdown/mis_twitter.html" target="_blank">今すぐフォローすべきツイッタラー8選</a></li>
+            <li><a href="https://misw.github.io/markdown/mis_document.html"
+                    target="_blank">プログラミングを始めたあなたに送る、いつか使える知識・サイトリンク</a></li>
+            <li><a href="https://misw.github.io/markdown/mis_document2.html" target="_blank">1年のネット放浪のまとめ</a></li>
+        </div>
+        <!-- <li><a href="#" target="_blank">hoge</a></li>
             <li><a href="#" target="_blank">hoge</a></li>
             <li><a href="#" target="_blank">hoge</a></li> -->
 
-        </div>
-    </body>
+    </div>
+</body>
+
 </html>

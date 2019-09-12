@@ -1,19 +1,19 @@
 <!doctype html>
 <html lang="ja">
 <meta charset="utf-8" />
-<title>Rustプログラミング入門</title>
+<title>やさしいRustプログラミング入門</title>
 <meta name="description" content="プログラミング言語Rustの入門用の資料です。">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" href="../images/misw_logo.ico">
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400,500|Roboto:300,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500|Roboto:400,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./css/normalize.css">
 <link rel="stylesheet" href="./css/skeleton.css">
 <link rel="stylesheet" href="./css/custom.css">
-
+<script>hljs.initHighlightingOnLoad();</script>
 <div class="container">
 <article>
 <section class="header">
-    <h2>Rustプログラミング入門</h2>
+    <h2>やさしいRustプログラミング入門</h2>
 </section>
 <section>
 <h4>更新履歴</h4>
@@ -56,7 +56,7 @@
         </li>
     </ul></div>
     <p>
-        なじみのない概念も多いかと思いますが、ゆっくりと理解していけば大丈夫です。
+        なじみのない概念も多いかと思いますが、ゆっくりと理解していきましょう。
     </p>
     <h5>Why Rust?</h5>
     <p>
@@ -74,15 +74,16 @@
     </p>
     <h6>安全性</h6>
     <p>
-        　C言語やC++には制約が少なく、危険なことも可能でした。その反面、
+        　C言語やC++には制約が少なく、ヒープにメモリを確保する、ポインタでメモリにアクセスする、
+        ポインタの値を変更する、などといった危険なことも可能でした。その反面、
         危険なことをするときには、開発者はそのすべてにおいて責任を負う必要があり、
         それを怠るとよく困ったことが起こるのでした。たとえば、
     </p>
     <div class="indent">
         <ul>
-            <li>メモリリーク</li>
             <li>ダングリングポインタ</li>
             <li>スタックの破壊</li>
+            <li>メモリリーク</li>
             など...
         </ul>
     </div>
@@ -124,16 +125,19 @@
         テストやベンチマークの機能もあり、ビルドスクリプトによる高度なビルドも行えます。
     </p>
     <p>
-        　また、Rustには<b>クレート</b>とよばれるライブラリのようなものがあり、自前で実装したり
-        環境構築したりすることなく、Cargo.tomlに加筆するだけですぐに機能を追加することが出来ます。
+        　また、Rustには<b>クレート</b>とよばれるライブラリ群があり、自前で実装したり
+        環境構築したりすることなく、Cargo.tomlに加筆するだけですぐに必要な機能を追加することが出来ます。
         クレートの多くはMIT、またはMIT + Apache 2.0のデュアルライセンス（Rust自体とおなじライセンス）なので、
-        GPLによるライセンス汚染の可能性はとても低く、安心して商用利用することができます。
+        GPLによるライセンス汚染の可能性はとても低く、商用にも安心して利用できます。
+    </p>
+    <p>
+        　当サークル（MIS.W）の一部では、「公用語をRustにしよう」という動きもあります。<sup>[要出典]</sup>
     </p>
 </section>
 <section>
-    <h5>インストール</h5>
+    <h4>インストール</h4>
     <p>インストールはとても簡単です。</p>
-    <h6>rustup経由のインストール</h6>
+    <h5>rustup経由のインストール</h5>
     <p>
         rustup（<a href="https://rustup.rs/">rustup.rs</a>）経由でのインストールが一般的です。
     </p>
@@ -150,45 +154,434 @@
     <pre><code>$ rustup component add clippy
 $ rustup component add rustfmt
 $ rustup component add rls</code></pre>
-    <h6>アップデート</h6>
+    <h5>アップデート</h5>
     <p>
-        Rustのアップデートは簡単で、rustup経由で行うことが出来ます。
+        Rustのアップデートは、rustup経由で行うことが出来ます。
     </p>
     <pre><code>$ rustup update</code></pre>
-    <h6>リリースチャネル</h6>
+    <div class="column-section">
+        <h6>COLUMN: リリースチャネル</h6>
+        <p>
+            Rustには<code>stable</code>、<code>beta</code>、<code>nightly</code>の3つのチャネルが存在します。
+            （<a href="https://doc.rust-lang.org/book/appendix-07-nightly-rust.html">How Rust is Made and “Nightly Rust”</a>）
+        </p>
+        <table class="u-fill-width">
+            <thead>
+                <tr>
+                    <th>リリースチャネル</th>
+                    <th>リリース頻度</th>
+                    <th>特徴</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>stable</code></td>
+                    <td>6週間に一度</td>
+                    <td>もっとも安定したバージョン。通常つかうのはこちら。</td>
+                </tr>
+                <tr>
+                    <td><code>beta</code></td>
+                    <td>6週間に一度</td>
+                    <td>stableリリース前のバージョン。安定化に向けて<code>nightly</code>から分かれて、バグ修正がおこなわれる。</td>
+                </tr>
+                <tr>
+                    <td><code>nightly</code></td>
+                    <td>毎日</td>
+                    <td>開発中のバージョンで、<b>master</b>ブランチにあたる。新しい機能を使うときはこれをつかう。</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<section>
+    <h4>Hello, world!</h4>
     <p>
-        Rustには<code>stable</code>、<code>beta</code>、<code>nightly</code>の3つのチャネルが存在します。
-        （<a href="https://doc.rust-lang.org/book/appendix-07-nightly-rust.html">How Rust is Made and “Nightly Rust”</a>）
+        Rustのインストールがおわったところで、実際に動くかどうか試してみましょう。cargoで
+        新しいプロジェクトを作成してみましょう。
     </p>
-    <table class="u-fill-width">
-        <thead>
-            <tr>
-                <th>リリースチャネル</th>
-                <th>リリース頻度</th>
-                <th>特徴</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><code>stable</code></td>
-                <td>6週間に一度</td>
-                <td>もっとも安定したバージョン。通常つかうのはこちら。</td>
-            </tr>
-            <tr>
-                <td><code>beta</code></td>
-                <td>6週間に一度</td>
-                <td>stableリリース前のバージョン。安定化に向けて<code>nightly</code>から分かれて、バグ修正がおこなわれる。</td>
-            </tr>
-            <tr>
-                <td><code>nightly</code></td>
-                <td>毎日</td>
-                <td>開発中のバージョンで、<b>master</b>ブランチにあたる。新しい機能を使うときはこれをつかう。</td>
-            </tr>
-        </tbody>
+    <pre><code> $ cargo new hello-world
+    Created binary (application) `hello-world` package</code></pre>
+    <p>
+        <code>cargo new</code>コマンドによって、現在の作業ディレクトリに<code>hello-world</code>というディレクトリが
+        作成されました。中を見てみると、"src/main.rs"に
+    </p>
+    <pre><code class="rust">fn main() {
+    println!("Hello, world!");
+}</code></pre>
+    <p>
+        と、書かれていますね。では、これを実行してみましょう。プログラムの実行には<code>cargo run</code>コマンドを使用します。
+    </p>
+    <pre><code class="no-highlight"> $ cargo run
+    Compiling hello-world v0.1.0 (/../../../hello-world)
+     Finished dev [unoptimized + debuginfo] target(s) in 3.99s
+      Running `target/debug/hello-world`
+Hello, world!</code></pre>
+    <p>
+        無事、Hello, world!が出ました。環境構築お疲れさまでした。
+    </p>
+</section>
+<section>
+    <h4>型と構文</h4>
+    <p>Rustには様々な型や、構文があります。一通り見ていきましょう。</p>
+    <h5>さまざまな型</h5>
+    <p>Rustには大きく分けて、</p>
+    <div class="indent"><ul>
+            <li>プリミティブ型</li>
+            <li>参照・ポインタ</li>
+            <li>構造体</li>
+            <li>列挙型</li>
+    </ul></div>
+    <p>があります。</p>
+    <h6>プリミティブ型</h6>
+    <p>最も基本的な型です。</p>
+    <table class="u-full-width">
+    <thead>
+    <tr>
+    <th style="text-align: center">名前</th>
+    <th>型</th>
+    <th>例</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td style="text-align: center">整数型</td>
+    <td style="text-align: left">
+    <code>u32</code>, <code>i64</code>, <code>usize</code>...</td>
+    <td style="text-align: left">
+    <code>1123</code>, <code>0xCAFEBABE</code>, <code>-273</code>, <code>0</code>
+    </td>
+    </tr>
+    <tr>
+    <td style="text-align: center">浮動小数点型</td>
+    <td style="text-align: left">
+    <code>f32</code>, <code>f64</code>
+    </td>
+    <td style="text-align: left">
+    <code>3.14</code>, <code>-1.414</code>, <code>6.02e23</code>
+    </td>
+    </tr>
+    <tr>
+    <td style="text-align: center">論理値型</td>
+    <td style="text-align: left"><code>bool</code></td>
+    <td style="text-align: left">
+    <code>true</code>, <code>false</code>
+    </td>
+    </tr>
+    <tr>
+    <td style="text-align: center">配列</td>
+    <td style="text-align: left"><code>[T; n]</code></td>
+    <td style="text-align: left"><code>[2, 7, 3, 8]</code></td>
+    </tr>
+    <tr>
+    <td style="text-align: center">スライス</td>
+    <td style="text-align: left"><code>&amp;[T]</code></td>
+    <td style="text-align: left"><code>&amp;a[1..4]</code></td>
+    </tr>
+    <tr>
+    <td style="text-align: center">char型</td>
+    <td style="text-align: left"><code>char</code></td>
+    <td style="text-align: left">
+    <code>'a'</code> <code>'🐱'</code>
+    </td>
+    </tr>
+    <tr>
+    <td style="text-align: center">str型</td>
+    <td style="text-align: left"><code>str</code></td>
+    <td style="text-align: left"><code>"nyan"</code></td>
+    </tr>
+    <tr>
+    <td style="text-align: center">タプル</td>
+    <td style="text-align: left">
+    <code>(i32, &amp;str)</code>...</td>
+    <td style="text-align: left"><code>(2019, "世話やきキツネの仙狐さん")</code></td>
+    </tr>
+    <tr>
+    <td style="text-align: center">関数型</td>
+    <td style="text-align: left">
+    <code>fn(f64) -&gt; f64</code>...</td>
+    <td style="text-align: left"><code>fn id(x: f64) -&gt; f64 { x }</code></td>
+    </tr>
+    </tbody>
     </table>
+    <h6>参照・ポインタ</h6>
+    <p>
+    参照やポインタを用いることで、値そのものを移動せずに扱うことが出来ます。mutable（変更可能）な参照（ポインタ）と
+immutable（変更不能）な参照（ポインタ）があります。詳しくは後のほうで解説します。
+    <pre><code class="rust">let x = 30;
+let y = &mut x;
+*y = 40;</code></pre>
+    </p>
+    <h6>構造体</h6>
+    <p>いくつかのフィールドを持つ、または一切のフィールドをもたない型です。</p>
+    <pre><code class="rust">pub struct Point2D {
+    pub x: f64,
+    pub y: f64,
+}
+
+struct Senko(String);
+
+struct Serval;</code></pre>
+    <h6>列挙型</h6>
+    <p>複数の状態を持つ型です。それぞれの状態がフィールドをもつこともできます。</p>
+    <pre><code class="rust">enum NPCState {
+    Idle,
+    Chase(Rc&lt;RefCell&lt;Target&gt; &gt;),
+    Attack { target  : Rc&lt;RefCell&lt;Target&gt; &gt;,
+             strategy: Box&lt;AttackStrategy&gt; },
+}</code></pre>
+    <h5>さまざまな構文</h5><p></p>
+    <h6>言語単位</h6>
+    <p>
+        Rustの言語単位は、
+        <div class="indent">
+            <ul>
+                <li>文（statement）
+                    <ul>
+                        <li>変数束縛</li>
+                        <li>コードブロック</li>
+                        <li>式（expression）
+                            <ul>
+                                <li>制御式（if、for、while、loop）</li>
+                                <li>直定数（literal）</li>
+                                <li>中置記法演算（infix operation）</li>
+                                など...
+                            </ul>
+                        </li>
+                        <li>関数宣言</li>
+                        <li>型定義</li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </div>
+        という感じになっています。
+    </p>
+    <h6>関数定義</h6>
+    <p>プログラムは、一連の手続きを記したものです。手続きは、関数の中に記します。</p>
+    <p>
+    関数定義は、<code>fn 関数名(引数名: 型, ...) -> 返り値の型 {ブロック} </code> の形で行います。C言語などと違い、型は後置です。
+    </p>
+<pre><code class="rust">fn sum(a: i64, b: i64) -> i64 {
+    return a + b;
+}</code></pre>
+    <p>セミコロンのない式は、返り値として解釈されます。</p>
+<pre><code class="rust">fn sum(a: i64, b: i64) -> i64 {
+    a + b
+}</code></pre>
+
+    <h6>関数呼び出し</h6>
+    <p>関数名に、括弧で囲まれた引数が続きます。</p>
+    <pre><code class="rust">sum(33, 4); // 37</code></pre>
+
+## 変数束縛
+`let`を使うことで、値を名前に束縛することが出来ます。
+```rust
+let x: i32 = 1123;
+```
+こんな感じ。` let 変数名: 型（ = 値） ` の形。
+型が分かりきっているものについては、コンパイラが勝手に予測してくれます。
+
+```rust
+let phi = 0.1257; // <- f64
+```
+
+でも、再代入は出来ません。
+```rust
+let x: i32 = 1123;
+x = 2;
+```
+```console
+$ cargo build
+...
+error[E0384]: cannot assign twice to immutable variable `x`
+ --> src/main.rs:3:5
+  |
+2 |     let x: i32 = 1123;
+  |         - first assignment to `x`
+3 |     x = 4;
+  |     ^^^^^ cannot assign twice to immutable variable
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0384`.
+error: Could not compile `helloworld`.
+
+To learn more, run the command again with --verbose.
+```
+これは、Rustでの変数が標準でimmutable（不変値）となっているからです。じゃあ、どうやったら変更可能になるかというと、
+```rust
+let mut x: i32 = 0;
+x = 420; // ok
+```
+というふうに、`mut`（mutable: 変更可能）をつければ変更可能になります。
+
+### ムーブセマンティクス
+```rust
+let a: String = "けものフレンズ".to_string();
+let b: String;
+
+b = a;
+
+println!("{}", a);
+println!("{}", b);
+```
+`b`へ`a`が代入される時、`b`は初期化されていないので代入に成功します。しかし、コンパイルが通りません。なぜでしょう。
+```console
+$ cargo build
+error[E0382]: use of moved value: `a`
+ --> src/main.rs:7:20
+  |
+5 |     b = a;
+  |         - value moved here
+6 |
+7 |     println!("{}", a);
+  |                    ^ value used here after move
+  |
+  = note: move occurs because `a` has type `std::string::String`, which does not implement the `Copy` trait
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0382`.
+error: Could not compile `helloworld`.
+
+To learn more, run the command again with --verbose.
+```
+
+Rustでは、一つの値は一つの変数と対応します。そしてコピーできる一部の型(※)を除き、値を代入した時点で所有権が代入先に移されます。詳しくはまたいつかどこかで。
+
+※`Copy`トレイトが実装されているものはコピーされます。ムーブされるものを複製したいときには、大抵`Clone`トレイトを実装していることが多いので`**.clone()`してあげましょう。
+
+## if文
+
+Rustのif文（式）には条件式の括弧がありません。
+
+```rust
+if is_lazy() {
+    println!("しんどい");
+} else {
+    println!("しんどくない");
+}
+```
+
+`let`と組み合わせて、パターンマッチングすることも出来ます。
+```rust
+let a: Option<i32> = Some(114514);
+if let Some(val) = a {
+    println!("{}", val); // 114514
+}
+```
+
+式としても使えます。
+```rust
+let username = if let Some(n) = get_name() { n } else { "名無し" };
+```
+※ちなみにこの場合は、`unwrap_or`を使う方が楽です。
+```rust
+let username = get_name().unwrap_or("名無し");
+```
+
+## match文
+
+ざっくり説明すると、高機能なswitch文。
+
+```rust
+let coffee: u32 = 2;
+
+match coffee {
+    0 => println!("カフェインが足りないですぅ..。"),
+    1 => println!("ねむっちゃいそう...。"),
+    2 => println!("お仕事頑張りますっ！"),
+    _ => println!("（カフェイン中毒）（心不全）（死）"),
+}
+```
+
+パターンマッチもできます。
+```rust
+let mut state: NPCState = NPCState::Idle;
+...
+match &state {
+    NPCState::Idle => { ... },
+    ...
+    NPCState::Attack { target: t, strategy: s } => {
+        s.try_attack(t);
+    },
+}
+```
+
+## ループ
+
+### for文
+
+範囲指定は`a..b`（a < i < b）や`a..=b`（a < i ≦ b）のように指定します。
+
+```rust
+let a = ["キタキツネ", "ギンギツネ", "フェネック"];
+for i in 0..a.len() {
+    println!("{}はフレンズなんだね！", a[i]);
+}
+```
+
+イテレータを使うこともできるよ。
+
+```rust
+let a = ["マーゲイ", "オセロット", "ライオン", "ジャガー"];
+for f in &a {
+    println!("{}はフレンズなんだね！", f);
+}
+```
+
+### while文
+言うまでも無くwhile文です。
+```rust
+while is_lazy_cat() {
+    println!("しんどい");
+}
+```
+
+### loop文
+
+条件式を含まない単純なループもあります。
+
+```rust
+loop {
+    println!("大学やだーーーーー！！！！");
+}
+```
+
+</section>
+<section>
+    <h4>所有権（借用・参照・ライフタイム）</h4>
+</section>
+<section>
+    <h4>スマートポインタ</h4>
+</section>
+<section>
+    <h4>トレイト</h4>
+</section>
+<section>
+    <h4>Real World Rust (1) さまざまなクレート</h4>
+</section>
+<section>
+    <h4>Real World Rust (2) 並列性とtokioフレームワーク</h4>
+</section>
+<section>
+    <h4>Real World Rust (3) serdeクレート</h4>
+</section>
+<section>
+    <h4>Real World Rust (4) RustでつくるWebアプリケーション</h4>
+</section>
+<section>
+    <h4>Real World Rust (5) Rustでつくるゲーム</h4>
+</section>
+<section>
+    <h4>よりよいRustを書くために</h4>
+</section>
+<section>
+    <h4>あとがき</h4>
 </section>
 </article>
+<div class="footer">
+<div>(C) Copyright 2019 MIS.W, Hikaru Terazono.</div>
+<div><a href="/">TOP</a></div>
 </div>
-<script type="text/javascript">
-(() => {})();
-</script>
+</div>
