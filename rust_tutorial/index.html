@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8" />
+<title>Rustプログラミング入門</title>
+<meta name="description" content="プログラミング言語Rustの入門用の資料です。">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="../images/misw_logo.ico">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400,500|Roboto:300,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/normalize.css">
+<link rel="stylesheet" href="./css/skeleton.css">
+<link rel="stylesheet" href="./css/custom.css">
+
+<div class="container">
+<article>
+<section class="header">
+    <h2>Rustプログラミング入門</h2>
+</section>
+<section>
+<h4>更新履歴</h4>
+<ul>
+    <li>2019.11.23 <b>記事作成。 </b>     
+</ul>
+</section>
+<section>
+    <h4>はじめに</h4>
+    <p> 
+        はじめまして、53代 Caelum（<a href="https://twitter.com/murueka_misw">@murueka_misw</a>）と申します。
+        MIS.Wではプログラミング研究会、MIDI研究会、CG研究会として活動し、ゲームの開発などを行っています。
+    </p>
+    <h5>What is Rust?</h5>
+    <p>
+        <b>Rust</b>（<a href="https://www.rust-lang.org/">公式サイト</a>）は、Mozillaが開発する
+        <b>高速性</b>、<b>安定性</b>、<b>生産性</b>を主軸とした静的なプログラミング言語です。
+    </p>
+    <p>
+        言語としては比較的新しく（2006年誕生、2015年にバージョン1.0リリース）、現在（2019年）でも活発に開発がおこなわれています。
+        バージョンは６週間に一度更新され、多くの機能が積極的に取り入れられているのも特徴です。
+    </p>
+    <h6>主な機能</h6>
+    <p>
+        他の言語にはあまりない、Rustならではの機能には以下のようなものがあります。
+    </p>
+    <div class="indent"><ul>
+        <li>所有権システム
+            <ul>
+                <li>所有権</li>
+                <li>参照と借用</li>
+                <li>ライフタイム</li>
+            </ul>
+        </li>
+        <li>強力な型システム
+            <ul>
+                <li>トレイト</li>
+                <li>ジェネリクス</li>
+            </ul>
+        </li>
+    </ul></div>
+    <p>
+        なじみのない概念も多いかと思いますが、ゆっくりと理解していけば大丈夫です。
+    </p>
+    <h5>Why Rust?</h5>
+    <p>
+        　RustはC言語・C++といった低レイヤー・システム開発用の言語の置き換えをねらった言語ですが、
+        Webサーバーなどのバックエンド、WebAssemblyを用いたアプリケーションなどのフロントエンドの記述にも適しています。
+    </p>
+    <p>
+        　大企業での採用実績もあります。Dropboxでは自社製のストレージシステム<b>Magic Pocket</b>をRustで開発しています
+        （<a href="https://www.wired.com/2016/03/epic-story-dropboxs-exodus-amazon-cloud-empire/">
+            The Epic Story of Dropbox's Exodus From the Amazon Cloud Empire</a>）。もちろん、開発元のMozillaも
+            <b>Firefox Quantum</b>でパーサーをRustで書き直すことで、パフォーマンスの改善を行っています。
+    </p>
+    <p>
+        　積極的にRustに乗り換える理由には以下のものがあります：
+    </p>
+    <h6>安全性</h6>
+    <p>
+        　C言語やC++には制約が少なく、危険なことも可能でした。その反面、
+        危険なことをするときには、開発者はそのすべてにおいて責任を負う必要があり、
+        それを怠るとよく困ったことが起こるのでした。たとえば、
+    </p>
+    <div class="indent">
+        <ul>
+            <li>メモリリーク</li>
+            <li>ダングリングポインタ</li>
+            <li>スタックの破壊</li>
+            など...
+        </ul>
+    </div>
+    <p>
+        です。これらは、開発者の手違いや不注意によって生まれ、一度生じてしまうと、
+        多くの時間がその解決に割かれてしまうのでした。
+    </p>
+    <p>
+        　Rustでは、そういった危険な操作をunsafeの砦に追いやることで、普段使いの<b>コーディングをより安全に</b>行うことができます。
+    </p>
+    <h6>パフォーマンス</h6>
+    <p>
+        　Rustは<b>静的な言語</b>で、コンパイル時にほとんどの挙動を確定します。これは、実行時にはじめてパースされるJavaScriptや
+        Pythonに比べて大いに有利で、コンパイルは行うが動的なランタイムを有するC#やGoと比べても高速です。
+        ベンチマーク結果
+        （<a href="https://github.com/ixy-languages/ixy-languages">ixy-languages/ixy-languages</a>）
+        では、C言語に比類するパフォーマンスを出すこともあります。
+    </p>
+    <p>
+        　Rustはゼロコスト抽象化を掲げています。要するに、抽象化の実現に
+        <b>実行時にコストが掛かるものは極力排そう</b>、という考え方です。
+        たとえば、<b>ポリモーフィズム</b>は
+        Rustではトレイト、Java、C#、Goなどではインターフェイスによって実現されます。
+        
+        インターフェイスは、vtableやリフレクションなどによって実装されているため、
+        呼び出しなどの際にコストがかかります。
+    <br>
+        　これに対して、Rustの<b>トレイト</b>では、静的に型を確定できる場合にはコンパイル時に解決するので、実行時にコストが
+        かかりません。
+        （ちなみに、トレイトの動的な呼び出しを可能にするトレイトオブジェクトという言語機能もありますが、
+        奨励はされていません。）
+    </p>
+    <p>
+        　また、コンパイラバックエンドにLLVMを採用し、多くのプラットフォームに対して高速なプログラムを生成することが出来ます。
+    </p>
+    <h6>生産性</h6>
+    <p>
+        　Rustには、<b>cargo</b>とよばれるパッケージ管理・ビルドシステムが付属しています。
+        テストやベンチマークの機能もあり、ビルドスクリプトによる高度なビルドも行えます。
+    </p>
+    <p>
+        　また、Rustには<b>クレート</b>とよばれるライブラリのようなものがあり、自前で実装したり
+        環境構築したりすることなく、Cargo.tomlに加筆するだけですぐに機能を追加することが出来ます。
+        クレートの多くはMIT、またはMIT + Apache 2.0のデュアルライセンス（Rust自体とおなじライセンス）なので、
+        GPLによるライセンス汚染の可能性はとても低く、安心して商用利用することができます。
+    </p>
+</section>
+<section>
+    <h5>インストール</h5>
+    <p>インストールはとても簡単です。</p>
+    <h6>rustup経由のインストール</h6>
+    <p>
+        rustup（<a href="https://rustup.rs/">rustup.rs</a>）経由でのインストールが一般的です。
+    </p>
+    <p>
+        Windows以外の環境では、
+    </p>
+    <pre><code>$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh</code></pre>
+    <p>
+        を実行するだけです。Windowsの場合は、<a href="https://rustup.rs/">rustup.rs</a>の指示に従えばいいでしょう。
+    </p>
+    <p>
+        さらに、いくつかのコンポーネントを追加でインストールしておくといいでしょう。
+    </p>
+    <pre><code>$ rustup component add clippy
+$ rustup component add rustfmt
+$ rustup component add rls</code></pre>
+    <h6>アップデート</h6>
+    <p>
+        Rustのアップデートは簡単で、rustup経由で行うことが出来ます。
+    </p>
+    <pre><code>$ rustup update</code></pre>
+    <h6>リリースチャネル</h6>
+    <p>
+        Rustには<code>stable</code>、<code>beta</code>、<code>nightly</code>の3つのチャネルが存在します。
+        （<a href="https://doc.rust-lang.org/book/appendix-07-nightly-rust.html">How Rust is Made and “Nightly Rust”</a>）
+    </p>
+    <table class="u-fill-width">
+        <thead>
+            <tr>
+                <th>リリースチャネル</th>
+                <th>リリース頻度</th>
+                <th>特徴</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>stable</code></td>
+                <td>6週間に一度</td>
+                <td>もっとも安定したバージョン。通常つかうのはこちら。</td>
+            </tr>
+            <tr>
+                <td><code>beta</code></td>
+                <td>6週間に一度</td>
+                <td>stableリリース前のバージョン。安定化に向けて<code>nightly</code>から分かれて、バグ修正がおこなわれる。</td>
+            </tr>
+            <tr>
+                <td><code>nightly</code></td>
+                <td>毎日</td>
+                <td>開発中のバージョンで、<b>master</b>ブランチにあたる。新しい機能を使うときはこれをつかう。</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+</article>
+</div>
+<script type="text/javascript">
+(() => {})();
+</script>
