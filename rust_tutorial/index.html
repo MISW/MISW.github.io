@@ -105,7 +105,7 @@
         では、C言語に比類するパフォーマンスを出すこともあります。
     </p>
     <p>
-        　Rustはゼロコスト抽象化を掲げています。要するに、抽象化の実現に
+        　Rustはゼロコスト抽象化を掲げています。要するに、抽象化の実現にあたり、
         <b>実行時にコストが掛かるものは極力排そう</b>、という考え方です。
         たとえば、<b>ポリモーフィズム</b>は
         Rustではトレイト、Java、C#、Goなどではインターフェイスによって実現されます。
@@ -224,7 +224,71 @@ Hello, world!</code></pre>
 </section>
 <section>
     <h4>型と構文</h4>
-    <p>Rustには様々な型や、構文があります。一通り見ていきましょう。</p>
+    <p>Rustには様々な型や、構文があります。 </p>
+    <h5>本題に入る前に...</h5>
+    <p>　Rustを書く上で必要な型や構文の話をする前に、プログラミング言語の基本的な考え方を復習しましょう。
+        そんなの聞いてられるか！ってひとはぜひ飛ばしてください。
+    </p>
+    <h6>手続き型言語</h6>
+    <p>
+        　Rustは、多くのプログラミング言語とおなじく<b>命令型プログラミング言語</b>と呼ばれる言語の一種です（厳密には違いますが...）。
+        命令型プログラミング言語は、コンピュータに行わせる一連の命令、または<b>手続き</b>を記述することで動作します。   
+    </p>
+    <h6>関数</h6>
+    <p>
+    　手続きをどこにでも書いていい、というわけではなく実際に動かすためにはコンピュータが分かる形で記さなければなりません。
+    Rustでは、<b>関数</b>を一つの手続きの単位として扱います。
+    </p>
+    <p>　先ほどのHello, world!を見てみましょう。</p>
+<pre><code class="rust">fn main() {
+    println!("Hello, world!");
+}</code></pre>
+    <p>
+        詳しい構文の説明は省きますが、上の例では<code>main</code>という名前の関数を<b>定義</b>して、そのなかに「Hello, world!」と表示するための
+        手続きが記してあります。<code>main</code>関数は特殊で、プログラムが動作するとき、ここに記してある手続きが動くようになっています。
+        このような特殊な関数を、<b>エントリーポイント</b>といいます。
+    </p>
+    <h6>言語単位</h6>
+    <p>　では、どのような手続きがあるのでしょう。</p>
+    <p>
+        Rustの言語単位は、
+        <div class="indent">
+            <ul>
+                <li>文（statement）
+                    <ul>
+                        <li>変数束縛</li>
+                        <li>コードブロック</li>
+                        <li>式（expression）
+                            <ul>
+                                <li>制御式（if、for、while、loop）</li>
+                                <li>直定数（literal）</li>
+                                <li>中置記法演算（infix operation）</li>
+                                など...
+                            </ul>
+                        </li>
+                        <li>関数宣言</li>
+                        <li>型定義</li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </div>
+        という感じになっています。
+    </p>
+    <p>
+        文は、セミコロン（;）で終わる式や、制御文（式）などがあります。
+        <pre><code class="rust">let f = File::create("hello.txt");
+
+println!("Hello, world!");</code></pre>
+        一つまたは複数の文を含むブロックを作ることで、一連の手続きを記すことができます。
+    </p>
+<pre><code class="rust">while x % 3 == 0 {
+    x += 7;
+    if x > 100 {
+        break;
+    }
+}</code></pre>
+<p></p>
     <h5>さまざまな型</h5>
     <p>Rustには大きく分けて、</p>
     <div class="indent"><ul>
@@ -332,34 +396,7 @@ struct Serval;</code></pre>
              strategy: Box&lt;AttackStrategy&gt; },
 }</code></pre>
     <h5>さまざまな構文</h5><p></p>
-    <h6>言語単位</h6>
-    <p>
-        Rustの言語単位は、
-        <div class="indent">
-            <ul>
-                <li>文（statement）
-                    <ul>
-                        <li>変数束縛</li>
-                        <li>コードブロック</li>
-                        <li>式（expression）
-                            <ul>
-                                <li>制御式（if、for、while、loop）</li>
-                                <li>直定数（literal）</li>
-                                <li>中置記法演算（infix operation）</li>
-                                など...
-                            </ul>
-                        </li>
-                        <li>関数宣言</li>
-                        <li>型定義</li>
-                    </ul>
-                </li>
-                
-            </ul>
-        </div>
-        という感じになっています。
-    </p>
-    <h6>関数定義</h6>
-    <p>プログラムは、一連の手続きを記したものです。手続きは、関数の中に記します。</p>
+<h6>関数定義</h6>
     <p>
     関数定義は、<code class="plain">fn 関数名(引数名: 型, ...) -> 返り値の型 {ブロック} </code> の形で行います。C言語などと違い、型は後置です。
     </p>
@@ -375,12 +412,9 @@ struct Serval;</code></pre>
     <p>関数名に、括弧で囲まれた引数が続きます。</p>
     <pre><code class="rust">sum(33, 4); // 37</code></pre>
 
-## 変数束縛
-`let`を使うことで、値を名前に束縛することが出来ます。
-```rust
-let x: i32 = 1123;
-```
-こんな感じ。` let 変数名: 型（ = 値） ` の形。
+    <h6>変数束縛</h6>
+    <p><code>let</code>を使うことで、値を名前に束縛することが出来ます。</p>
+<pre><code>let x: i32 = 1123;</code></pre>
 型が分かりきっているものについては、コンパイラが勝手に予測してくれます。
 
 ```rust
@@ -751,6 +785,14 @@ loop {
     <p></p>
 </section>
 <section>
+    <h4>Real World Rust (6) 夜の眷族「nightly」</h4>
+    <p></p>
+</section>
+<section>
+    <h4>Real World Rust (6) Rustの中身について知る</h4>
+    <p></p>
+</section>
+<section>
     <h4>よりよいRustを書くために</h4>
     <p></p>
     # 型を征する者Rustを征す
@@ -884,6 +926,8 @@ loop {
     ## std::mem::replaceを使おう
 
     # 守りたい命名規則
+
+    # I/Oを速くするために
     <p></p>
 </section>
 <section>
