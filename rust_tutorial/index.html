@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8" />
+<title>やさしいRustプログラミング入門</title>
+<meta name="description" content="プログラミング言語Rustの入門用の資料です。">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="../images/misw_logo.ico">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500|Roboto:400,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/normalize.css">
+<link rel="stylesheet" href="./css/skeleton.css">
+<link rel="stylesheet" href="./css/custom.css">
+<link rel="stylesheet" href="./css/atom-one-light.css">
+<script src="./highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<div class="container">
+<article>
+<section class="header">
+    <h2>やさしいRustプログラミング入門</h2>
+</section>
+<section>
+<h4>更新履歴</h4>
+<ul>
+    <li>2019.11.23 <b>記事作成。 </b>     
+</ul>
+</section>
+<section>
+    <h4>はじめに</h4>
+    <p> 
+        はじめまして、53代 Caelum（<a href="https://twitter.com/murueka_misw">@murueka_misw</a>）と申します。
+        MIS.Wではプログラミング研究会、MIDI研究会、CG研究会として活動し、ゲームの開発などを行っています。
+    </p>
+    <h5>What is Rust?</h5>
+    <p>
+        <b>Rust</b>（<a href="https://www.rust-lang.org/">公式サイト</a>）は、Mozillaが開発する
+        <b>高速性</b>、<b>安定性</b>、<b>生産性</b>を主軸とした静的なプログラミング言語です。
+    </p>
+    <p>
+        言語としては比較的新しく（2006年誕生、2015年にバージョン1.0リリース）、現在（2019年）でも活発に開発がおこなわれています。
+        バージョンは６週間に一度更新され、多くの機能が積極的に取り入れられているのも特徴です。
+    </p>
+    <h6>主な機能</h6>
+    <p>
+        他の言語にはあまりない、Rustならではの機能には以下のようなものがあります。
+    </p>
+    <div class="indent"><ul>
+        <li>所有権システム
+            <ul>
+                <li>所有権</li>
+                <li>参照と借用</li>
+                <li>ライフタイム</li>
+            </ul>
+        </li>
+        <li>強力な型システム
+            <ul>
+                <li>トレイト</li>
+                <li>ジェネリクス</li>
+            </ul>
+        </li>
+    </ul></div>
+    <p>
+        なじみのない概念も多いかと思いますが、ゆっくりと理解していきましょう。
+    </p>
+    <h5>Why Rust?</h5>
+    <p>
+        　RustはC言語・C++といった低レイヤー・システム開発用の言語の置き換えをねらった言語ですが、
+        Webサーバーなどのバックエンド、WebAssemblyを用いたアプリケーションなどのフロントエンドの記述にも適しています。
+    </p>
+    <p>
+        　大企業での採用実績もあります。Dropboxでは自社製のストレージシステム<b>Magic Pocket</b>をRustで開発しています
+        （<a href="https://www.wired.com/2016/03/epic-story-dropboxs-exodus-amazon-cloud-empire/">
+            The Epic Story of Dropbox's Exodus From the Amazon Cloud Empire</a>）。もちろん、開発元のMozillaも
+            <b>Firefox Quantum</b>でパーサーをRustで書き直すことで、パフォーマンスの改善を行っています。
+    </p>
+    <p>
+        　積極的にRustに乗り換える理由には以下のものがあります：
+    </p>
+    <h6>安全性</h6>
+    <p>
+        　C言語やC++には制約が少なく、ヒープにメモリを確保する、ポインタでメモリにアクセスする、
+        ポインタの値を変更する、などといった危険なことも可能でした。その反面、
+        危険なことをするときには、開発者はそのすべてにおいて責任を負う必要があり、
+        それを怠るとよく困ったことが起こるのでした。たとえば、
+    </p>
+    <div class="indent">
+        <ul>
+            <li>ダングリングポインタ</li>
+            <li>スタックの破壊</li>
+            <li>メモリリーク</li>
+            など...
+        </ul>
+    </div>
+    <p>
+        です。これらは、開発者の手違いや不注意によって生まれ、一度生じてしまうと、
+        多くの時間がその解決に割かれてしまうのでした。
+    </p>
+    <p>
+        　Rustでは、そういった危険な操作をunsafeの砦に追いやることで、普段使いの<b>コーディングをより安全に</b>行うことができます。
+    </p>
+    <h6>パフォーマンス</h6>
+    <p>
+        　Rustは<b>静的な言語</b>で、コンパイル時にほとんどの挙動を確定します。これは、実行時にはじめてパースされるJavaScriptや
+        Pythonに比べて大いに有利で、コンパイルは行うが動的なランタイムを有するC#やGoと比べても高速です。
+        ベンチマーク結果
+        （<a href="https://github.com/ixy-languages/ixy-languages">ixy-languages/ixy-languages</a>）
+        では、C言語に比類するパフォーマンスを出すこともあります。
+    </p>
+    <p>
+        　Rustはゼロコスト抽象化を掲げています。要するに、抽象化の実現にあたり、
+        <b>実行時にコストが掛かるものは極力排そう</b>、という考え方です。
+        たとえば、<b>ポリモーフィズム</b>は
+        Rustではトレイト、Java、C#、Goなどではインターフェイスによって実現されます。
+        
+        インターフェイスは、vtableやリフレクションなどによって実装されているため、
+        呼び出しなどの際にコストがかかります。
+    <br>
+        　これに対して、Rustの<b>トレイト</b>では、静的に型を確定できる場合にはコンパイル時に解決するので、実行時にコストが
+        かかりません。
+        （ちなみに、トレイトの動的な呼び出しを可能にするトレイトオブジェクトという言語機能もありますが、
+        奨励はされていません。）
+    </p>
+    <p>
+        　また、コンパイラバックエンドにLLVMを採用し、多くのプラットフォームに対して高速なプログラムを生成することが出来ます。
+    </p>
+    <h6>生産性</h6>
+    <p>
+        　Rustには、<b>cargo</b>とよばれるパッケージ管理・ビルドシステムが付属しています。
+        テストやベンチマークの機能もあり、ビルドスクリプトによる高度なビルドも行えます。
+    </p>
+    <p>
+        　また、Rustには<b>クレート</b>とよばれるライブラリ群があり、自前で実装したり
+        環境構築したりすることなく、Cargo.tomlに加筆するだけですぐに必要な機能を追加することが出来ます。
+        クレートの多くはMIT、またはMIT + Apache 2.0のデュアルライセンス（Rust自体とおなじライセンス）なので、
+        GPLによるライセンス汚染の可能性はとても低く、商用にも安心して利用できます。
+    </p>
+    <p>
+        　当サークル（MIS.W）の一部では、「公用語をRustにしよう」という動きもあります。<sup>[要出典]</sup>
+    </p>
+</section>
+<section>
+    <h4>インストール</h4>
+    <p>インストールはとても簡単です。</p>
+    <h5>rustup経由のインストール</h5>
+    <p>
+        rustup（<a href="https://rustup.rs/">rustup.rs</a>）経由でのインストールが一般的です。
+    </p>
+    <p>
+        Windows以外の環境では、
+    </p>
+    <pre><code class="shell">$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh</code></pre>
+    <p>
+        を実行するだけです。Windowsの場合は、<a href="https://rustup.rs/">rustup.rs</a>の指示に従えばいいでしょう。
+    </p>
+    <p>
+        さらに、いくつかのコンポーネントを追加でインストールしておくといいでしょう。
+    </p>
+    <pre><code class="shell">$ rustup component add clippy
+$ rustup component add rustfmt
+$ rustup component add rls</code></pre>
+    <h5>アップデート</h5>
+    <p>
+        Rustのアップデートは、rustup経由で行うことが出来ます。
+    </p>
+    <pre><code class="shell">$ rustup update</code></pre>
+    <div class="column-section">
+        <h6>COLUMN: リリースチャネル</h6>
+        <p>
+            Rustには<code class="plaintext">stable</code>、<code class="plaintext">beta</code>、<code class="plaintext">nightly</code>の3つのチャネルが存在します。
+            （<a href="https://doc.rust-lang.org/book/appendix-07-nightly-rust.html">How Rust is Made and “Nightly Rust”</a>）
+        </p>
+        <table class="u-fill-width">
+            <thead>
+                <tr>
+                    <th>リリースチャネル</th>
+                    <th>リリース頻度</th>
+                    <th>特徴</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code class="plaintext">stable</code></td>
+                    <td>6週間に一度</td>
+                    <td>もっとも安定したバージョン。通常つかうのはこちら。</td>
+                </tr>
+                <tr>
+                    <td><code class="plaintext">beta</code></td>
+                    <td>6週間に一度</td>
+                    <td>stableリリース前のバージョン。安定化に向けて<code class="plaintext">nightly</code>から分かれて、バグ修正がおこなわれる。</td>
+                </tr>
+                <tr>
+                    <td><code class="plaintext">nightly</code></td>
+                    <td>毎日</td>
+                    <td>開発中のバージョンで、<b>master</b>ブランチにあたる。新しい機能を使うときはこれをつかう。</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<section>
+    <h4>Hello, world!</h4>
+    <p>
+        Rustのインストールがおわったところで、実際に動くかどうか試してみましょう。cargoで
+        新しいプロジェクトを作成してみましょう。
+    </p>
+    <pre><code class="shell"> $ cargo new hello-world
+    Created binary (application) `hello-world` package</code></pre>
+    <p>
+        <code class="plain">cargo new</code>コマンドによって、現在の作業ディレクトリに<code class="plain">hello-world</code>というディレクトリが
+        作成されました。中を見てみると、"src/main.rs"に
+    </p>
+    <pre><code class="rust">fn main() {
+    println!("Hello, world!");
+}</code></pre>
+    <p>
+        と、書かれていますね。では、これを実行してみましょう。プログラムの実行には<code class="plaintext">cargo run</code>コマンドを使用します。
+    </p>
+    <pre><code class="shell"> $ cargo run
+    Compiling hello-world v0.1.0 (/../../../hello-world)
+     Finished dev [unoptimized + debuginfo] target(s) in 3.99s
+      Running `target/debug/hello-world`
+Hello, world!</code></pre>
+    <p>
+        無事、Hello, world!が出ました。環境構築お疲れさまでした。
+    </p>
+</section>
+<section>
+    <h4>型と構文</h4>
+    <p>Rustには様々な型や、構文があります。 </p>
+    <h5>本題に入る前に...</h5>
+    <p>　Rustを書く上で必要な型や構文の話をする前に、プログラミング言語の基本的な考え方を復習しましょう。
+        そんなの聞いてられるか！ってひとはぜひ飛ばしてください。
+    </p>
+    <h6>手続き型言語</h6>
+    <p>
+        　Rustは、多くのプログラミング言語とおなじく<b>命令型プログラミング言語</b>と呼ばれる言語の一種です（厳密には違いますが...）。
+        命令型プログラミング言語は、コンピュータに行わせる一連の命令、または<b>手続き</b>を記述することで動作します。   
+    </p>
+    <h6>関数</h6>
+    <p>
+    　手続きをどこにでも書いていい、というわけではなく実際に動かすためにはコンピュータが分かる形で記さなければなりません。
+    Rustでは、<b>関数</b>を一つの手続きの単位として扱います。
+    </p>
+    <p>　先ほどのHello, world!を見てみましょう。</p>
+<pre><code class="rust">fn main() {
+    println!("Hello, world!");
+}</code></pre>
+    <p>
+        詳しい構文の説明は省きますが、上の例では<code>main</code>という名前の関数を<b>定義</b>して、そのなかに「Hello, world!」と表示するための
+        手続きが記してあります。<code>main</code>関数は特殊で、プログラムが動作するとき、ここに記してある手続きが動くようになっています。
+        このような特殊な関数を、<b>エントリーポイント</b>といいます。
+    </p>
+    <h6>言語単位</h6>
+    <p>　では、どのような手続きがあるのでしょう。</p>
+    <p>
+        Rustの言語単位は、
+        <div class="indent">
+            <ul>
+                <li>文（statement）
+                    <ul>
+                        <li>変数束縛</li>
+                        <li>コードブロック</li>
+                        <li>式（expression）
+                            <ul>
+                                <li>制御式（if、for、while、loop）</li>
+                                <li>直定数（literal）</li>
+                                <li>中置記法演算（infix operation）</li>
+                                など...
+                            </ul>
+                        </li>
+                        <li>関数宣言</li>
+                        <li>型定義</li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </div>
+        という感じになっています。
+    </p>
+    <p>
+        文は、セミコロン（;）で終わる式や、制御文（式）などがあります。
+        <pre><code class="rust">let f = File::create("hello.txt");
+
+println!("Hello, world!");</code></pre>
+        一つまたは複数の文を含むブロックを作ることで、一連の手続きを記すことができます。
+    </p>
+<pre><code class="rust">while x % 3 == 0 {
+    x += 7;
+    if x > 100 {
+        break;
+    }
+}</code></pre>
+<p></p>
+    <h5>さまざまな型</h5>
+    <p>Rustには大きく分けて、</p>
+    <div class="indent"><ul>
+            <li>プリミティブ型</li>
+            <li>参照・ポインタ</li>
+            <li>構造体</li>
+            <li>列挙型</li>
+    </ul></div>
+    <p>があります。</p>
+    <h6>プリミティブ型</h6>
+    <p>最も基本的な型です。</p>
+    <table class="u-full-width">
+    <thead>
+    <tr>
+    <th style="text-align: center">名前</th>
+    <th>型</th>
+    <th>例</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td style="text-align: center">整数型</td>
+    <td style="text-align: left">
+    <code class="rust">u32</code>, <code class="rust">i64</code>, <code class="rust">usize</code>...</td>
+    <td style="text-align: left">
+    <code class="rust">1123</code>, <code class="rust">0xCAFEBABE</code>, <code class="rust">-273</code>, <code class="rust">0</code>
+    </td>
+    </tr>
+    <tr>
+    <td style="text-align: center">浮動小数点型</td>
+    <td style="text-align: left">
+    <code class="rust">f32</code>, <code class="rust">f64</code>
+    </td>
+    <td style="text-align: left">
+    <code class="rust">3.14</code>, <code class="rust">-1.414</code>, <code class="rust">6.02e23</code>
+    </td>
+    </tr>
+    <tr>
+    <td style="text-align: center">論理値型</td>
+    <td style="text-align: left"><code class="rust">bool</code></td>
+    <td style="text-align: left">
+    <code class="rust">true</code>, <code class="rust">false</code>
+    </td>
+    </tr>
+    <tr>
+    <td style="text-align: center">配列</td>
+    <td style="text-align: left"><code class="rust">[T; n]</code></td>
+    <td style="text-align: left"><code class="rust">[2, 7, 3, 8]</code></td>
+    </tr>
+    <tr>
+    <td style="text-align: center">スライス</td>
+    <td style="text-align: left"><code class="rust">&amp;[T]</code></td>
+    <td style="text-align: left"><code class="rust">&amp;a[1..4]</code></td>
+    </tr>
+    <tr>
+    <td style="text-align: center">char型</td>
+    <td style="text-align: left"><code class="rust">char</code></td>
+    <td style="text-align: left">
+    <code class="rust">'a'</code> <code class="rust">'🐱'</code>
+    </td>
+    </tr>
+    <tr>
+    <td style="text-align: center">str型</td>
+    <td style="text-align: left"><code class="rust">str</code></td>
+    <td style="text-align: left"><code class="rust">"nyan"</code></td>
+    </tr>
+    <tr>
+    <td style="text-align: center">タプル</td>
+    <td style="text-align: left">
+    <code class="rust">(i32, &amp;str)</code>...</td>
+    <td style="text-align: left"><code class="rust">(2019, "世話やきキツネの仙狐さん")</code></td>
+    </tr>
+    <tr>
+    <td style="text-align: center">関数型</td>
+    <td style="text-align: left">
+    <code class="rust">fn(f64) -&gt; f64</code>...</td>
+    <td style="text-align: left"><code class="rust">fn id(x: f64) -&gt; f64 { x }</code></td>
+    </tr>
+    </tbody>
+    </table>
+    <h6>参照・ポインタ</h6>
+    <p>
+    参照やポインタを用いることで、値そのものを移動せずに扱うことが出来ます。mutable（変更可能）な参照（ポインタ）と
+immutable（変更不能）な参照（ポインタ）があります。詳しくは後のほうで解説します。
+    <pre><code class="rust">let x = 30;
+let y = &mut x;
+*y = 40;</code></pre>
+    </p>
+    <h6>構造体</h6>
+    <p>いくつかのフィールドを持つ、または一切のフィールドをもたない型です。</p>
+    <pre><code class="rust">pub struct Point2D {
+    pub x: f64,
+    pub y: f64,
+}
+
+struct Senko(String);
+
+struct Serval;</code></pre>
+    <h6>列挙型</h6>
+    <p>複数の状態を持つ型です。それぞれの状態がフィールドをもつこともできます。</p>
+    <pre><code class="rust">enum NPCState {
+    Idle,
+    Chase(Rc&lt;RefCell&lt;Target&gt; &gt;),
+    Attack { target  : Rc&lt;RefCell&lt;Target&gt; &gt;,
+             strategy: Box&lt;AttackStrategy&gt; },
+}</code></pre>
+    <h5>さまざまな構文</h5><p></p>
+<h6>関数定義</h6>
+    <p>
+    関数定義は、<code class="plain">fn 関数名(引数名: 型, ...) -> 返り値の型 {ブロック} </code> の形で行います。C言語などと違い、型は後置です。
+    </p>
+<pre><code class="rust">fn sum(a: i64, b: i64) -> i64 {
+    return a + b;
+}</code></pre>
+    <p>セミコロンのない式は、返り値として解釈されます。</p>
+<pre><code class="rust">fn sum(a: i64, b: i64) -> i64 {
+    a + b
+}</code></pre>
+
+    <h6>関数呼び出し</h6>
+    <p>関数名に、括弧で囲まれた引数が続きます。</p>
+    <pre><code class="rust">sum(33, 4); // 37</code></pre>
+
+    <h6>変数束縛</h6>
+    <p><code>let</code>を使うことで、値を名前に束縛することが出来ます。</p>
+<pre><code>let x: i32 = 1123;</code></pre>
+型が分かりきっているものについては、コンパイラが勝手に予測してくれます。
+
+```rust
+let phi = 0.1257; // <- f64
+```
+
+でも、再代入は出来ません。
+```rust
+let x: i32 = 1123;
+x = 2;
+```
+```console
+$ cargo build
+...
+error[E0384]: cannot assign twice to immutable variable `x`
+ --> src/main.rs:3:5
+  |
+2 |     let x: i32 = 1123;
+  |         - first assignment to `x`
+3 |     x = 4;
+  |     ^^^^^ cannot assign twice to immutable variable
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0384`.
+error: Could not compile `helloworld`.
+
+To learn more, run the command again with --verbose.
+```
+これは、Rustでの変数が標準でimmutable（不変値）となっているからです。じゃあ、どうやったら変更可能になるかというと、
+```rust
+let mut x: i32 = 0;
+x = 420; // ok
+```
+というふうに、`mut`（mutable: 変更可能）をつければ変更可能になります。
+
+### ムーブセマンティクス
+```rust
+let a: String = "けものフレンズ".to_string();
+let b: String;
+
+b = a;
+
+println!("{}", a);
+println!("{}", b);
+```
+`b`へ`a`が代入される時、`b`は初期化されていないので代入に成功します。しかし、コンパイルが通りません。なぜでしょう。
+```console
+$ cargo build
+error[E0382]: use of moved value: `a`
+ --> src/main.rs:7:20
+  |
+5 |     b = a;
+  |         - value moved here
+6 |
+7 |     println!("{}", a);
+  |                    ^ value used here after move
+  |
+  = note: move occurs because `a` has type `std::string::String`, which does not implement the `Copy` trait
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0382`.
+error: Could not compile `helloworld`.
+
+To learn more, run the command again with --verbose.
+```
+
+Rustでは、一つの値は一つの変数と対応します。そしてコピーできる一部の型(※)を除き、値を代入した時点で所有権が代入先に移されます。詳しくはまたいつかどこかで。
+
+※`Copy`トレイトが実装されているものはコピーされます。ムーブされるものを複製したいときには、大抵`Clone`トレイトを実装していることが多いので`**.clone()`してあげましょう。
+
+## if文
+
+Rustのif文（式）には条件式の括弧がありません。
+
+```rust
+if is_lazy() {
+    println!("しんどい");
+} else {
+    println!("しんどくない");
+}
+```
+
+`let`と組み合わせて、パターンマッチングすることも出来ます。
+```rust
+let a: Option<i32> = Some(114514);
+if let Some(val) = a {
+    println!("{}", val); // 114514
+}
+```
+
+式としても使えます。
+```rust
+let username = if let Some(n) = get_name() { n } else { "名無し" };
+```
+※ちなみにこの場合は、`unwrap_or`を使う方が楽です。
+```rust
+let username = get_name().unwrap_or("名無し");
+```
+
+## match文
+
+ざっくり説明すると、高機能なswitch文。
+
+```rust
+let coffee: u32 = 2;
+
+match coffee {
+    0 => println!("カフェインが足りないですぅ..。"),
+    1 => println!("ねむっちゃいそう...。"),
+    2 => println!("お仕事頑張りますっ！"),
+    _ => println!("（カフェイン中毒）（心不全）（死）"),
+}
+```
+
+パターンマッチもできます。
+```rust
+let mut state: NPCState = NPCState::Idle;
+...
+match &state {
+    NPCState::Idle => { ... },
+    ...
+    NPCState::Attack { target: t, strategy: s } => {
+        s.try_attack(t);
+    },
+}
+```
+
+## ループ
+
+### for文
+
+範囲指定は`a..b`（a < i < b）や`a..=b`（a < i ≦ b）のように指定します。
+
+```rust
+let a = ["キタキツネ", "ギンギツネ", "フェネック"];
+for i in 0..a.len() {
+    println!("{}はフレンズなんだね！", a[i]);
+}
+```
+
+イテレータを使うこともできるよ。
+
+```rust
+let a = ["マーゲイ", "オセロット", "ライオン", "ジャガー"];
+for f in &a {
+    println!("{}はフレンズなんだね！", f);
+}
+```
+
+### while文
+言うまでも無くwhile文です。
+```rust
+while is_lazy_cat() {
+    println!("しんどい");
+}
+```
+
+### loop文
+
+条件式を含まない単純なループもあります。
+
+```rust
+loop {
+    println!("大学やだーーーーー！！！！");
+}
+```
+    <p></p>
+</section>
+<section>
+    <h4>所有権（借用・参照・ライフタイム）</h4>
+    <p></p>
+    # 世界一わかりにくい所有権の話
+    
+    ## 所有権
+    
+    Rustの鬼門...?である所有権について雑に説明していきます。
+    
+    ### ムーブ？
+    
+    第2回で触れたこのコードについて思い出してください。
+    
+    ```rust
+    let a: String = "けものフレンズ".to_string();
+    let b: String;
+    
+    b = a;
+    
+    println!("{}", a); // <- コンパイルエラー
+    println!("{}", b);
+    ```
+    
+    Rustでは、代入操作がムーブとなっているんでしたね。
+    `b`に代入された`a`の値は、代入された時点で`a`からはアクセスできなくなるのでした。
+    
+    このように、代入操作で代入前の変数からアクセスできなくなるようにすることを、**ムーブ**といいます。これは、変数が値の **所有権** (ownership)を持っていると考えるとわかりやすいでしょう。
+    
+    <br><br>
+    <strike>＊＊世界一わかりやすいイラスト(予定)＊＊</strike>
+    <br><br>
+    
+    もともと、値 `"けものフレンズ".to_string()` の所有権は変数`a`に帰属していました。しかし、代入操作によって`b`に移譲され、`a`のものではなくなったのです。
+    
+    また、関数に渡す際にも所有権が移譲されます。
+    
+    ```rust
+    fn dummy(_: String) {}
+    
+    let a: String = "しんどいねこ".to_string();
+    
+    dummy(a);          // <- value moved here
+    // error: use of moved value: `a`
+    println!("{}", a); // <- value used here after move
+    ```
+    
+    ## 参照（reference）・借用（borrowing）
+    
+    これまでの話を踏まえると「じゃあ、いちいち値の所有権を移してあげないといけないの...？」って思うかもしれません。さすがにそれでは面倒くさい。どうにか借りてこれないか...って思うわけです。
+    
+    ### 借用
+    
+    値を読み出しに限定して外に貸し出すことが出来ます（借用）。
+    このとき、値は参照として渡されます。所有権は元の変数に帰属したままです。
+    
+    ```rust
+    let a: String = "cat".to_string();
+    let b: String = "car".to_string();
+    
+    print_compare(&a, &b);
+    ```
+    
+    ### *mutable* な借用
+    
+    変更も出来る形で貸し出すことも出来ます。
+    
+    ```rust
+    let mut out1: i32 = 0;
+    let mut out2: i32 = 0;
+    
+    get_int(&mut out1, &mut out2);
+    ```
+    （※ 複数の値を返すなら、構造体もしくはタプル型を使うほうがよさそう。）
+    
+    #### 制約
+    
+    *mutable*な借用には制約があります。`mutable`な借用の結果、値が変わる可能性があるからです。借用した値が後から改変されては大変です。
+    
+    一度 `&mut` で借用すると、他で借用することができません。
+    
+    ```rust
+    fn swap_val(a: &mut String) {
+        *a = "サーバル".to_string();
+    }
+    
+    let mut a: String = "かばんちゃん".to_string();
+    
+    let b = &mut a; // <- mutable borrow occurs here
+    swap_val(b);
+    
+    // error: cannot borrow `a` as immutable because it is also borrowed as mutable
+    println!("{}", a); // <- immutable borrow occurs here
+    ```
+    
+    （※ `println!`マクロには、コピー値ではなく参照が渡されています。）
+    
+    `&mut` でも同様です。
+    
+    ```rust
+    // error: cannot borrow `a` as mutable more than once at a time
+    let mut a: String = "かばんちゃん".to_string();
+    let b = &mut a;     // <- first mutable borrow occurs here
+    swap_val(&mut a);   // <- second mutable borrow occurs here
+    ```
+    
+    また、`&`で借用されている状態で`&mut`借用することも出来ません。
+    
+    ```rust
+    // error: cannot borrow `a` as mutable because it is also borrowed as immutable
+    let mut a: String = "かばんちゃん".to_string();
+    let b = &a;         // <- mutable borrow occurs here
+    swap_val(&mut a);   // <- immutable borrow occurs here
+    ```
+    
+    ### *dangling pointer*
+    
+    たとえば、こんなC++のコードがあったとします。
+    
+    ```cpp
+    int a  = 1123;
+    int &r = a;
+    
+    {
+        int b = 1999;
+        r = b;
+    }
+    
+    std::cout << r << std::endl; // <- !!
+    ```
+    
+    変数`r`に`b`の参照が代入されていますが、`b`はブロックが終わる時点で解放され、`r`への参照は不正となります。
+    
+    しかし、Rustではこのようなことはコンパイラによって指摘されます。
+    
+    ```rust
+    let r;
+    {
+        let b = 30;
+        r = &b; // <- borrowed value does not live long enough
+    }           // <- `b` dropped here while still borrowed
+    // ...
+    // <- borrowed value needs to live until here
+    ```
+    
+    `b`が`r`よりも短命で、ブロックが終わった後にも参照のみが生き残ってしまう（dangling pointer）ことをコンパイラは知っています。
+    
+    ## 生ポインタ
+    
+    実は、Rustにも生ポインタはあります。しかしながら参照ができるかどうかは保証されないため、 *unsafe* となっています。
+    
+    ```rust
+    let a = 10;
+    
+    let a_ptr = &a as *const i32; // <- 生ポインタ作成自体は安全
+    
+    // ポインタの参照外しはunsafe
+    unsafe {
+        *a_ptr = 3;
+    }
+    let b: &i32 = unsafe { &*a_ptr }; // <- ポインタを参照に変換するには&*を使おう
+    ```
+    
+    （※`*mut i32`や`*const f64`のように`*`が先頭に来るのに注意。）
+    
+    ## まとめ
+    
+    Rustの所有権システムについて大枠は触れたかと思います。しかしながら、参照と生ポインタだけではどうしようもないことがあります。たとえば、返り値の寿命はどうなるのでしょうか。
+    
+    次回は気が向いたらライフタイムとスマートポインタについて触れていこうかと思います。
+    <p></p>
+</section>
+<section>
+    <h4>スマートポインタ</h4>
+    <p></p>
+</section>
+<section>
+    <h4>トレイト</h4>
+    <p></p>
+</section>
+<section>
+    <h4>Real World Rust (1) さまざまなクレート</h4>
+    <p></p>
+</section>
+<section>
+    <h4>Real World Rust (2) 並列性とtokioフレームワーク</h4>
+    <p></p>
+</section>
+<section>
+    <h4>Real World Rust (3) serdeクレート</h4>
+    <p></p>
+</section>
+<section>
+    <h4>Real World Rust (4) RustでつくるWebアプリケーション</h4>
+    <p></p>
+</section>
+<section>
+    <h4>Real World Rust (5) Rustでつくるゲーム</h4>
+    <p></p>
+</section>
+<section>
+    <h4>Real World Rust (6) 夜の眷族「nightly」</h4>
+    <p></p>
+</section>
+<section>
+    <h4>Real World Rust (6) Rustの中身について知る</h4>
+    <p></p>
+</section>
+<section>
+    <h4>よりよいRustを書くために</h4>
+    <p></p>
+    # 型を征する者Rustを征す
+
+    当たり前っちゃ当たり前ですが...．
+
+    Rustの型システムで忘れちゃならぬもの，それは「トレイト」です．トレイトを使いこなして，お子ちゃま呼ばわりとはおさらばしましょう！
+
+    ## deriveマクロと仲良くなる
+
+    ### PartialEq/EqとPartialOrd/Ordの違いって？
+
+    ## パスとAsRef\<Path\>
+
+    Rustを書く人がいちばん最初に見るジェネリクスは，間違いなくこれだとおもいます．たとえば，
+
+    ```rust
+    use std::fs::File;
+
+    let file = File::open("futaba_anzu.txt")
+                .expect("Cannot open file");
+    ```
+
+    の`open`は，こんな感じの定義になっています．
+
+    ```rust
+    #[stable(feature = "rust1", since = "1.0.0")]
+    pub fn open<P: AsRef<Path>>(path: P) -> io::Result<File> {
+        // ...
+    }
+    ```
+
+    ## 型エイリアスと「新しい型」パターン
+
+    型エイリアスは，ある型に別の型名をつけることが出来る機能です．
+
+    ```rust
+    type Senko = String; // こいつ
+    let senko: Senko = String::from("うやん");
+    ```
+
+    しかし，これでは都合が悪いときがあるかもしれません．
+    たとえば，型エイリアスが複数あったときに同じ型として扱われて欲しくないとき．
+
+    ```rust
+    type Senko = String;
+    type Shiro = String;
+
+    let senko: Senko = String::from("うやん");
+    let mut shiro: Shiro = String::from("うやー");
+
+    shiro = senko; // 別の型のつもりが代入できてしまう
+    ```
+
+    また，気に入らない機能（トレイト）を隠蔽したいとき．
+
+    ```rust
+    type HttpStatusCode = u64;
+    let err_code: HttpStatusCode;
+    // ...
+    println!("{:?}", err_code); // ほんとうは"Not Found"とか表示されて欲しいのに..
+    ```
+
+    こういったときに，「新しい型」パターンが役に立ちます．
+    使い方は簡単で，structで包むだけ！
+
+    ```rust
+    struct Senko(String);
+    ```
+
+    こうすれば，Rust上では別の型として扱われます．
+
+    ```rust
+    struct Senko(String);
+    struct Shiro(String);
+
+    impl Senko {
+        pub fn new(s: String) -> Self {
+            Self(s)
+        }
+    }
+
+    impl Shiro {
+        pub fn new(s: String) -> Self {
+            Self(s)
+        }
+    }
+
+    let senko = Senko::new("うやん".into());
+    let mut shiro = Shiro::new("うやー".into());
+
+    shiro = senko; // こんどは代入できない！
+    ```
+
+    もちろん別の型なので，元の型と干渉すること無くトレイトも実装できます．
+
+    ```rust
+    struct HttpStatusCode(u64);
+    struct WrongHttpStatusCodeError;
+
+    impl TryFrom<u64> for HttpStatusCode {
+        type Error = WrongHttpStatusCodeError;
+        // ...
+    }
+
+    impl Display for HttpStatusCode {
+        // ...
+    }
+    ```
+
+    ## おばけみたいな型
+
+    Rustには，幽霊型（PhantomType）
+
+    # エラーハンドリングのいろは
+
+    ## エラーをまとめる
+
+    ```rust
+    #[derive(Debug)]
+    pub struct MyError {
+    ConnectionError,
+    IoError(std::io::Error),
+    JsonError(serde_json::Error),
+    // ...
+    }
+    ```
+
+    # ケチケチメモリ節約術
+    ## 牛（Cow）を飼い慣らそう
+    ## std::mem::replaceを使おう
+
+    # 守りたい命名規則
+
+    # I/Oを速くするために
+    <p></p>
+</section>
+<section>
+    <h4>あとがき</h4>
+    <p></p>
+</section>
+</article>
+<div class="footer">
+<div>(C) Copyright 2019 MIS.W, Hikaru Terazono.</div>
+<div><a href="/">TOP</a></div>
+</div>
+</div>
