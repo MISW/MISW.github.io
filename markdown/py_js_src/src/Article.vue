@@ -1,6 +1,6 @@
 <template>
     <h1-section title="Python, JavaScriptの始め方">
-        <button type="button" class="dark-light-button" @click="toggleDarkLight" title="Toggle dark/light mode">☀</button>
+        <dark-light-button @click="toggleDarkLight"></dark-light-button>
         <h2-section num="1." title="インストールしよう">
             <h3-section title="Pythonのインストール">
                 <group>
@@ -553,6 +553,7 @@
 <script lang="ts">
 import CodeFence from "./components/CodeFence.vue";
 import CodeSpan from "./components/CodeSpan.vue";
+import DarkLightButton from "./components/DarkLightButton.vue";
 import Gray from "./components/Gray.vue";
 import Group from "./components/Group.vue";
 import H1Section from "./components/H1Section.vue";
@@ -611,6 +612,7 @@ export default Vue.extend({
     components: {
         CodeFence,
         CodeSpan,
+        DarkLightButton,
         Gray,
         Group,
         H1Section,
@@ -792,28 +794,4 @@ a {
     background: rgba(255, 255, 255, 0.9);
 }
 
-.dark-light-button {
-    position: fixed;
-    bottom: 30px;
-    right: 3%;
-    width: 48px;
-    height: 48px;
-    font-size: 24px;
-    border-radius: 50%;
-    border-style: none;
-    body.transition-enabled & {
-        transition: ease .5s;
-    }
-    -webkit-appearance: none;
-    padding: 0;
-
-    body:not(.dark-mode) & {
-        background: black;
-        color: white;
-    }
-    body.dark-mode & {
-        background: white;
-        color: black;
-    }
-}
 </style>
