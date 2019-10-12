@@ -4,20 +4,23 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "build": "tsc&&ts-node src/node/compile.ts"
+    "start": "parcel src/index.html --open",
+    "prebuild": "rimraf dist ../py_js_assets ../mis_python_javascript.html",
+    "postbuild": "mv dist/index.html ../mis_python_javascript.html && mv dist ../py_js_assets",
+    "build": "parcel build src/index.html --public-url ./py_js_assets"
   },
   "keywords": [],
   "license": "",
   "devDependencies": {
-    "@types/marked": "0.6.5",
-    "@types/node": "12.0.0",
-    "@types/sass": "^1.16.0",
-    "sass": "^1.22.4",
-    "ts-node": "8.1.0",
-    "tslint": "5.16.0",
-    "typescript": "3.4.5"
+    "@vue/component-compiler-utils": "^3.0.0",
+    "parcel-bundler": "^1.12.4",
+    "rimraf": "^3.0.0",
+    "sass": "^1.23.0",
+    "typescript": "^3.6.4",
+    "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
-    "marked": "0.6.2"
+    "vue": "^2.6.10",
+    "vue-hot-reload-api": "^2.3.4"
   }
 }
