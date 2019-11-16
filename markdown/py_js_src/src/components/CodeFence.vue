@@ -34,13 +34,12 @@ code.code-fence {
     body.dark-mode & {
         color: #f8f8f2;
         background: #2e2e2e;
-        // box-shadow: 3px 0px 5px rgba(255, 255, 255, 0.6);
         border: solid 1px rgba(255, 255, 255, 0.3);
     }
     body:not(.dark-mode) & {
         color: #333;
         background: #fbfbfb;
-        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+        border: 1px solid #999494;
     }
 
     display: block;

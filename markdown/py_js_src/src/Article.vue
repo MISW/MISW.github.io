@@ -225,7 +225,7 @@
                     <gray>MDNのWebチュートリアル: <a href="https://developer.mozilla.org/ja/docs/Web/Tutorials">https://developer.mozilla.org/ja/docs/Web/Tutorials</a></gray>
                 </group>
                 <group>
-                    ただ、このチュートリアルは少し読みずらいので、他のサイトを見るか本を買った方が良いかもしれません。
+                    ただ、このチュートリアルは少し読みづらいので、他のサイトを見るか本を買った方が良いかもしれません。
                     とくにこちらのサイトがおすすめです: <a href="https://uhyohyo.net/javascript/">uhyohyo.net/JavaScript初級者から中級者になろう</a> （名前に反して、JavaScriptを全く知らない方にも良いサイトです。）
                 </group>
                 <group>
