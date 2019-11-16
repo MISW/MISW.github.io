@@ -3,13 +3,12 @@ export const sampleCode = {
     },
     2: {
         "py_hello.py": `\
->>> "Hello, world!"
-'Hello, world!'
->>> def f(x):
-...     return 2 * x + 10
-...
->>> f(5)
-20
+print("Hello, world!")
+
+def f(x):
+    return 2 * x + 10
+
+f(5)
 `,
         "py_hello_result.py": `\
 Hello, world!
