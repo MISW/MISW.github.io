@@ -114,7 +114,36 @@
             </h3-section>
         </h2-sction>
         <h2-section num="3." title="Gitを使った共同編集">
-            
+            <h3-section num="3.1." title="bare git repository">
+                <group>
+                    複数のgitレポジトリ（<code-span>git init</code-span>を実行したディレクトリ）を同期するには，<strong>bare git repository</strong>が必要。bare git repositoryは<code-span>git init --bare</code-span>で作成できる。
+                </group>
+                <group>
+                    <code-span>git remote add &lt;任意の名前&gt; &lt;urlやファイルパスなど&gt;</code-span>で同期に使うbare git repositoryを追加できる。ここで追加したレポジトリを<strong>リモートレポジトリ</strong>という。<code-span>git remote -v</code-span>で今までに追加したリモートレポジトリのリストを表示できる。なお，リモートではない（<code-span>--bare</code-span>をつけずに初期化した）レポジトリは<strong>ローカルレポジトリ</strong>という。
+                </group>
+                <group>
+                    <code-span>git push &lt;リモートレポジトリに付けた名前&gt; master</code-span>でリモートレポジトリへファイルの変更履歴を送信できる。<code-span>git pull &lt;リモートレポジトリに付けた名前&gt; master</code-span>でリモートレポジトリにあるファイルの変更履歴を受信できる。
+                </group>
+                <group>
+                    以下の動画ではそれを試している。左の段がローカルレポジトリ1，真ん中の段がリモートレポジトリ，右の段がローカルレポジトリ2。動画では，各ローカルレポジトリを異なるユーザーが使用すると想定して，user1, user2と名付けている。<br>
+                    まず左の段のローカルレポジトリから右の段のレポジトリへgitの履歴を送り，次に逆方向も試している。<br>
+                    <code-span>git push</code-span>を実行したときに中段のVSCode上のファイルに変化があることが分かる。
+                </group>
+                <video src="../assets/git-tutorial2.webm" controls style="width: 60%"></video>
+            </h3-section>
+            <h3-section num="3.2." title="Gitホスティングサービス">
+                <group>
+                    複数人で作業する場合は，<strong>リモートレポジトリ</strong>が各ユーザーからアクセスできる場所（インターネット上）にないといけない。そのために<strong>Gitホスティングサービス</strong>を利用する必要がある。<strong>GitHub</strong>はGitホスティングサービスのうちのひとつ。
+                </group>
+                <group>
+                    たとえばGitHubで新しくレポジトリを作成すると，このように表示される。※レポジトリ名は加工してfoo/fooに変更しました<br>
+                    なお，<code-span>git push -u</code-span>はそのリモートレポジトリを<strong>デフォルト</strong>のリモートレポジトリとして使用する，という意味。
+                    <img src="../assets/git-tutorial3.png" style="width: 60%; display: block">
+                </group>
+            </h3-section>
+        </h2-section>
+        <h2-section num="4." title="ブランチとタグとコンフリクト">
+            作成中...ネットで調べたら良いんじゃないかな
         </h2-section>
     </h1-section>
 </template>
