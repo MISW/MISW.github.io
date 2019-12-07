@@ -141,9 +141,30 @@
                     <img src="../assets/git-tutorial3.png" style="width: 60%; display: block">
                 </group>
             </h3-section>
+            <h3-section num="3.3." title="git clone">
+                リモートレポジトリのデータをローカルレポジトリにもってくる作業は，以上のように<code-span>git remote add</code-span>と<code-span>git pull</code-span>でやっても良いが，<code-span>git clone</code-span>を使うと簡単にできる。
+            </h3-section>
         </h2-section>
-        <h2-section num="4." title="ブランチとタグとコンフリクト">
-            作成中...ネットで調べたら良いんじゃないかな
+        <h2-section num="4." title="ブランチとタグ">
+            <h3-section num="4.1." title="コンフリクト">
+                <group>
+                    複数人で同じファイルに同時に変更を加えると，<strong>コンフリクト</strong>が発生する。（下図を参照。text: xxxはファイルの中身がxxxであることを表す。）<br>
+                    <img src="../assets/conflict.svg" style="width: 60%; display: block">
+                </group>
+                <group>
+                    コンフリクトが起きると<code-span>git push</code-span>が実行できなくなる。そうなったら，一度<code-span>git pull</code-span>を行った後にコンフリクトを解消してコミットし，もう一度<code-span>git push</code-span>すればよい。（以下の動画を参照）
+                </group>
+                <video src="../assets/conflict.webm" controls style="width: 60%"></video>
+            </h3-section>
+            <h3-section num="4.2." title="ブランチ">
+                <group>
+                    <strong>ブランチ</strong>を使うと，複数人で作業するときのコンフリクトの回数を減らすことができる。デフォルトのブランチはmasterブランチ。ブランチはコミットに付けられた名前で，コミットを行うたびに移動していく。
+                    書くのに疲れたからこのページを見てね: <a href="https://www.slideshare.net/kotas/git-15276118">こわくないGit</a>
+                </group>
+            </h3-section>
+            <h3-section num="4.3." title="タグ">
+                タグはコミットしても勝手に移動しないブランチ。
+            </h3-section>
         </h2-section>
     </h1-section>
 </template>
