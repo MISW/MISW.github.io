@@ -302,7 +302,7 @@
                 </group>
                 <group>
                     TypeScriptファイルをJavaScriptに変換するには、以下のコマンドをコマンドプロンプト（ターミナル）上で打ちます。
-                    <code-fence lang="bash" :code="sampleCode['6']['tsc_usage.sh']"></code-fence>
+                    <code-fence lang="shell" :code="sampleCode['6']['tsc_usage.sh']"></code-fence>
                     <code-span>main.ts</code-span>のようなファイルを作り、コードを書き、コマンドプロンプト（ターミナル）上で<code-span>npx tsc</code-span>と打てば、TypeScriptからJavaScriptへ変換されます。
                 </group>
                 <group>

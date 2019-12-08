@@ -154,10 +154,10 @@ y: str = "name"
 def f(x: int) -> int:
     return x * 30`,
         "tsc_usage.sh": `\
-# 以下のコマンドを変換したいファイルのあるディレクトリ上で実行する
-npm init -y  # npmの初期化。package.jsonが生成される。
-npm install -D typescript  # TypeScriptのインストール
-npx tsc --init  # TypeScriptの初期化。tsconfig.jsonが生成される。`,
+$ # 以下のコマンドを変換したいファイルのあるディレクトリ上で実行する
+$ npm init -y  # npmの初期化。package.jsonが生成される。
+$ npm install -D typescript  # TypeScriptのインストール
+$ npx tsc --init  # TypeScriptの初期化。tsconfig.jsonが生成される。`,
         "ts_syntax.ts": `\
 // 変数はつねに1つの型を持つ。変数の型は最初に代入された値の型によって決まる。
 let x = 20  // xはnumber型になる
