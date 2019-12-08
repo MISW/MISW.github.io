@@ -21,6 +21,8 @@ export default Vue.extend({
 section.section-h3 {
     padding: 0 0 1rem 0;
     overflow: hidden;
+    margin-top: 1.2em;
+    margin-bottom: 0.4em;
 }
 
 h3.section-h3 {
