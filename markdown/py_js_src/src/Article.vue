@@ -2,7 +2,7 @@
     <h1-section title="Python, JavaScriptの始め方">
         <dark-light-button @click="toggleDarkLight"></dark-light-button>
         <h2-section num="1." title="インストールしよう" id="first-h2">
-            <h3-section title="Pythonのインストール">
+            <h3-section num="1.1." title="Pythonのインストール">
                 <group>
                     <a href="https://ja.wikipedia.org/wiki/Python">Python</a>は動的型付け言語のひとつ。
                 </group>
@@ -50,7 +50,7 @@
                     </group>
                 </group>
             </h3-section>
-            <h3-section title="Node.jsのインストール">
+            <h3-section num="1.2." title="Node.jsのインストール">
                 <group>
                     <a href="https://ja.wikipedia.org/wiki/JavaScript">JavaScript</a>はブラウザやNode.jsで動かすことのできる言語。実装にはV8やSpiderMonkeyなどがある。
                 </group>
@@ -68,7 +68,7 @@
             </h3-section>
         </h2-section>
         <h2-section num="2." title="ファイルから実行してみる">
-            <h3-section title="Pythonをファイルから実行してみよう">
+            <h3-section num="2.1." title="Pythonをファイルから実行してみよう">
                 <group>
                     好きな場所に<code-span>main.py</code-span>というファイルを作って、以下の内容を書き込む
                     <code-fence lang="python" :code="sampleCode['2']['py_hello.py']"></code-fence>
@@ -81,7 +81,7 @@
                     <code-fence lang="python" :code="sampleCode['2']['py_hello_result.py']"></code-fence>
                 </group>
             </h3-section>
-            <h3-section title="JavaScript (Node.js) をファイルから実行してみよう">
+            <h3-section num="2.2." title="JavaScript (Node.js) をファイルから実行してみよう">
                 <group>
                     好きな場所に`main.js`というファイルを作って、以下の内容を打ち込む
                     <code-fence lang="javascript" :code="sampleCode['2']['js_hello.js']"></code-fence>
@@ -93,7 +93,7 @@
                     <code-fence lang="javascript" :code="sampleCode['2']['js_hello_result.js']"></code-fence>
                 </group>
             </h3-section>
-            <h3-section title="JavaScript (ブラウザ) をファイルから実行してみよう">
+            <h3-section num="2.3." title="JavaScript (ブラウザ) をファイルから実行してみよう">
                 <group>
                     JavaScriptファイルをブラウザ上で実行するにはHTMLファイルが必要。<br>
                     好きな場所に<code-span>index.html</code-span>というファイルを作って、以下の内容を打ち込む
@@ -113,7 +113,7 @@
             </h3-section>
         </h2-section>
         <h2-section num="3." title="REPLを実行してみる">
-            <h3-section title="REPLとは">
+            <h3-section num="3.1." title="REPLとは">
                 <group>
                     多くの言語には<a href="https://ja.wikipedia.org/wiki/REPL">REPL (Read-Eval-Print Loop)</a>が存在する。
                     <gray>C#ならcsi、Javaならjshell、Goならgore、Rubyならirb、...</gray><br>
@@ -121,7 +121,7 @@
                     REPL上では、入力した式の計算結果を<code-span>print</code-span>や<code-span>console.log</code-span>を使わなくても表示してくれる。
                 </group>
             </h3-section>
-            <h3-section title="PythonのREPLを実行しよう">
+            <h3-section num="3.2." title="PythonのREPLを実行しよう">
                 <group>
                     コマンドプロンプト（ターミナル）を開いて、<code-span>py</code-span>と打つ<br>
                     ※ MacOSやLinuxの場合は、<code-span>python3</code-span>と打ってください。
@@ -134,7 +134,7 @@
                     いろいろ入力してみてください。（<code-span>f(10)</code-span> や<code-span>2 + 4</code-span>など）
                 </group>
             </h3-section>
-            <h3-section title="JavaScript (Node.js) のREPLを実行しよう">
+            <h3-section num="3.3." title="JavaScript (Node.js) のREPLを実行しよう">
                 <group>
                     コマンドプロンプト（ターミナル）を開いて、<code-span>node</code-span>と打つ
                 </group>
@@ -146,7 +146,7 @@
                     いろいろ入力してみてください。（<code-span>f(10)</code-span> や<code-span>2 + 4</code-span>など）
                 </group>
             </h3-section>
-            <h3-section title="JavaScript (ブラウザ) のREPLを実行しよう">
+            <h3-section num="3.4." title="JavaScript (ブラウザ) のREPLを実行しよう">
                 <group>
                     ブラウザ（Microsoft EdgeやMozilla FirefoxやGoogle ChromeやInternet Explorerなど）を開き、F12キーを押す<br>
                     ※ 空のタブを使ってください。
@@ -179,7 +179,7 @@
             </group>
         </h2-section>
         <h2-section num="5." title="Python, JavaScriptの学習方法">
-            <h3-section title="バージョンについて">
+            <h3-section num="5.1." title="バージョンについて">
                 <group>
                     PythonもJavaScriptも活発に開発されていて、アップデートが速いです。<br>
                     そのため、ネット上のサイトや本を見るときはどのバージョンを対象にした記事なのかに注意しないと、コードが動かなかったり、古くて今は使われていない手法だったりします。
@@ -210,7 +210,7 @@
                     </table>
                 </group>
             </h3-section>
-            <h3-section title="Pythonを学習しよう">
+            <h3-section num="5.2." title="Pythonを学習しよう">
                 <group>
                     CPythonの公式サイトがチュートリアルを用意してくれています。必ず読みましょう。<br>
                     <a href="https://docs.python.org/ja/3/tutorial/index.html">https://docs.python.org/ja/3/tutorial/index.html</a><br>
@@ -219,7 +219,7 @@
                     理解できない部分がある場合、人に聞くか、本を買ってみるのもよいかもしれません。
                 </group>
             </h3-section>
-            <h3-section title="JavaScript (ブラウザ) を学習しよう">
+            <h3-section num="5.3." title="JavaScript (ブラウザ) を学習しよう">
                 <group>
                     ブラウザの1つであるMozilla Firefoxを開発しているMozillaが、<a href="https://developer.mozilla.org/ja/">MDN (Mozilla Developer Network)</a>でJavaScriptのドキュメントを公開しています。<br>
                     <gray>MDNのWebチュートリアル: <a href="https://developer.mozilla.org/ja/docs/Web/Tutorials">https://developer.mozilla.org/ja/docs/Web/Tutorials</a></gray>
@@ -233,12 +233,12 @@
                     JavaScriptはInternet Explorerではまともに開発できません<gray>（動作が重いことや、JavaScriptのバージョンが古いことなどが原因）</gray>。他のブラウザを使いましょう。
                 </group>
             </h3-section>
-            <h3-section title="JavaScript (Node.js) を学習しよう">
+            <h3-section num="5.4." title="JavaScript (Node.js) を学習しよう">
                 Node.jsは基本的にターミナル上で動作するため、ブラウザ上でJavaScriptを実行するときに使える<code-span>document</code-span>や<code-span>alert</code-span>などの画面の表示に関する変数・関数が存在しません。<br>
                 その代わりに、主にサーバーに関わる、Node.js専用の多くの機能が提供されています。<gray><a href="https://nodejs.org/ja/docs/">Node.jsのドキュメント</a>で確認できます。</gray><br>
                 Node.jsにはパッケージマネージャであるnpm (Node Package Manager)が付属しています。（Pythonのpipに相当）
             </h3-section>
-            <h3-section title="ネット検索について"></h3-section>
+            <h3-section num="5.5." title="ネット検索について"></h3-section>
                 <group>
                     ネットでプログラミングに関することを調べるとき、残念ながら、日本語では1つもまともな記事がヒットしないということがよくあります。
                 </group>
@@ -251,7 +251,7 @@
                     あるいは、<a href="https://duckduckgo.com/">DuckDuckGo</a>などのGoogle以外の検索エンジンを使う方法もあります。<br>
                     検索結果のページの左上に"日本"というトグルボタンがあるので、これをOFFにすることで英語で検索できます。
                 </group>
-            <h3-section title="JavaScriptの古い書き方について">
+            <h3-section num="5.6." title="JavaScriptの古い書き方について">
                 <group>
                     JavaScriptは後方互換性を保ちながらアップデートされているため、今はまず使われない古い書き方が多く存在します。それらの一部をここで示しておきます。
                 </group>
@@ -278,7 +278,7 @@
                 PythonやJavaScriptは動的型付け言語であり、変数に型がありません。<br>
                 これは不便なことが多いので、型付けする方法が用意されています。積極的に使っていくべきです。
             </group>
-            <h3-section title="Pythonの型アノテーションを使う">
+            <h3-section num="6.1." title="Pythonの型アノテーションを使う">
                 <group>
                     Pythonでは型アノテーションを使って型を明示的に指定できます。
                     使い方はCPythonの公式ドキュメントを参照: <a href="https://docs.python.org/ja/3/library/typing.html">https://docs.python.org/ja/3/library/typing.html</a>
@@ -287,7 +287,7 @@
                 例
                 <code-fence lang="python" :code="sampleCode['6']['typed.py']"></code-fence>
             </h3-section>
-            <h3-section title="TypeScriptを使う">
+            <h3-section num="6.2." title="TypeScriptを使う">
                 <group>
                     JavaScriptにはTypeScriptを使って型を付けられます。TypeScriptはJavaScriptに型を指定する文法を加えた言語で、JavaScriptに変換されてから実行されます。
                     <a href="http://www.typescriptlang.org/play/">TypeScriptの公式サイトのPlayground</a>ではブラウザ上で簡単にTypeScriptを試せます。
@@ -302,7 +302,7 @@
                 </group>
                 <group>
                     TypeScriptファイルをJavaScriptに変換するには、以下のコマンドをコマンドプロンプト（ターミナル）上で打ちます。
-                    <code-fence lang="bash" :code="sampleCode['6']['tsc_usage.sh']"></code-fence>
+                    <code-fence lang="shell" :code="sampleCode['6']['tsc_usage.sh']"></code-fence>
                     <code-span>main.ts</code-span>のようなファイルを作り、コードを書き、コマンドプロンプト（ターミナル）上で<code-span>npx tsc</code-span>と打てば、TypeScriptからJavaScriptへ変換されます。
                 </group>
                 <group>
@@ -333,7 +333,7 @@
             </div>
         </h2-section>
         <h2-section num="8." title="サンプルプログラム1: かんたんなサーバー">
-            <h3-section title="この節について">
+            <h3-section num="8.1." title="この節について">
                 <group>
                     ためしに簡単なプログラムを書いて、各言語の雰囲気を感じてもらうために書きました。<br>
                     パッケージマネージャの使い方を示すために、意味もなく外部ライブラリを持ち出しています。
@@ -343,7 +343,7 @@
                     今回は入門のため使いませんが、実際にはpackage-lock.json (各ライブラリのどのバージョンを使うか書かれたファイル) や nvm (Node Version Manager) などで対処できます。
                 </group>
             </h3-section>
-            <h3-section title="パッケージマネージャとは">
+            <h3-section num="8.2." title="パッケージマネージャとは">
                 <group>
                     Pythonにはpip、Node.jsにはnpmというパッケージマネージャが付属している。<br>
                 </group>
@@ -356,7 +356,7 @@
                     ライブラリを使うときは、必ずライセンスを確認すること。（MITとかBSDとかGPLとか）
                 </group>
             </h3-section>
-            <h3-section title="Python">
+            <h3-section num="8.3." title="Python">
                 <ol type="1">
                     <li>
                         まずpipを使って必要なライブラリをインストールする。VSCodeを使う場合、
@@ -394,7 +394,7 @@
                     </li>
                 </ol>
             </h3-section>
-            <h3-section title="JavaScript/TypeScript">
+            <h3-section num="8.4." title="JavaScript/TypeScript">
                 <ol type="1">
                     <li>
                         まずnpmを使って必要なライブラリをインストールする。VSCodeを使う場合、
@@ -430,13 +430,13 @@
                     </li>
                 </ol>
             </h3-section>
-            <h3-section title="何をしたのか">
+            <h3-section num="8.5." title="何をしたのか">
                 自分のPCが接続されているLAN内からのみアクセスできるサーバを作りました。<br>
                 自分のプライベートIPアドレスがわかれば、他のPCからもアクセスできます。<br>
                 コマンドプロンプトでipconfig（MacOSやLinuxならifconfig）と打ち、<code-span>192.168.</code-span>や<code-span>10.</code-span>や<code-span>172.</code-span>で始まるアドレスを探してください（複数ありますが、"IPv4アドレス"や"inet"となっているものです）。
                 これがプライベートアドレスなので、たとえば<code-span>192.168.2.104</code-span>だったら、<a href="http://192.168.2.104:3000">http://192.168.2.104:3000</a>で同一LAN内の他のPCからもアクセスできます。スマホ等で試してみてください。
             </h3-section>
-            <h3-section title="pypi.orgとnpmjs.comを見よう">
+            <h3-section num="8.6." title="pypi.orgとnpmjs.comを見よう">
                 <group>
                     先ほど使用した外部ライブラリをpypi.orgとnpmjs.comで確認する。
                     英語しかないが、簡単な使い方や、各ライブラリのドキュメントやホームページへのリンクなどを確認できる。
@@ -452,16 +452,16 @@
                     npmなら weekly downloads で人気度を確認できる。pypiはダウンロード数を公開していないので、ライブラリのGitHubページのスター数を見るとよい。
                 </group>
             </h3-section>
-            <h3-section title="@typesとは何か">
+            <h3-section num="8.7." title="@typesとは何か">
                 npmにおいて、"@A/B"という名前のパッケージ名は、"ユーザーAが公開しているパッケージB"という意味。<a href="https://www.npmjs.com/~types">@types</a>は<a href="https://github.com/DefinitelyTyped/DefinitelyTyped">Definitely Typed</a>という団体が管理していて、TypeScriptの型定義ファイルをまとめている。
             </h3-section>
         </h2-section>
         <h2-section num="9." title="サンプルプログラム2: Parcel & p5.js">
-            <h3-section title="この節について">
+            <h3-section num="9.1." title="この節について">
                 この節はTypeScriptの詳細な使い方を示すために書きました。<br>
                 完全な初心者用ではないです。以下のコードは許可なくどう使用しても問題ありません。
             </h3-section>
-            <h3-section title="ライブラリのインストール">
+            <h3-section num="9.2." title="ライブラリのインストール">
                 <group>
                     今回は、<a href="https://p5js.org/">p5</a>を使います。<br>
                     <gray>（最初は<a href="https://www.npmjs.com/package/pixi.js">PixiJS</a>を使おうと思ったが、型定義ファイルが不完全だったり難易度が高かったりするのでやめた。ただ、機能はPixiJSの方が上なはず。）</gray><br>
@@ -469,7 +469,7 @@
                 </group>
                 <code-fence lang="bash" :code="sampleCode['9']['installation.sh']"></code-fence>
             </h3-section>
-            <h3-section title="Parcelを試す">
+            <h3-section num="9.3." title="Parcelを試す">
                 まず、上記のコマンドを打ったのと同じディレクトリで、<code-span>index.html</code-span>を作る。
                 <code-fence lang="html" :code="sampleCode['9']['init-index.html']"></code-fence>
                 <group>
@@ -485,7 +485,7 @@
                     <code-span>Ctrl + C</code-span>でサーバーを終了させる。
                 </group>
             </h3-section>
-            <h3-section title="p5.jsを試す">
+            <h3-section num="9.4." title="p5.jsを試す">
                 main.tsに以下のように書く<br>
                 <gray>p5.jsをglobal mode（デフォルト）で使う場合@types/p5/global.d.tsを使うようにと書いてあったため、p5/globalをインポートしています。</gray>
                 <code-fence lang="typescript" :code="sampleCode['9']['p5-main.ts']"/>
@@ -493,7 +493,7 @@
                     <code-span>parcel index.html</code-span>で実行して <a href="http://localhost:1234/">http://localhost:1234/</a> を見れば、楕円が表示されているはず。
                 </group>
             </h3-section>
-            <h3-section title="型定義ファイルの不足を補おう">
+            <h3-section num="9.5." title="型定義ファイルの不足を補おう">
                 <group>
                     <a href="https://p5js.org/reference/">p5.jsのリファレンス</a>のKeyboardの欄を見ると、キー入力の判定には<a href="https://p5js.org/reference/#/p5/keyIsDown">keyIsDown</a>を使うことがわかる。
                     <a href="https://p5js.org/reference/#/p5/keyIsDown">レファレンス</a>ではこのように使っている。
@@ -511,7 +511,7 @@
                 </group>
                 <code-fence lang="typescript" :code="sampleCode['9']['declare.ts']"></code-fence>
             </h3-section>
-            <h3-section title="シューティングゲーム">
+            <h3-section num="9.6." title="シューティングゲーム">
                 <img
                     src="../images/shooting.jpg"
                     alt="シューティングゲームのスクリーンショット">

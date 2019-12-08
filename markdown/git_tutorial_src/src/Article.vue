@@ -26,7 +26,7 @@
                 <h4-section title="4.">
                     <group>
                         次から，このプログラマはプログラムに変更を加えるたびに <strong>日付</strong> （または連番）をつけて保存するようになる...
-                        <code-fence lang="console" :code="sampleCode['1']['directory-manual-versioning']"></code-fence>
+                        <code-fence lang="shell" :code="sampleCode['1']['directory-manual-versioning']"></code-fence>
                     </group>
                 </h4-section>
             </h3-section>
@@ -34,7 +34,7 @@
                 <h4-section title="1.">
                     <group>
                         まずターミナルで `git init` を打ってから作業を開始する
-                        <code-fence lang="console" :code="sampleCode['1']['git-init']"></code-fence>
+                        <code-fence lang="shell" :code="sampleCode['1']['git-init']"></code-fence>
                     </group>
                 </h4-section>
                 <h4-section title="2.">
@@ -43,7 +43,7 @@
                         <code-fence lang="c" :code="sampleCode['1']['main.c-1']"></code-fence>
                     </group>
                     <group>
-                        <code-fence lang="c" :code="sampleCode['1']['git-commit-1']"></code-fence>
+                        <code-fence lang="shell" :code="sampleCode['1']['git-commit-1']"></code-fence>
                     </group>
                 </h4-section>
                 <h4-section title="3.">
@@ -52,13 +52,13 @@
                         <code-fence lang="c" :code="sampleCode['1']['main.c-2']"></code-fence>
                     </group>
                     <group>
-                        <code-fence lang="c" :code="sampleCode['1']['git-commit-2']"></code-fence>
+                        <code-fence lang="shell" :code="sampleCode['1']['git-commit-2']"></code-fence>
                     </group>
                 </h4-section>
                 <h4-section title="4.">
                     <group>
                         ここで，<strong>3.</strong>で上書き保存して消えたmy_div関数をgitの履歴から取り出すために，<strong>2.の時点でのディレクトリの状態を復元する</strong>
-                        <code-fence lang="c" :code="sampleCode['1']['git-log-and-git-checkout']"></code-fence>
+                        <code-fence lang="shell" :code="sampleCode['1']['git-log-and-git-checkout']"></code-fence>
                     </group>
                     <group>
                         テキストエディタでmain.cを開くと，my_div関数が存在する。
@@ -66,7 +66,7 @@
                     </group>
                     <group>
                         復元したmy_div関数をコピーできたら，最新の状態（my_div関数を消した後の状態）に戻る必要がある。そのためには以下のコマンドを打つ。
-                        <code-fence lang="c" :code="sampleCode['1']['checkout-master']"></code-fence>
+                        <code-fence lang="shell" :code="sampleCode['1']['checkout-master']"></code-fence>
                     </group>
                 </h4-section>
             </h3-section>

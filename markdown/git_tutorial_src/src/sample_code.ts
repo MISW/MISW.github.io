@@ -7,7 +7,7 @@ export const sampleCode = {
 // ゼロ除算をチェックして割り算する関数
 int my_div(int a, int b) {
     if (b == 0) {
-        fprintf(stderr, "Zero division error\n");
+        fprintf(stderr, "Zero division error\\n");
         exit(1);
     }
     return a / b;
@@ -15,7 +15,7 @@ int my_div(int a, int b) {
 
 int main(void) {
     // 20 / 4 の結果を表示する
-    printf("%d\n", my_div(20, 4));
+    printf("%d\\n", my_div(20, 4));
     return 0;
 }
 `,
@@ -24,7 +24,7 @@ int main(void) {
 
 int main(void) {
     // 20 / 4 の結果を表示する
-    printf("%d\n", 20 / 4);
+    printf("%d\\n", 20 / 4);
     return 0;
 }`,
     "main.c-3": `\
@@ -32,7 +32,7 @@ int main(void) {
 
 int main(int argc) {
     // 20 / (argc - 1) の結果を表示する（argcはプログラムに渡された引数の個数）
-    printf("%d\n", 20 / (argc - 1));
+    printf("%d\\n", 20 / (argc - 1));
     return 0;
 }`,
     "directory-manual-versioning": `
@@ -62,18 +62,18 @@ $ git commit -m "div関数を削除"
 [master bd23c17] div関数を削除
     1 files changed, 1 insertion(+), 12 deletions(-)`,
     "git-log-and-git-checkout": `\
-# コミットのリストを表示。HEADが現在のディレクトリの状態，
-# bd23c17と7d7d553はそれぞれのコミットのID
+$ # コミットのリストを表示。HEADが現在のディレクトリの状態，
+$ # bd23c17と7d7d553はそれぞれのコミットのID
 $ git log --oneline
 bd23c17 (HEAD -> master) div関数を削除
 7d7d553 initial commit
 
-# IDが7d7d553のコミットの状態へディレクトリを復元する
+$ # IDが7d7d553のコミットの状態へディレクトリを復元する
 $ git checkout 7d7d553
 Note: checking out '7d7d553'.
 ...`,
     "checkout-master": `\
-# 最新の状態へ戻る
+$ # 最新の状態へ戻る
 $ git checkout master`,
     },
 } as const;

@@ -120,12 +120,14 @@ body.dark-mode {
 
     .hljs-deletion,
     .hljs-meta {
-        color: #e4e4e4;
+        color: #70deff;
     }
 }
 
 body:not(.dark-mode) {
-    .hljs-comment,
+    .hljs-comment {
+        color: #1a8100;
+    }
     .hljs-quote {
         color: #998;
     }
@@ -187,7 +189,7 @@ body:not(.dark-mode) {
     }
 
     .hljs-meta {
-        color: #999;
+        color: rgb(56, 119, 255);
     }
 
     .hljs-deletion {

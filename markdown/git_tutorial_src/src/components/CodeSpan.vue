@@ -22,5 +22,6 @@ export default Vue.extend({
     font-family: "Source Code Pro", monospace;
     margin: 0 0.3em 0 0.3em;
     padding: 0 0.3em 0 0.3em;
+    border: 1px solid rgb(218, 218, 218);
 }
 </style>
