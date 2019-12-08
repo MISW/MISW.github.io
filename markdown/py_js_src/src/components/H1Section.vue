@@ -1,5 +1,8 @@
 <template>
     <section class="section-h1">
+        <div class="back-link">
+            <a href="https://misw.github.io/">目次へ戻る</a>
+        </div>
         <h1 class="section-h1">{{ title }}</h1>
         <slot></slot>
     </section>
@@ -38,5 +41,10 @@ h1.section-h1 {
     color: white;
     padding: 3rem 0 3rem $header-indent;
     margin: 0 0 1em 0;
+}
+
+.back-link {
+    margin-top: 1em;
+    margin-bottom: 2em;
 }
 </style>

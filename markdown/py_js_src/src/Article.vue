@@ -1,7 +1,7 @@
 <template>
     <h1-section title="Python, JavaScriptの始め方">
         <dark-light-button @click="toggleDarkLight"></dark-light-button>
-        <h2-section num="1." title="インストールしよう">
+        <h2-section num="1." title="インストールしよう" id="first-h2">
             <h3-section title="Pythonのインストール">
                 <group>
                     <a href="https://ja.wikipedia.org/wiki/Python">Python</a>は動的型付け言語のひとつ。
@@ -674,7 +674,7 @@ html {
 
 body {
     font-family: "Noto Sans JP", sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.8;
     &.transition-enabled {
         transition: ease .5s;
@@ -794,4 +794,7 @@ a {
     background: rgba(255, 255, 255, 0.9);
 }
 
+#first-h2 {
+    padding-top: 0;
+}
 </style>

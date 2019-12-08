@@ -20,13 +20,14 @@ export default Vue.extend({
 @import "../consts.scss";
 
 section.section-h2 {
-    padding: 0 0 2rem 0;
+    padding: 6em 0 2rem 0;
     overflow: hidden;
 }
 
 h2.section-h2 {
     font-weight: 700;
     font-size: 2.5em;
+    margin-bottom: 0.4em;
 }
 
 .section-num {
