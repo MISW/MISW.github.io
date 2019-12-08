@@ -85,7 +85,7 @@
                 <code-span>git init</code-span>コマンドを打ったディレクトリに生成される <code-span>.git</code-span> というフォルダの中に保存されている。
             </h3-section>
             <h3-section num="2.5." title="以上の内容の動画">
-                <video src="../assets/git-tutorial1.webm" controls style="width: 60%"></video>
+                <video src="../assets/git-tutorial1.mp4" controls style="width: 60%"></video>
             </h3-section>
             <h3-section num="2.6." title="コマンドを覚えられない">
                 <group>
@@ -129,7 +129,7 @@
                     まず左の段のローカルレポジトリから右の段のレポジトリへgitの履歴を送り，次に逆方向も試している。<br>
                     <code-span>git push</code-span>を実行したときに中段のVSCode上のファイルに変化があることが分かる。
                 </group>
-                <video src="../assets/git-tutorial2.webm" controls style="width: 60%"></video>
+                <video src="../assets/git-tutorial2.mp4" controls style="width: 60%"></video>
             </h3-section>
             <h3-section num="3.2." title="Gitホスティングサービス">
                 <group>
@@ -154,7 +154,7 @@
                 <group>
                     コンフリクトが起きると<code-span>git push</code-span>が実行できなくなる。そうなったら，一度<code-span>git pull</code-span>を行った後にコンフリクトを解消してコミットし，もう一度<code-span>git push</code-span>すればよい。（以下の動画を参照）
                 </group>
-                <video src="../assets/conflict.webm" controls style="width: 60%"></video>
+                <video src="../assets/conflict.mp4" controls style="width: 60%"></video>
             </h3-section>
             <h3-section num="4.2." title="ブランチ">
                 <group>
