@@ -75,5 +75,19 @@ Note: checking out '7d7d553'.
     "checkout-master": `\
 $ # 最新の状態へ戻る
 $ git checkout master`,
+    "git-show": `\
+$ git show 7d7d553:main.c
+... ここにファイルの内容が出力される
+`,
+    "gitignore": `\
+file1        # 任意の場所にある"file1"という名前のファイルを無視
+directory1/  # 任意の場所にある"directory1"という名前のディレクトリを無視
+
+/file1       # レポジトリのトップレベルにある"file1"という名前のファイルを無視
+/directory1/ # レポジトリのトップレベルにある"directory1"という名前のディレクトリを無視
+
+*.png        # 任意の場所の.pngで終わる名前のファイルを無視
+
+`
     },
 } as const;
