@@ -1,0 +1,1213 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Python, JavaScriptの始め方</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="MIS.WのPythonとJavaScriptの入門記事">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="src/theme-color.css">
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <a id="back-button" class="icon-button" title="Back to index" href="https://misw.github.io/">
+                                <i class="fa fa-reply" aria-hidden="true"></i>
+                            </a>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-sun-o"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="dark">Dark</button></li>
+                            </ul>
+                        </div>
+
+                        <h1 class="menu-title">Python, JavaScriptの始め方</h1>
+                    </div>
+                </div>
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#インストールしよう" id="インストールしよう">インストールしよう</a></h1>
+<h2><a class="header" href="#pythonのインストール" id="pythonのインストール">Pythonのインストール</a></h2>
+<p><a href="https://ja.wikipedia.org/wiki/Python">Python</a>は動的型付け言語のひとつ。</p>
+<p>以下のような実装がある。</p>
+<p><a href="https://www.python.org/">CPython</a>
+<img
+  src="./images/python-logo-generic.svg"
+  alt="Pythonのロゴ"
+  class="inline-img"><br />
+最もよく使われる実装。今回はこれを使う。</p>
+<p><a href="http://pypy.org/">PyPy</a>
+<img
+  src="./images/pypy-logo.png"
+  alt="Pythonのロゴ"
+  class="inline-img"><br>
+CPythonよりも実行速度が速い。その代わり起動は遅い。
+※ PyPyのロゴは Samuel Reis によります</p>
+<p><img
+    src="./images/python_org.jpg"
+    alt="CPythonの公式サイトのスクリーンショット"
+    class="float-left"></p>
+<div>
+  インストールは
+  <a href="https://www.python.org">CPythonの公式サイト</a>からインストーラをダウンロードして行う。Python2とPython3があるが、2は古いため3を使う。<br>
+  ※ 左図はCPythonのホームページのスクリーンショット
+</div>
+<p>ネット上にはPythonのインストールにAnacondaを使うことを推奨している記事があるが、Anacondaは初心者が使うと問題が起きるため推奨しない。また、上記サイトからインストールする場合は先にアンインストールしておくこと。
+（参考1:
+<a
+  href="http://www.zopfco.de/entry/2017/04/03/233811"
+>Pythonの環境管理ツール良し悪し - Zopfcode</a>, 参考2:
+<a
+  href="http://onoz000.hatenablog.com/entry/2018/02/11/142347"
+>condaとpip：混ぜるな危険 - onoz000’s blog</a>）</p>
+<h2><a class="header" href="#nodejsのインストール" id="nodejsのインストール">Node.jsのインストール</a></h2>
+<p><a href="https://ja.wikipedia.org/wiki/JavaScript">JavaScript</a>はブラウザやNode.jsで動かすことのできる言語。実装にはV8やSpiderMonkeyなどがある。</p>
+<p><img
+  src="./images/Node.js_logo.svg"
+  alt="Node.jsのロゴ"
+  class="float-left"></p>
+<div>
+  <a href="https://nodejs.org/ja/">Node.jsの公式サイト</a>でインストーラーをダウンロードできる。
+  公式サイトにはLTSとCurrentの2つのバージョンがある。
+  <a href="https://en.wikipedia.org/wiki/Long-term_support">LTS</a>はLong-term supportの略で、安定版のこと。このページにあるサンプルプログラムはLTSでしか動作確認していないため、LTSを推奨する。
+</div>
+<h1><a class="header" href="#ファイルから実行してみる" id="ファイルから実行してみる">ファイルから実行してみる</a></h1>
+<h2><a class="header" href="#pythonをファイルから実行してみよう" id="pythonをファイルから実行してみよう">Pythonをファイルから実行してみよう</a></h2>
+<p>好きな場所に <code>main.py</code> というファイルを作って、以下の内容を書き込む</p>
+<pre><code class="language-python">print(&quot;Hello, world!&quot;)
+
+def f(x):
+    return 2 * x + 10
+
+f(5)
+</code></pre>
+<p>コマンドプロンプト（ターミナル）を開いて、 <code>py 今作ったファイルのパス</code> と打つ
+（例:  <code>py C:\Users\foo\main.py</code> ）<br />
+※ MacOSやLinuxの場合は、 <code>py</code> の部分を <code>python3</code> で読み替えてください。<br />
+以下のように表示されたら成功。</p>
+<pre><code class="language-plaintext">Hello, world!
+20
+</code></pre>
+<h2><a class="header" href="#javascript-nodejs-をファイルから実行してみよう" id="javascript-nodejs-をファイルから実行してみよう">JavaScript (Node.js) をファイルから実行してみよう</a></h2>
+<p>好きな場所に<code>main.js</code>というファイルを作って、以下の内容を打ち込む</p>
+<pre><code class="language-javascript">// &quot;Hello, world!&quot; と表示させる
+console.log(&quot;Hello, world!&quot;)
+
+// 関数 f(x) = 2x + 10 を定義
+const f = (x) =&gt; {
+    return 2 * x + 10;
+};
+
+// f(5)を計算して表示
+console.log(f(5))
+</code></pre>
+<p>コマンドプロンプト（ターミナル）を開いて、 <code>node 今作ったファイルのパス</code> と打つ
+（例:  <code>node C:\Users\foo\main.js</code> ）<br />
+以下のように表示されたら成功。</p>
+<pre><code class="language-javascript">Hello, world!
+20
+</code></pre>
+<h2><a class="header" href="#javascript-ブラウザ-をファイルから実行してみよう" id="javascript-ブラウザ-をファイルから実行してみよう">JavaScript (ブラウザ) をファイルから実行してみよう</a></h2>
+<p>JavaScriptファイルをブラウザ上で実行するにはHTMLファイルが必要。<br />
+好きな場所に <code>index.html</code> というファイルを作って、以下の内容を打ち込む</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;script src=&quot;./main.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><code>index.html</code> と同じフォルダ内に <code>main.js</code> というファイルを作って、以下の内容を打ち込む</p>
+<pre><code class="language-javascript">// &quot;Hello, world!&quot; と表示させる
+console.log(&quot;Hello, world!&quot;)
+
+// 関数 f(x) = 2x + 10 を定義
+const f = (x) =&gt; {
+    return 2 * x + 10;
+};
+
+// f(5)を計算して表示
+console.log(f(5))
+</code></pre>
+<p>ブラウザ（Internet Explorerだとうまく実行できない可能性があるため、Microsoft EdgeやGoogle ChromeやMozilla Firefoxなどの他のブラウザを使用してください。）を開き、 <code>index.html</code> ファイルをブラウザへドラッグ</p>
+<p>F12キーを押して、出てきたパネル上でConsole (コンソール) タブを開いて、以下のように表示されていたら成功。</p>
+<pre><code class="language-javascript">Hello, world!
+20
+</code></pre>
+<h1><a class="header" href="#replを実行してみる" id="replを実行してみる">REPLを実行してみる</a></h1>
+<h2><a class="header" href="#replとは" id="replとは">REPLとは</a></h2>
+<p>多くの言語には<a href="https://ja.wikipedia.org/wiki/REPL">REPL (Read-Eval-Print Loop)</a>が存在する。</p>
+<blockquote>
+<p>C#ならcsi、Javaならjshell、Goならgore、Rubyならirb、...</p>
+</blockquote>
+<p>REPLを使うと、ファイルを用意せずに短いコードを簡単に実行できる。<br />
+REPL上では、入力した式の計算結果を <code>print</code> や <code>console.log</code> を使わなくても表示してくれる。</p>
+<h2><a class="header" href="#pythonのreplを実行しよう" id="pythonのreplを実行しよう">PythonのREPLを実行しよう</a></h2>
+<p>コマンドプロンプト（ターミナル）を開いて、 <code>py</code> と打つ<br />
+※ MacOSやLinuxの場合は、 <code>python3</code> と打ってください。</p>
+<p>以下のように打つ。</p>
+<pre><code class="language-python">&gt;&gt;&gt; &quot;Hello, world!&quot;
+'Hello, world!'
+&gt;&gt;&gt; def f(x):
+...     return 2 * x + 10
+...
+&gt;&gt;&gt; f(5)
+20
+</code></pre>
+<p>いろいろ入力してみてください。（ <code>f(10)</code>  や <code>2 + 4</code> など）</p>
+<h2><a class="header" href="#javascript-nodejs-のreplを実行しよう" id="javascript-nodejs-のreplを実行しよう">JavaScript (Node.js) のREPLを実行しよう</a></h2>
+<p>コマンドプロンプト（ターミナル）を開いて、 <code>node</code> と打つ</p>
+<p>以下のように打つ。</p>
+<pre><code class="language-javascript">&gt; &quot;Hello, world!&quot;
+'Hello, world!'
+&gt; const f = (x) =&gt; {
+...     return 2 * x + 10;
+... };
+undefined
+&gt; f(5)
+20
+</code></pre>
+<p>いろいろ入力してみてください。（ <code>f(10)</code>  や <code>2 + 4</code> など）</p>
+<h2><a class="header" href="#javascript-ブラウザ-のreplを実行しよう" id="javascript-ブラウザ-のreplを実行しよう">JavaScript (ブラウザ) のREPLを実行しよう</a></h2>
+<p>ブラウザ（Microsoft EdgeやMozilla FirefoxやGoogle ChromeやInternet Explorerなど）を開き、F12キーを押す<br />
+※ 空のタブを使ってください。</p>
+<p>Console (コンソール) タブを開き、以下のように打つ。</p>
+<pre><code class="language-javascript">&gt; &quot;Hello, world!&quot;
+&quot;Hello, world!&quot;
+&gt; const f = (x) =&gt; {
+        return 2 * x + 10;
+    };
+undefined
+&gt; f(5)
+20
+</code></pre>
+<p>いろいろ入力してみてください。（ <code>f(10)</code>  や <code>2 + 4</code> など）</p>
+<h1><a class="header" href="#テキストエディタ" id="テキストエディタ">テキストエディタ</a></h1>
+<p><img
+  src="./images/Visual_Studio_Code_1.18_icon.svg"
+  alt="VSCodeのアイコン"
+  class="float-left"></p>
+<div>
+  テキストエディタにはMicrosoftが開発している、<a href="https://nodejs.org/ja/docs/">VSCode</a>を使うのがおすすめです。<br>
+  起動が速くて高機能です。<br>
+  特に、VSCodeはTypeScript（後述）で開発されているのもあって、TypeScriptを使うならVSCodeを使うべきです。<br>
+  拡張機能の
+  <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin">TSLint</a>
+  を入れて使うべきです（※ TSLintは廃止予定で、将来的にESLintへ移ります）。他にも、
+  <a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome">Debugger for Chrome</a>, <a href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker">Code Spell Checker</a>なども入れるといいと思います。（細かい使い方はネットで調べてください。）
+</div>
+<h1><a class="header" href="#python-javascriptの学習方法" id="python-javascriptの学習方法">Python, JavaScriptの学習方法</a></h1>
+<h2><a class="header" href="#バージョンについて" id="バージョンについて">バージョンについて</a></h2>
+<p>PythonもJavaScriptも活発に開発されていて、アップデートが速いです。<br />
+そのため、ネット上のサイトや本を見るときはどのバージョンを対象にした記事なのかに注意しないと、コードが動かなかったり、古くて今は使われていない手法だったりします。</p>
+<p>Pythonのバージョン</p>
+<table>
+  <tr><th>バージョン</th><th>リリース年</th></tr>
+  <tr><td>1</td><td>1994</td></tr>
+  <tr><td>2 (2.0 ~ 2.7)</td><td>2000</td></tr>
+  <tr><td>3 (3.0 ~)</td><td>2008</td></tr>
+</table>
+<blockquote>
+<p>※ Python 2は2020年にサポート終了になる。
+現時点での最新は3.7で、2018年にリリース。</p>
+</blockquote>
+<p>JavaScriptのバージョン</p>
+<table>
+  <tr><th>バージョン</th><th>リリース年</th><th>主な新機能</th></tr>
+  <tr><td>ES3</td><td>1999</td><td></td></tr>
+  <tr><td>ES4</td><td>リリース無し</td><td></td></tr>
+  <tr><td>ES5</td><td>2009</td><td>strict mode, Arrayのメソッド追加</td></tr>
+  <tr><td>ES2015 (ES6)</td><td>2015</td><td>let, const, class, Arrayのメソッド追加, アロー関数, テンプレート文字列, for~of, Promise, ...</td></tr>
+  <tr><td>ES2016</td><td>2016</td><td>累乗演算子, Arrayのincludesメソッド</td></tr>
+  <tr><td>ES2017</td><td>2017</td><td>async/await</td></tr>
+</table>
+<h2><a class="header" href="#pythonを学習しよう" id="pythonを学習しよう">Pythonを学習しよう</a></h2>
+<p>CPythonの公式サイトがチュートリアルを用意してくれています。必ず読みましょう。<br />
+<a href="https://docs.python.org/ja/3/tutorial/index.html">https://docs.python.org/ja/3/tutorial/index.html</a></p>
+<p>理解できない部分がある場合、人に聞くか、本を買ってみるのもよいかもしれません。</p>
+<h2><a class="header" href="#javascript-ブラウザ-を学習しよう" id="javascript-ブラウザ-を学習しよう">JavaScript (ブラウザ) を学習しよう</a></h2>
+<p>ブラウザの1つであるMozilla Firefoxを開発しているMozillaが、<a href="https://developer.mozilla.org/ja/">MDN (Mozilla Developer Network)</a>でJavaScriptのドキュメントを公開しています。</p>
+<blockquote>
+<p>MDNのWebチュートリアル: <a href="https://developer.mozilla.org/ja/docs/Web/Tutorials">https://developer.mozilla.org/ja/docs/Web/Tutorials</a></p>
+</blockquote>
+<p>ただ、このチュートリアルは少し読みづらいので、他のサイトを見るか本を買った方が良いかもしれません。
+とくにこちらのサイトがおすすめです: <a href="https://uhyohyo.net/javascript/">uhyohyo.net/JavaScript初級者から中級者になろう</a> （名前に反して、JavaScriptを全く知らない方にも良いサイトです。）</p>
+<p>ブラウザ上で複数のJavaScriptファイルを組み合わせて使う場合、WebPackやParcelが必要になります。（使わなくてもできるが、大変）<br />
+JavaScriptはInternet Explorerではまともに開発できません（動作が重いことや、JavaScriptのバージョンが古いことなどが原因）。他のブラウザを使いましょう。</p>
+<h2><a class="header" href="#javascript-nodejs-を学習しよう" id="javascript-nodejs-を学習しよう">JavaScript (Node.js) を学習しよう</a></h2>
+<p>Node.jsは基本的にターミナル上で動作するため、ブラウザ上でJavaScriptを実行するときに使える <code>document</code> や <code>alert</code> などの画面の表示に関する変数・関数が存在しません。<br />
+その代わりに、主にサーバーに関わる、Node.js専用の多くの機能が提供されています。<a href="https://nodejs.org/ja/docs/">Node.jsのドキュメント</a>で確認できます。<br />
+Node.jsにはパッケージマネージャであるnpm (Node Package Manager)が付属しています。（Pythonのpipに相当）</p>
+<h2><a class="header" href="#ネット検索について" id="ネット検索について">ネット検索について</a></h2>
+<p>ネットでプログラミングに関することを調べるとき、残念ながら、日本語では1つもまともな記事がヒットしないということがよくあります。</p>
+<p>Googleの検索欄に英語を打っても、デフォルトでは日本のページが優先されて表示されてしまいます。
+英語版のGoogleを使うにはこのURLを使ってください。
+<a href="https://www.google.com/?gl=us&hl=en&gws_rd=cr&pws=0">https://www.google.com/?gl=us&amp;hl=en&amp;gws_rd=cr&amp;pws=0</a></p>
+<p>あるいは、<a href="https://duckduckgo.com/">DuckDuckGo</a>などのGoogle以外の検索エンジンを使う方法もあります。<br />
+検索結果のページの左上に&quot;日本&quot;というトグルボタンがあるので、これをOFFにすることで英語で検索できます。</p>
+<h2><a class="header" href="#javascriptの古い書き方について" id="javascriptの古い書き方について">JavaScriptの古い書き方について</a></h2>
+<p>JavaScriptは後方互換性を保ちながらアップデートされているため、今はまず使われない古い書き方が多く存在します。それらの一部をここで示しておきます。</p>
+<p>関数</p>
+<pre><code class="language-javascript">// 古い書き方
+// ※ 変数名の巻き上げやthisの束縛を目的として、あるいはわかりやすさから、こちらを選ぶこともある。
+function foo() {
+    // 関数の本体
+}
+
+// 新しい書き方
+const foo = () =&gt; {
+    // 関数の本体
+};
+</code></pre>
+<p>変数</p>
+<pre><code class="language-javascript">// 古い書き方
+var x;
+
+// 新しい書き方
+// 再代入するならlet、再代入しないならconstを使う。
+let x;
+const x;
+</code></pre>
+<p>クラス</p>
+<pre><code class="language-javascript">// 古い書き方
+//     functionでコンストラクタを定義し、prototypeでメソッドを定義する。
+function Foo() {
+    this.x = 30;
+}
+
+Foo.prototype.bar = function() {
+    console.log(this.x);
+};
+
+new Foo().bar();  // 30
+
+// 新しい書き方
+//     class文を使う。class文は古い書き方の糖衣構文。
+class Foo {
+    constructor() {
+        this.x = 30;
+    }
+    
+    bar() {
+        console.log(this.x);
+    }
+}
+
+new Foo().bar();
+</code></pre>
+<p>ブロックスコープ</p>
+<pre><code class="language-javascript">// 古い書き方
+// (function(){})() や !function(){}() など。
+(function() {
+    // スコープ
+})();
+
+// 新しい書き方
+{
+    // スコープ
+}
+</code></pre>
+<h1><a class="header" href="#型を付けよう" id="型を付けよう">型を付けよう</a></h1>
+<p>PythonやJavaScriptは動的型付け言語であり、変数に型がありません。<br />
+これは不便なことが多いので、型付けする方法が用意されています。積極的に使っていくべきです。</p>
+<h2><a class="header" href="#pythonの型アノテーションを使う" id="pythonの型アノテーションを使う">Pythonの型アノテーションを使う</a></h2>
+<p>Pythonでは型アノテーションを使って型を明示的に指定できます。
+使い方はCPythonの公式ドキュメントを参照: <a href="https://docs.python.org/ja/3/library/typing.html">https://docs.python.org/ja/3/library/typing.html</a></p>
+<p>例</p>
+<pre><code class="language-python">{# 変数
+y: str = &quot;name&quot;
+
+# 関数
+def f(x: int) -&gt; int:
+    return x * 30
+</code></pre>
+<h2><a class="header" href="#typescriptを使う" id="typescriptを使う">TypeScriptを使う</a></h2>
+<p>JavaScriptにはTypeScriptを使って型を付けられます。TypeScriptはJavaScriptに型を指定する文法を加えた言語で、JavaScriptに変換されてから実行されます。
+<a href="http://www.typescriptlang.org/play/">TypeScriptの公式サイトのPlayground</a>ではブラウザ上で簡単にTypeScriptを試せます。</p>
+<p>Node.jsでTypeScriptを使う場合、 <code>ts-node</code> が便利です。
+コマンドプロンプト（ターミナル）上で <code>npm install -g ts-node typescript</code> と打つとts-nodeがインストールされます
+（ts-nodeの使用にはtypescriptのインストールも必要）。
+あとは、 <code>ts-node ファイル名</code> と打てば、TypeScriptのファイルを実行できるはずです。<br />
+（内部的には、TypeScriptのファイルがJavaScriptに変換されてからNode.jsで実行されます。）</p>
+<blockquote>
+<p>※  <code>ts-node</code> コマンドが存在しないと表示された場合は、<a href="https://qiita.com/yuki12/items/9723f60907508b11504b">PATHを通す</a>必要があります。Windowsの場合は <code>%APPDATA%\npm</code> を追加すればよいです。</p>
+</blockquote>
+<p>TypeScriptファイルをJavaScriptに変換するには、以下のコマンドをコマンドプロンプト（ターミナル）上で打ちます。</p>
+<pre><code class="language-shell">$ # 以下のコマンドを変換したいファイルのあるディレクトリ上で実行する
+$ npm init -y  # npmの初期化。package.jsonが生成される。
+$ npm install -D typescript  # TypeScriptのインストール
+$ npx tsc --init  # TypeScriptの初期化。tsconfig.jsonが生成される。
+</code></pre>
+<p><code>main.ts</code> のようなファイルを作り、コードを書き、コマンドプロンプト（ターミナル）上で <code>npx tsc</code> と打てば、TypeScriptからJavaScriptへ変換されます。</p>
+<p>TypeScriptでは、変換先のJavaScriptのバージョンが低いときJavaScriptのいくつかの最新の機能（Arrayの関数やMapなど）を使えません。
+<code>tsconfig.json</code> の <code>&quot;target&quot;</code> を <code>&quot;ES2017&quot;</code> とかにすれば使えるようになります。</p>
+<p><strong>TypeScriptはJavaScriptとほぼ同じ</strong> です。最低限覚えるべき文法を記しておきます。
+細かい使い方はサンプルプログラムを見てください。
+これを読んだら、次に<a href="https://qiita.com/uhyo/items/da21e2b3c10c8a03952f">TypeScriptの型初級</a>を見ることをお勧めします。</p>
+<blockquote>
+<p>TypeScriptはJavaScriptさえ分かっていれば学習コストが低いことが特徴なので、とりあえずは軽く使ってみて、興味が出たらTypeScriptの型初級を読むといいです。</p>
+</blockquote>
+<pre><code class="language-typescript">// 変数はつねに1つの型を持つ。変数の型は最初に代入された値の型によって決まる。
+let x = 20  // xはnumber型になる
+x = &quot;foo&quot;   // JavaScriptではこれは許されるが、TypeScriptではコンパイルエラー。
+
+// 明示的に変数の型を指定できる
+let y: number = 20  // 変数の型を指定して、同時に初期値を代入
+let z: number  // 変数を型を指定して宣言
+
+// 関数の引数と返り値の型を以下のように指定できる
+const f = (x: number, y: string): string =&gt; {  // numberとstringを受け取ってstringを返す
+    return x + y;
+}
+
+console.log(f(20, &quot;foo&quot;).length)  // fの使用例
+
+// 型には他に以下のようなものが存在する
+let a: boolean = true
+let b: null = null
+let c: { x: number, y: number } = { x: 20, y: 40 }
+let d: (x: number) =&gt; void = (x: number) =&gt; { console.log(x) }  // numberを受け取ってundefinedを返す関数型
+let e: number[] = []  // 数値の配列
+
+// 型指定で毎回 { x: number, y: number } みたいに書くのは長くてつらいため、
+// interface文で型に名前を付けられる
+interface I {
+    x: number;
+    y: number;
+}
+let d: I = { x: 20, y: 40 }
+
+// any型の変数はTypeScriptの型チェックから無視され、どんな操作も可能になる。
+// asでキャストできる。anyは危険なため、本当に必要な時にしか使うべきでない。
+console.log(undefined.foo)           // これはコンパイルエラーになる
+console.log((undefined as any).foo)  // これはコンパイルはできるが実行時に TypeError: Cannot read property 'foo' of undefined
+
+// ファイル外（scriptタグの埋め込みなど）で定義された変数は、TypeScriptでは
+// 使おうとしても存在しないといわれてコンパイルエラーになるため、declare文が必要。
+// declare let, declare const, declare class, ... を使える。
+// あるいは、型定義ファイルというdeclare文を使ったファイルを別途用意する。
+declare const someLibrary: any  // 変数 someLibrary が any型でグローバルに存在すると宣言
+console.log(someLibrary)  // 変数 someLibrary を使えるようになった
+
+// CommonJSの require() を使う場合、const x = require(&quot;foo&quot;) のように書くとTypeScript
+// から認識されない。CommonJS用の文法 import x = require(&quot;foo&quot;) を使う必要がある。
+import fs = require(&quot;fs&quot;)
+
+// ES6の import はJavaScriptと同じ。
+import fs from &quot;fs&quot;
+
+// x | y で型xまたは型yである型を定義できる。
+// そのような型の変数を値を使う場合、先にif文で型をチェックしておく必要がある。
+let x: number | null = null
+console.log(x + 20)  // コンパイルエラー: Object is possibly 'null'.
+if (typeof x === &quot;number&quot;) {
+    // このif文内ではxの型が一時的に number | null から number に変わる
+    console.log(x + 20)  // 問題なし
+}
+
+// 他にも extends/infer, typeof, keyof, ...といろいろあるが、軽く使う分には必要ない。
+</code></pre>
+<h1><a class="header" href="#クロスブラウザについて" id="クロスブラウザについて">クロスブラウザについて</a></h1>
+<p><img src="./images/can_i_use_es6.jpg" alt="caniuseのスクリーンショット" /></p>
+<p>各ブラウザのJavaScriptのバージョン（実装状況）は<a href="https://caniuse.com/">caniuse.com</a>などで確認できます。<br />
+例えばES2015 (ES6)を使えるかは、<a href="https://caniuse.com/#search=ES6">https://caniuse.com/#search=ES6</a> で確認できます。
+これを見ると、IE (Internet Explorer) ではES6をほとんど使えないことがわかります。
+現在は<a href="https://babeljs.io/">Babel</a>などを使ってES2015以降のコードをES5以前のコードに変換して対応するのが主流ですが、
+IEは2020年の1月にサポートが切れるので、それ以降はIEを切り捨てる方向になると思われます。</p>
+<blockquote>
+<p>（TypeScriptはデフォルトではES5のコードに変換されます。）</p>
+</blockquote>
+<h1><a class="header" href="#サンプルプログラム1-かんたんなサーバー" id="サンプルプログラム1-かんたんなサーバー">サンプルプログラム1: かんたんなサーバー</a></h1>
+<h2><a class="header" href="#この節について" id="この節について">この節について</a></h2>
+<p>ためしに簡単なプログラムを書いて、各言語の雰囲気を感じてもらうために書きました。<br />
+パッケージマネージャの使い方を示すために、意味もなく外部ライブラリを持ち出しています。</p>
+<p>PythonやNode.jsのコードは、実行環境やライブラリのアップデートで動かなくなることがあります。最新バージョンの環境で動かないことを確認した方は、管理者にご報告ください。<br />
+今回は入門のため使いませんが、実際にはpackage-lock.json (各ライブラリのどのバージョンを使うか書かれたファイル) や nvm (Node Version Manager) などで対処できます。</p>
+<h2><a class="header" href="#パッケージマネージャとは" id="パッケージマネージャとは">パッケージマネージャとは</a></h2>
+<p>Pythonにはpip、Node.jsにはnpmというパッケージマネージャが付属している。</p>
+<p>パッケージマネージャは外部ライブラリのダウンロードに使うツールで、pipなら<a href="https://pypi.org">pypi.org</a>、npmなら<a href="https://www.npmjs.com/">npmjs.com</a>からダウンロードしてくる。<br />
+pipではダウンロードしたファイルはPC全体から呼び出せるが、npmでは <code>-g</code> オプションを付けないとき特定のフォルダ内からのみ呼び出せる。<br />
+各ライブラリにはたいてい多くの依存ライブラリが存在して、1つのライブラリを <code>install</code> すると同時にそのライブラリが依存している多くのライブラリが自動でダウンロードされる。</p>
+<p>ライブラリを使うときは、必ずライセンスを確認すること。（MITとかBSDとかGPLとか）</p>
+<h2><a class="header" href="#python" id="python">Python</a></h2>
+<p>まずpipを使って必要なライブラリをインストールする。VSCodeを使う場合、</p>
+<ol>
+<li>空のフォルダを好きな場所に作る</li>
+<li>もしVSCodeで既に別のフォルダを開いていたら <code>Ctrl+K -&gt; F</code> で閉じる</li>
+<li><code>Ctrl+K -&gt; Ctrl+O</code> からフォルダを開く（あるいはコマンドプロンプト上で <code>code フォルダへのパス</code> ）</li>
+<li><code>Ctrl+Shift+@</code> でコマンドプロンプト（ターミナル）を開いてコマンドを打つ（ ターミナルの種類の切り替えは  <code>Ctrl+Shift+P</code>  -&gt;  <code>select default shell</code>  からできます。）</li>
+</ol>
+<blockquote>
+<p>エラーがおきたら：<br />
+<code>pip</code> コマンドが存在しないと表示された場合は、 <code>py -m pip</code> （MacOSやLinuxでは <code>python3 -m pip</code> ）を使ってください。<br />
+Windowsで「アクセスが拒否されました」と表示される場合、コマンドプロンプトを<a href="https://qiita.com/takuya0301/items/df6cde3bbaf9e13ef8f0">管理者権限で開いて</a>もう一度実行してください。</p>
+</blockquote>
+<blockquote>
+<p><code>pip</code> コマンドでダウンロードしたファイルは、バージョンやOSによって異なりますが、Windowsでバージョン3.7なら <code>C:\Program Files\Python37</code> 下らへんに置かれます。<br />
+インストールしたパッケージの一覧は <code>pip list</code> で見れます。</p>
+</blockquote>
+<pre><code class="language-shell">$ pip install -U Flask
+</code></pre>
+<p>次に、ファイル <code>main.py</code> （名前は何でもよい）を作って、以下のように書く。</p>
+<blockquote>
+<p>一行目で今インストールしたFlaskを呼び出しています。<br />
+<code>/</code> にアクセスしたら&quot;Index Page&quot;と訪問者数、 <code>/foo</code> にアクセスしたら&quot;Foo Page&quot;を表示するプログラムです。</p>
+</blockquote>
+<pre><code class="language-python">from flask import Flask
+app = Flask(__name__)
+
+count = 0
+@app.route('/')
+def index_page():
+    global count
+    count += 1
+    return f&quot;Index Page&lt;br&gt;あなたは{count}番目の訪問者です。&quot;
+
+@app.route('/foo')
+def foo_page():
+    return &quot;Foo Page&quot;
+
+app.run('0.0.0.0', 3000, False)
+</code></pre>
+<p><code>py main.py</code> （あるいは <code>python3 main.py</code> ）で実行した状態で、<a href="http://localhost:3000/">http://localhost:3000/</a>を開くと&quot;Index Page&quot;と訪問者数、<a href="http://localhost:3000/foo">http://localhost:3000/foo</a>を開くと&quot;Foo Page&quot;と表示される。</p>
+<h2><a class="header" href="#javascripttypescript" id="javascripttypescript">JavaScript/TypeScript</a></h2>
+<p>まずnpmを使って必要なライブラリをインストールする。VSCodeを使う場合、</p>
+<ol>
+<li>空のフォルダを好きな場所に作る
+1.もしVSCodeで既に別のフォルダを開いていたら <code>Ctrl+K -&gt; O</code> で閉じる</li>
+<li><code>Ctrl+K -&gt; Ctrl+F</code> からフォルダを開く（あるいはコマンドプロンプト上で <code>code フォルダへのパス</code> ）</li>
+<li><code>Ctrl+Shift+@</code> でコマンドプロンプト（ターミナル）を開いてコマンドを打つ（ターミナルの種類の切り替えは <code>Ctrl+Shift+P</code>  -&gt;  <code>select default shell</code> からできます。）</li>
+</ol>
+<blockquote>
+<p>npmを使うには、最初に <code>npm init -y</code> での初期化が必要です。
+これによって、カレントディレクトリ下に <code>package.json</code> ファイルが生成されます。<br />
+<code>npm install</code> を使うと、ライブラリをダウンロードできます。ライブラリは <code>-g</code> を付けなかった場合カレントディレクトリ下の <code>node_modules</code> フォルダ内に置かれます。中を見ると多くのファイルが存在することを確認できると思います。<br />
+TypeScriptで外部ライブラリを使うときには、同時に型定義ファイル（.d.tsで終わる名前を持つファイル）が必要になります。 <code>@types/ライブラリ名</code> として型定義ファイルが配布されている場合が多いです。</p>
+</blockquote>
+<pre><code class="language-shell">$ # 以下のコマンドはカレントディレクトリ下にファイルを生成するため、
+$ # 新しくフォルダを作ってその中へcdで移動してから行うべき。
+$ npm init -y
+$
+$ # TypeScriptに必要な外部ライブラリのインストールと初期化
+$ npm install -g ts-node typescript  # 既にts-nodeをインストールしたならこの行は不要
+$ npm install -D typescript tslint  # ツールをインストールする際には-Dを付けるとよい
+$ tsc --init  # もしtscコマンドが存在しないと言われたら、PATHを通すこと。Windowsなら%APPDATA%\npmに通す。
+$ npx tslint --init  # -gを付けずにインストールしたライブラリをコマンドとして実行するときは、npxを付ける。
+$
+$ # サーバ用の外部ライブラリとその型定義ファイルのインストール
+$ npm install express
+$ npm install -D @types/express
+</code></pre>
+<p>次にファイル <code>main.ts</code> （名前は何でもよい）を作って、以下のように書く。ただし、1.でコマンドを打ったディレクトリにファイルを置くこと。</p>
+<blockquote>
+<p>一行目で先ほどインストールしたexpressをインポートしている。<br />
+TypeScriptでは、JavaScriptの <code>const X = require(&quot;Y&quot;)</code> を <code>import X = require(&quot;Y&quot;)</code> と書く必要がある。</p>
+</blockquote>
+<pre><code class="language-typescript">import express = require(&quot;express&quot;);
+const app = express();
+
+let count = 0;
+app.get(&quot;/&quot;, (req, res) =&gt; {
+    count++;
+    res.send(`Index Page&lt;br&gt;あなたは\${count}番目の訪問者です。`);
+});
+
+app.get(&quot;/foo&quot;, (req, res) =&gt; res.send(&quot;Foo Page&quot;));
+
+const port = 3000;
+app.listen(port, () =&gt; console.log(&quot;Listening on port &quot; + port));
+</code></pre>
+<p><code>ts-node main.ts</code> で実行した状態で、<a href="http://localhost:3000/">http://localhost:3000/</a>を開くと&quot;Index Page&quot;と訪問者数、<a href="http://localhost:3000/foo">http://localhost:3000/foo</a>を開くと&quot;Foo Page&quot;と表示される。</p>
+<p>このままだと、 <code>console.log</code> の部分に <code>Calls to 'console.log' are not allowed.tslint(no-console)</code> という警告がでます。<br />
+無視してもいいですが、ディレクトリ内のtslint.jsonの&quot;rules&quot;に以下のように一行足せば消えます。</p>
+<pre><code class="language-json">&quot;rules&quot;: {
+    &quot;no-console&quot;: false
+},
+</code></pre>
+<h2><a class="header" href="#何をしたのか" id="何をしたのか">何をしたのか</a></h2>
+<p>自分のPCが接続されているLAN内からのみアクセスできるサーバを作りました。<br />
+自分のプライベートIPアドレスがわかれば、他のPCからもアクセスできます。<br />
+コマンドプロンプトでipconfig（MacOSやLinuxならifconfig）と打ち、 <code>192.168.</code> や <code>10.</code> や <code>172.</code> で始まるアドレスを探してください（複数ありますが、&quot;IPv4アドレス&quot;や&quot;inet&quot;となっているものです）。
+これがプライベートアドレスなので、たとえば <code>192.168.2.104</code> だったら、<a href="http://192.168.2.104:3000">http://192.168.2.104:3000</a>で同一LAN内の他のPCからもアクセスできます。スマホ等で試してみてください。</p>
+<h2><a class="header" href="#pypiorgとnpmjscomを見よう" id="pypiorgとnpmjscomを見よう">pypi.orgとnpmjs.comを見よう</a></h2>
+<p>先ほど使用した外部ライブラリをpypi.orgとnpmjs.comで確認する。
+英語しかないが、簡単な使い方や、各ライブラリのドキュメントやホームページへのリンクなどを確認できる。</p>
+<p>Flask: <a href="https://pypi.org/project/Flask/">https://pypi.org/project/Flask/</a><br />
+express: <a href="https://www.npmjs.com/package/express">https://www.npmjs.com/package/express</a><br />
+typescript: <a href="https://www.npmjs.com/package/typescript">https://www.npmjs.com/package/typescript</a><br />
+ts-node: <a href="https://www.npmjs.com/package/ts-node">https://www.npmjs.com/package/ts-node</a><br />
+@types/express: <a href="https://www.npmjs.com/package/@types/express">https://www.npmjs.com/package/@types/express</a></p>
+<p>npmなら weekly downloads で人気度を確認できる。pypiはダウンロード数を公開していないので、ライブラリのGitHubページのスター数を見るとよい。</p>
+<h2><a class="header" href="#typesとは何か" id="typesとは何か">@typesとは何か</a></h2>
+<p>npmにおいて、&quot;@A/B&quot;という名前のパッケージ名は、&quot;ユーザーAが公開しているパッケージB&quot;という意味。<a href="https://www.npmjs.com/~types">@types</a>は<a href="https://github.com/DefinitelyTyped/DefinitelyTyped">Definitely Typed</a>という団体が管理していて、TypeScriptの型定義ファイルをまとめている。</p>
+<h1><a class="header" href="#サンプルプログラム2-parcel--p5js" id="サンプルプログラム2-parcel--p5js">サンプルプログラム2: Parcel &amp; p5.js</a></h1>
+<h2><a class="header" href="#この節について-1" id="この節について-1">この節について</a></h2>
+<p>この節はTypeScriptの詳細な使い方を示すために書きました。<br />
+完全な初心者用ではないです。以下のコードは許可なくどう使用しても問題ありません。</p>
+<h2><a class="header" href="#ライブラリのインストール" id="ライブラリのインストール">ライブラリのインストール</a></h2>
+<p>今回は、<a href="https://p5js.org/">p5</a>を使います。</p>
+<blockquote>
+<p>（最初は<a href="https://www.npmjs.com/package/pixi.js">PixiJS</a>を使おうと思ったが、型定義ファイルが不完全だったり難易度が高かったりするのでやめた。ただ、機能はPixiJSの方が上なはず。）
+ブラウザ上で複数ファイルのJavaScriptファイルを動かすために、Parcelを使います。（WebPackでもよいが、こちらの方が簡単。）</p>
+</blockquote>
+<pre><code class="language-shell">$ npm init -y
+$
+$ # Parcel, TypeScript
+$ npm install -g parcel-bundler  # 既にparcel-bundlerをインストールしたならこの行は不要
+$ npm install -D typescript tslint
+$ npx tslint --init
+$ npx tsc --init
+$ 
+$ # p5.js
+$ npm install p5
+$ npm install -D @types/p5
+</code></pre>
+<h2><a class="header" href="#parcelを試す" id="parcelを試す">Parcelを試す</a></h2>
+<p>まず、上記のコマンドを打ったのと同じディレクトリで、 <code>index.html</code> を作る。</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Sample Game&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;script src=&quot;./main.ts&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><code>main.ts</code> も作る。</p>
+<pre><code class="language-typescript">document.body.innerText = `3 + 2 = ${3 + 2}`;
+</code></pre>
+<p>あとは、コマンドプロンプト（ターミナル）で <code>parcel index.html</code> と打てば、ビルドされて同時にサーバーが起動する。<br />
+<a href="http://localhost:1234">http://localhost:1234</a>にブラウザでアクセスして、 <code>3 + 2 = 5</code> と表示されていることを確認する。（ <code>parcel index.html --open</code> とすれば、自動でブラウザが開く。）</p>
+<p>コードを編集して保存すると、ブラウザがリロードされて表示が変わる。<br />
+<code>Ctrl + C</code> でサーバーを終了させる。</p>
+<h2><a class="header" href="#p5jsを試す" id="p5jsを試す">p5.jsを試す</a></h2>
+<p>main.tsに以下のように書く</p>
+<blockquote>
+<p>p5.jsをglobal mode（デフォルト）で使う場合@types/p5/global.d.tsを使うようにと書いてあったため、p5/globalをインポートしています。</p>
+</blockquote>
+<pre><code class="language-typescript">import &quot;p5&quot;;
+import {} from &quot;./node_modules/@types/p5/global.d&quot;;
+
+function setup() {
+    createCanvas(640, 480);
+}
+
+function draw() {
+    ellipse(50, 50, 80, 80);
+}
+
+// p5はグローバルに定義されたsetupやdraw関数を参照するため、
+// 手作業でグローバルオブジェクト（window）に各関数を追加する。
+(window as any).setup = setup;
+(window as any).draw = draw;
+</code></pre>
+<p><code>parcel index.html</code> で実行して <a href="http://localhost:1234/">http://localhost:1234/</a> を見れば、楕円が表示されているはず。</p>
+<h2><a class="header" href="#型定義ファイルの不足を補おう" id="型定義ファイルの不足を補おう">型定義ファイルの不足を補おう</a></h2>
+<p><a href="https://p5js.org/reference/">p5.jsのリファレンス</a>のKeyboardの欄を見ると、キー入力の判定には<a href="https://p5js.org/reference/#/p5/keyIsDown">keyIsDown</a>を使うことがわかる。
+<a href="https://p5js.org/reference/#/p5/keyIsDown">レファレンス</a>ではこのように使っている。</p>
+<pre><code class="language-typescript">if (keyIsDown(RIGHT_ARROW)) {
+    // 右矢印キーを押しているときの処理
+}
+</code></pre>
+<p>円がキー入力で動くようにする。</p>
+<p>main.ts</p>
+<pre><code class="language-typescript">import &quot;p5&quot;;
+import {} from &quot;./node_modules/@types/p5/global.d&quot;;
+
+function setup() {
+    createCanvas(640, 480);
+}
+
+let x = 50;
+function draw() {
+    clear();
+    if (keyIsDown(RIGHT_ARROW)) {
+        x += 4;
+    }
+    ellipse(x, 50, 80, 80);
+}
+
+(window as any).setup = setup;
+(window as any).draw = draw;
+</code></pre>
+<p>すると、 <code>RIGHT_ARROW</code> に、 <code>Cannot find name 'RIGHT_ARROW'.</code> というエラーがでる（既に修正されていたら、出ない可能性もある）。<br />
+<code>p5</code> とその型定義である <code>@types/p5</code> は別々に作られているため、実際には <code>RIGHT_ARROW</code> という変数は存在するにも関わらず、型定義に <code>RIGHT_ARROW</code> が存在しなくてエラーになっている。これはTypeScriptではよくあること。<br />
+解決方法はいくつかある。</p>
+<pre><code class="language-typescript">// a. 呼び出し元オブジェクトをany型にキャストする
+//        RIGHT_ARROW は window.RIGHT_ARROW の略なので、
+//        windowをany（型チェックを無視することを表す型）にキャストすることで、強制的にエラーをなくせる。
+if (keyIsDown((window as any).RIGHT_ARROW) {
+    // ...
+}
+
+// b. declare文で型を定義する
+//        型定義ファイルはdeclareを使って型を定義している。
+//        自分でdeclareで型定義を付け足す。
+declare const RIGHT_ARROW: number;  // main.tsの好きな場所に書く
+</code></pre>
+<h2><a class="header" href="#シューティングゲーム" id="シューティングゲーム">シューティングゲーム</a></h2>
+<p><img
+  src="./images/shooting.jpg"
+  alt="シューティングゲームのスクリーンショット"></p>
+<p>シューティングゲームを書きました。参考にしてください。<br />
+趣味でreadonlyを全プロパティにつけていますが、気にしないでください。</p>
+<p>main.ts</p>
+<pre><code class="language-typescript">import &quot;p5&quot;;
+import { Graphics } from &quot;p5&quot;;
+import {} from &quot;./node_modules/@types/p5/global.d&quot;;
+import { RigidBody } from &quot;./rigid_body&quot;;
+import { Vec2D, Vec3D } from &quot;./vec&quot;;
+
+const SCREEN_SIZE: { readonly w: number, readonly h: number} = { w: 550, h: 900 };
+const PLAYER_SPEED = 8;
+
+interface Light {
+    color: Vec3D;
+    pos: Vec2D;
+}
+
+interface Shot {
+    readonly lights: ReadonlyArray&lt;Light&gt;;
+    readonly rigidBody: RigidBody;
+    readonly vibration: number;
+}
+
+const Shot = {
+    new: (pos: Vec2D, velocity: Vec2D, colors: ReadonlyArray&lt;Vec3D&gt;, vibration: number): Shot =&gt; {
+        return {
+            lights: colors.map((color) =&gt; ({ color, pos: Vec2D.new(0, 0) })),
+            rigidBody: RigidBody.new(pos, velocity),
+            vibration,
+        };
+    },
+    update: (shot: Shot): Shot =&gt; {
+        return {
+            lights: shot.lights.map((light) =&gt; {
+                const posMoveFor = Vec2D.new(
+                    Math.random() * shot.vibration,
+                    Math.random() * shot.vibration);
+                const pos = Vec2D.add(
+                    Vec2D.times(light.pos, 0.9),
+                    Vec2D.times(posMoveFor, 0.1));
+                return {
+                    color: light.color,
+                    pos,
+                };
+            }),
+            rigidBody: RigidBody.update(shot.rigidBody),
+            vibration: shot.vibration,
+        };
+    },
+};
+
+interface GameState {
+    readonly playerPos: Vec2D;
+    readonly enemyPos: Vec2D;
+    readonly playerHp: number;
+    readonly enemyHp: number;
+    readonly playerShots: ReadonlyArray&lt;Shot&gt;;
+    readonly enemyShots: ReadonlyArray&lt;Shot&gt;;
+    readonly frameCount: number;
+    readonly scene: &quot;Playing&quot; | &quot;GameClear&quot; | &quot;GameOver&quot;;
+}
+
+const movePlayer = (playerPos: Vec2D): Vec2D =&gt; {
+    if (keyIsDown(RIGHT_ARROW)) {
+        playerPos = Vec2D.add(playerPos, Vec2D.new(PLAYER_SPEED, 0));
+    }
+    if (keyIsDown(LEFT_ARROW)) {
+        playerPos = Vec2D.add(playerPos, Vec2D.new(-PLAYER_SPEED, 0));
+    }
+    if (keyIsDown(DOWN_ARROW)) {
+        playerPos = Vec2D.add(playerPos, Vec2D.new(0, PLAYER_SPEED));
+    }
+    if (keyIsDown(UP_ARROW)) {
+        playerPos = Vec2D.add(playerPos, Vec2D.new(0, -PLAYER_SPEED));
+    }
+    return Vec2D.new(
+        Math.min(SCREEN_SIZE.w, Math.max(0, playerPos.x)),
+        Math.min(SCREEN_SIZE.h, Math.max(0, playerPos.y)));
+};
+
+const moveEnemy = (enemyPos: Vec2D, frameCount: number): Vec2D =&gt; {
+    return Vec2D.new(
+        300 + Math.cos(frameCount / 30) * 100,
+        100 + Math.sin(frameCount / 30) * 20);
+};
+
+const appendNewPlayerShots = (
+        playerShots: ReadonlyArray&lt;Shot&gt;,
+        playerPos: Vec2D, frameCount: number): ReadonlyArray&lt;Shot&gt; =&gt; {
+    const shotsGenerated = new Array&lt;Shot&gt;();
+    if (frameCount % 9 === 0) {
+        shotsGenerated.push(Shot.new(
+            Vec2D.add(playerPos, Vec2D.new(-30, -30)),
+            Vec2D.new(0, -20),
+            [Vec3D.new(255, 255, 100)], 0));
+        shotsGenerated.push(Shot.new(
+            Vec2D.add(playerPos, Vec2D.new(30, -30)),
+            Vec2D.new(0, -20),
+            [Vec3D.new(255, 255, 100)], 0));
+    }
+
+    return [...playerShots, ...shotsGenerated];
+};
+
+const createEnemyShot = (pos: Vec2D, theta: number, speed: number, color: Vec3D, vibration: number): Shot =&gt; {
+    const unitVector = Vec2D.new(Math.cos(theta), Math.sin(theta));
+    const colors = [color];
+    colors.push(
+        Vec3D.new(0, 0, 255), Vec3D.new(255, 0, 0), Vec3D.new(0, 255, 0));
+    return Shot.new(
+        Vec2D.add(pos, Vec2D.times(unitVector, 30)),
+        Vec2D.times(unitVector, speed),
+        colors, vibration);
+};
+
+const appendNewEnemyShots = (
+        enemyShots: ReadonlyArray&lt;Shot&gt;,
+        enemyPos: Vec2D, frameCount: number): ReadonlyArray&lt;Shot&gt; =&gt; {
+    const shotsGenerated = new Array&lt;Shot&gt;();
+
+    switch (Math.floor(frameCount / 400) % 4) {
+    case 0:
+        // 全方向ランダム
+        if (frameCount % 25 === 0) {
+            for (let i = 0; i &lt; 8; i++) {
+                shotsGenerated.push(createEnemyShot(
+                    enemyPos, Math.random() * Math.PI * 2, 3, Vec3D.new(255, 255, 255), 40));
+            }
+        }
+        break;
+    case 1:
+        // n方向固定
+        if (frameCount % 25 === 0) {
+            const numWays = 20;
+            for (let i = 0; i &lt; numWays; i++) {
+                shotsGenerated.push(createEnemyShot(
+                    enemyPos, i / numWays * Math.PI * 2, 6, Vec3D.new(0, 255, 0), 15));
+            }
+        }
+        break;
+    case 2:
+        // n方向回転 * m
+        if (frameCount % 18 === 0) {
+            const numWays = 13;
+            for (let i = 0; i &lt; numWays; i++) {
+                shotsGenerated.push(createEnemyShot(
+                    enemyPos, (i + frameCount / 100) / numWays * Math.PI * 2, 8, Vec3D.new(0, 255, 255), 12));
+                shotsGenerated.push(createEnemyShot(
+                    enemyPos, (i - frameCount / 100) / numWays * Math.PI * 2, 8, Vec3D.new(0, 0, 255), 12));
+            }
+        }
+        break;
+    case 3:
+        // 全方向ランダム（高速）
+        if (frameCount % 18 === 0) {
+            for (let i = 0; i &lt; 20; i++) {
+                shotsGenerated.push(createEnemyShot(
+                    enemyPos, Math.random() * Math.PI * 2, 15, Vec3D.new(255, 0, 255), 15));
+            }
+        }
+        break;
+    }
+
+    return [...enemyShots, ...shotsGenerated];
+};
+
+const handleShotsCollisions = (aPos: Vec2D, bShots: ReadonlyArray&lt;Shot&gt;, aHp: number)
+        : { newBShots: ReadonlyArray&lt;Shot&gt;, newAHp: number} =&gt; {
+    const enemyShotsFiltered = bShots.filter((shot) =&gt; {
+        if (Vec2D.abs(Vec2D.subtract(shot.rigidBody.pos, aPos)) &lt; 20) {
+            aHp -= 1;
+            return false;
+        }
+        return true;
+    });
+    return {
+        newAHp: aHp,
+        newBShots: enemyShotsFiltered,
+    };
+};
+
+const isShotInScreen = (shotPos: Vec2D): boolean =&gt; {
+    return -30 &lt; shotPos.x &amp;&amp; shotPos.x &lt; SCREEN_SIZE.w + 30 &amp;&amp;
+        -30 &lt; shotPos.y &amp;&amp; shotPos.y &lt; SCREEN_SIZE.h + 30;
+};
+
+const getGameScene = (
+        scene: GameState[&quot;scene&quot;], enemyHp: number, playerHp: number): GameState[&quot;scene&quot;] =&gt; {
+    if (scene !== &quot;Playing&quot;) {
+        return scene;
+    }
+    if (enemyHp &lt;= 0) {
+        return &quot;GameClear&quot;;
+    } else if (playerHp &lt;= 0) {
+        return &quot;GameOver&quot;;
+    }
+    return scene;
+};
+
+const update = (gameState: GameState): GameState =&gt; {
+    // プレイヤー、敵の移動
+    const playerPos = movePlayer(gameState.playerPos);
+    const enemyPos = moveEnemy(gameState.enemyPos, gameState.frameCount);
+
+    // 弾の生成と移動と削除
+    const playerShots: ReadonlyArray&lt;Shot&gt; =
+        appendNewPlayerShots(gameState.playerShots, playerPos, gameState.frameCount)
+        .map((shot) =&gt; Shot.update(shot))
+        .filter((shot) =&gt; isShotInScreen(shot.rigidBody.pos));
+    const enemyShots: ReadonlyArray&lt;Shot&gt; =
+        appendNewEnemyShots(gameState.enemyShots, enemyPos, gameState.frameCount)
+        .map((shot) =&gt; Shot.update(shot))
+        .filter((shot) =&gt; isShotInScreen(shot.rigidBody.pos));
+
+    // プレイヤーと敵の弾の衝突
+    const { newBShots: enemyShotsAfterCollision, newAHp: playerHpAfterCollision} =
+        handleShotsCollisions(playerPos, enemyShots, gameState.playerHp);
+
+    // 敵とプレイヤーの弾の衝突
+    const { newBShots: playerShotsAfterCollision, newAHp: enemyHpAfterCollision} =
+        handleShotsCollisions(enemyPos, playerShots, gameState.enemyHp);
+
+    return {
+        enemyHp: enemyHpAfterCollision,
+        enemyPos,
+        enemyShots: enemyShotsAfterCollision,
+        frameCount: gameState.frameCount + 1,
+        playerHp: playerHpAfterCollision,
+        playerPos,
+        playerShots: playerShotsAfterCollision,
+        scene: getGameScene(gameState.scene, enemyHpAfterCollision, playerHpAfterCollision),
+    };
+};
+
+const drawUI = (gameState: GameState): void =&gt; {
+    switch (gameState.scene) {
+    case &quot;GameClear&quot;:
+        textSize(35);
+        textAlign(CENTER);
+        text(&quot;ゲームクリア！&quot;, 0, SCREEN_SIZE.h / 2, SCREEN_SIZE.w);
+        break;
+    case &quot;GameOver&quot;:
+        textSize(35);
+        textAlign(CENTER);
+        text(&quot;ゲームオーバー！&quot;, 0, SCREEN_SIZE.h / 2, SCREEN_SIZE.w);
+        break;
+    case &quot;Playing&quot;:
+        textSize(23);
+        textAlign(LEFT);
+        text(`敵のHP: ${gameState.enemyHp}/100`, 10, 40);
+        text(`プレイヤーのHP: ${gameState.playerHp}/5`, 10, 80);
+        break;
+    }
+
+    if (gameState.scene !== &quot;Playing&quot;) {
+        textSize(23);
+        textAlign(RIGHT);
+        text(&quot;画面をクリックしてリセット&quot;, 10, 40, SCREEN_SIZE.w - 10);
+    }
+};
+
+const drawShots = (shots: ReadonlyArray&lt;Shot&gt;): void =&gt; {
+    shots.forEach((shot) =&gt; {
+        shot.lights.forEach((light) =&gt; {
+            const pos = Vec2D.add(shot.rigidBody.pos, light.pos);
+            image(
+                getShotLightImage(light.color),
+                pos.x - 20, pos.y - 20, 55, 55);
+        });
+    });
+};
+
+const drawGame = (gameState: GameState): void =&gt; {
+    background(40, 40, 100);
+
+    // 敵
+    fill(color(255, 255, 255));
+    circle(gameState.enemyPos.x, gameState.enemyPos.y, 40);
+    circle(gameState.playerPos.x, gameState.playerPos.y, 40);
+
+    // 弾
+    blendMode(ADD);
+    drawShots(gameState.playerShots);
+    drawShots(gameState.enemyShots);
+    blendMode(BLEND);
+
+    // 画面上の表示
+    drawUI(gameState);
+};
+
+const getShotLightImage = (() =&gt; {
+    const imgList: { [rgb: string]: Graphics } = {};
+    return (color: Vec3D): Graphics =&gt; {
+        const colorName = `${color.x}, ${color.y}, ${color.z}`;
+        if (colorName in imgList) {
+            return imgList[colorName];
+        }
+        const img: any = createGraphics(100, 100);
+        img.noStroke();
+        for (let i = 50; i &gt; 0; i--) {
+            const circleColor = Vec3D.add(
+                Vec3D.times(color, (1 - i / 50)),
+                Vec3D.times(Vec3D.new(0, 0, 0), i / 50));
+            img.fill(circleColor.x, circleColor.y, circleColor.z);
+            img.circle(img.width / 2, img.height / 2, i);
+        }
+        imgList[colorName] = img;
+        return img;
+    };
+})();
+
+{
+    (window as any).setup = () =&gt; {
+        createCanvas(SCREEN_SIZE.w, SCREEN_SIZE.h);
+    };
+
+    const initialGameState: GameState = {
+        enemyHp: 100,
+        enemyPos: Vec2D.new(SCREEN_SIZE.w / 2, 100),
+        enemyShots: [],
+        frameCount: 0,
+        playerHp: 5,
+        playerPos: Vec2D.new(SCREEN_SIZE.w / 2, 700),
+        playerShots: [],
+        scene: &quot;Playing&quot;,
+    };
+
+    let gameState = initialGameState;
+
+    (window as any).draw = () =&gt; {
+        if (gameState.scene !== &quot;Playing&quot; &amp;&amp; mouseIsPressed) {
+            gameState = initialGameState;
+        }
+        gameState = update(gameState);
+        drawGame(gameState);
+    };
+}
+</code></pre>
+<p>p5_key_names.ts</p>
+<pre><code class="language-typescript">declare const ALT: 18;
+declare const BACKSPACE: 8;
+declare const CONTROL: 17;
+declare const DELETE: 46;
+declare const DOWN_ARROW: 40;
+declare const ENTER: 13;
+declare const ESCAPE: 27;
+declare const LEFT_ARROW: 37;
+declare const OPTION: 18;
+declare const RETURN: 13;
+declare const RIGHT_ARROW: 39;
+declare const SHIFT: 16;
+declare const TAB: 9;
+declare const UP_ARROW: 38;
+</code></pre>
+<p>rigid_body.ts</p>
+<pre><code class="language-typescript">import { Vec2D } from &quot;./vec&quot;;
+
+// 速度と位置を持つ物体
+export interface RigidBody {
+    pos: Vec2D;
+    velocity: Vec2D;
+}
+
+export const RigidBody = {
+    new: (pos: Vec2D, velocity: Vec2D) =&gt; ({ pos, velocity }),
+
+    // 位置に速度を加算
+    update: (obj: RigidBody): RigidBody =&gt;
+        ({ pos: Vec2D.add(obj.pos, obj.velocity), velocity: obj.velocity }),
+};
+</code></pre>
+<p>vec.ts</p>
+<pre><code class="language-typescript">// イミュータブルな二次元ベクトル
+export interface Vec2D {
+    readonly x: number;
+    readonly y: number;
+}
+
+export const Vec2D = {
+    // 加減乗除, 絶対値, 生成
+    abs: (a: Vec2D): number =&gt;
+        Math.sqrt(a.x * a.x + a.y * a.y),
+    add: (a: Vec2D, b: Vec2D): Vec2D =&gt; ({
+        x: a.x + b.x,
+        y: a.y + b.y,
+    }),
+    divide: (a: Vec2D, x: number): Vec2D =&gt; ({
+        x: a.x / x,
+        y: a.y / x,
+    }),
+    dot: (a: Vec2D, b: Vec2D): number =&gt;
+        a.x * b.x + a.y * b.y,
+    new: (x: number, y: number): Vec2D =&gt; ({ x, y }),
+    subtract: (a: Vec2D, b: Vec2D): Vec2D =&gt; ({
+        x: a.x - b.x,
+        y: a.y - b.y,
+    }),
+    times: (a: Vec2D, x: number): Vec2D =&gt; ({
+        x: a.x * x,
+        y: a.y * x,
+    }),
+};
+
+// イミュータブルな三次元ベクトル
+export interface Vec3D {
+    readonly x: number;
+    readonly y: number;
+    readonly z: number;
+}
+
+export const Vec3D = {
+    // 加減乗除, 絶対値, 生成
+    abs: (a: Vec3D): number =&gt;
+        Math.sqrt(a.x * a.x + a.y * a.y + a.z * a.z),
+    add: (a: Vec3D, b: Vec3D): Vec3D =&gt; ({
+        x: a.x + b.x,
+        y: a.y + b.y,
+        z: a.z + b.z,
+    }),
+    divide: (a: Vec3D, x: number): Vec3D =&gt; ({
+        x: a.x / x,
+        y: a.y / x,
+        z: a.z / x,
+    }),
+    dot: (a: Vec3D, b: Vec3D): number =&gt;
+        a.x * b.x + a.y * b.y,
+    new: (x: number, y: number, z: number): Vec3D =&gt;
+        ({ x, y, z }),
+    subtract: (a: Vec3D, b: Vec3D): Vec3D =&gt; ({
+        x: a.x - b.x,
+        y: a.y - b.y,
+        z: a.z - b.z,
+    }),
+    times: (a: Vec3D, x: number): Vec3D =&gt; ({
+        x: a.x * x,
+        y: a.y * x,
+        z: a.z * x,
+    }),
+};
+</code></pre>
+<p>index.html</p>
+<pre><code class="language-typescript">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Sample Game&lt;/title&gt;
+    &lt;style&gt;
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    height: 100%;
+    background: black;
+}
+.p5Canvas {
+    display: block;
+    margin: auto;
+    width: auto !important;
+    height: 100% !important;
+}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;script src=&quot;./main.ts&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h1><a class="header" href="#まとめ" id="まとめ">まとめ</a></h1>
+<p><a href="https://docs.python.org/ja/3/tutorial/index.html">CPythonの公式ドキュメント</a>
+や<a href="https://uhyohyo.net/javascript/">uhyohyo.net</a>や
+<a href="https://qiita.com/uhyo/items/da21e2b3c10c8a03952f">TypeScriptの型初級(uhyo)</a>
+などを読みましょう。</p>
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/typescript.min.js" integrity="sha256-LWmmFG1DeNLUUp0G4vr7vjaHOEFAvzYZ9exFbHFvg8w=" crossorigin="anonymous"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
