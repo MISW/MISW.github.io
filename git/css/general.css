@@ -9,8 +9,8 @@
 
 html {
     font-family: "Open Sans", sans-serif;
-    color: var(--fg);
-    background-color: var(--bg);
+    color: var(--font-color);
+    background-color: var(--background-color);
     text-size-adjust: none;
     line-height: 1.8;
 }
@@ -40,8 +40,16 @@ h6 {
     margin-bottom: 0;
 }
 
-.section-num {
+html.dark h1,
+html.dark h2 {
+    border-bottom: 1px solid var(--theme-background);
+}
+
+html:not(.dark) .section-num {
     background: var(--theme-background);
+}
+
+.section-num {
     color: white;
     text-align: right;
     padding: 0 0.4em 0 var(--header-indent);
@@ -92,7 +100,7 @@ h4 a.header:target {
 .content img { max-width: 100%; }
 .content .header:link,
 .content .header:visited {
-    color: var(--fg);
+    color: var(--font-color);
 }
 .content .header:link,
 .content .header:visited:hover {
@@ -116,7 +124,7 @@ tr:last-child > td {
 blockquote {
     margin: 20px 0;
     padding: 0 20px;
-    color: var(--fg);
+    color: var(--font-color);
     background-color: var(--quote-bg);
     border-top: .1em solid var(--quote-border);
     border-bottom: .1em solid var(--quote-border);
@@ -163,13 +171,8 @@ blockquote p {
 }
 
 html.dark ::selection {
-    background: white;
-    color: black;
-}
-
-html:not(.dark) ::selection {
-    background: rgb(128, 128, 128);
-    color: white;
+    background: var(--background-color);
+    color: var(--font-color);
 }
 
 strong {

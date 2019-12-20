@@ -10,10 +10,7 @@
 }
 
 /* Themes */
-.light {
-    --bg: white;
-    --fg: black;
-
+html:not(.dark) {
     --scrollbar: #cccccc;
 
     --icons: #cccccc;
@@ -27,10 +24,7 @@
     --quote-border: hsl(197, 37%, 91%);
 }
 
-.dark {
-    --bg: black;
-    --fg: white;
-
+html.dark {
     --scrollbar: var(--sidebar-fg);
 
     --icons: #737480;
