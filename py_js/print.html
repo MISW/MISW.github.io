@@ -92,7 +92,7 @@
   alt="Pythonのロゴ"
   class="inline-img"><br>
 CPythonよりも実行速度が速い。その代わり起動は遅い。
-※ PyPyのロゴは Samuel Reis によります</p>
+※ PyPyのロゴは Samuel Reis によります。</p>
 <p><img
     src="./images/python_org.jpg"
     alt="CPythonの公式サイトのスクリーンショット"
@@ -102,14 +102,7 @@ CPythonよりも実行速度が速い。その代わり起動は遅い。
   <a href="https://www.python.org">CPythonの公式サイト</a>からインストーラをダウンロードして行う。Python2とPython3があるが、2は古いため3を使う。<br>
   ※ 左図はCPythonのホームページのスクリーンショット
 </div>
-<p>ネット上にはPythonのインストールにAnacondaを使うことを推奨している記事があるが、Anacondaは初心者が使うと問題が起きるため推奨しない。また、上記サイトからインストールする場合は先にアンインストールしておくこと。
-（参考1:
-<a
-  href="http://www.zopfco.de/entry/2017/04/03/233811"
->Pythonの環境管理ツール良し悪し - Zopfcode</a>, 参考2:
-<a
-  href="http://onoz000.hatenablog.com/entry/2018/02/11/142347"
->condaとpip：混ぜるな危険 - onoz000’s blog</a>）</p>
+<p>ネット上にはPythonのインストールにAnacondaを使うことを推奨している記事があるが、Anacondaは初心者が使うと問題が起きるため推奨しない。また、上記サイトからインストールする場合は先にアンインストールしておくこと。</p>
 <h2><a class="header" href="#nodejsのインストール" id="nodejsのインストール">Node.jsのインストール</a></h2>
 <p><a href="https://ja.wikipedia.org/wiki/JavaScript">JavaScript</a>はブラウザやNode.jsで動かすことのできる言語。実装にはV8やSpiderMonkeyなどがある。</p>
 <p><img
@@ -182,7 +175,8 @@ const f = (x) =&gt; {
 console.log(f(5))
 </code></pre>
 <p>ブラウザ（Internet Explorerだとうまく実行できない可能性があるため、Microsoft EdgeやGoogle ChromeやMozilla Firefoxなどの他のブラウザを使用してください。）を開き、 <code>index.html</code> ファイルをブラウザへドラッグ</p>
-<p>F12キーを押して、出てきたパネル上でConsole (コンソール) タブを開いて、以下のように表示されていたら成功。</p>
+<p>開発者ツールを開いて、出てきたパネル上でConsole (コンソール) タブを開いて、以下のように表示されていたら成功。<br />
+（開発者ツールの開き方はOSによります。LinuxやWindowsでは <code>F12</code> や <code>Ctrl+Shift+I</code> などで開けます。）</p>
 <pre><code class="language-javascript">Hello, world!
 20
 </code></pre>
@@ -261,7 +255,7 @@ undefined
   <tr><td>3 (3.0 ~)</td><td>2008</td></tr>
 </table>
 <blockquote>
-<p>※ Python 2は2020年にサポート終了になる。
+<p>※ Python 2は2020年にサポートが終了した。
 現時点での最新は3.7で、2018年にリリース。</p>
 </blockquote>
 <p>JavaScriptのバージョン</p>
@@ -291,18 +285,12 @@ JavaScriptはInternet Explorerではまともに開発できません（動作�
 <p>Node.jsは基本的にターミナル上で動作するため、ブラウザ上でJavaScriptを実行するときに使える <code>document</code> や <code>alert</code> などの画面の表示に関する変数・関数が存在しません。<br />
 その代わりに、主にサーバーに関わる、Node.js専用の多くの機能が提供されています。<a href="https://nodejs.org/ja/docs/">Node.jsのドキュメント</a>で確認できます。<br />
 Node.jsにはパッケージマネージャであるnpm (Node Package Manager)が付属しています。（Pythonのpipに相当）</p>
-<h2><a class="header" href="#ネット検索について" id="ネット検索について">ネット検索について</a></h2>
-<p>ネットでプログラミングに関することを調べるとき、残念ながら、日本語では1つもまともな記事がヒットしないということがよくあります。</p>
-<p>Googleの検索欄に英語を打っても、デフォルトでは日本のページが優先されて表示されてしまいます。
-英語版のGoogleを使うにはこのURLを使ってください。
-<a href="https://www.google.com/?gl=us&hl=en&gws_rd=cr&pws=0">https://www.google.com/?gl=us&amp;hl=en&amp;gws_rd=cr&amp;pws=0</a></p>
-<p>あるいは、<a href="https://duckduckgo.com/">DuckDuckGo</a>などのGoogle以外の検索エンジンを使う方法もあります。<br />
-検索結果のページの左上に&quot;日本&quot;というトグルボタンがあるので、これをOFFにすることで英語で検索できます。</p>
 <h2><a class="header" href="#javascriptの古い書き方について" id="javascriptの古い書き方について">JavaScriptの古い書き方について</a></h2>
-<p>JavaScriptは後方互換性を保ちながらアップデートされているため、今はまず使われない古い書き方が多く存在します。それらの一部をここで示しておきます。</p>
+<p>JavaScriptは下位互換性を保ちながらアップデートされているため、今はまず使われない古い書き方が多く存在します。それらの一部をここで示しておきます。</p>
 <p>関数</p>
 <pre><code class="language-javascript">// 古い書き方
-// ※ 変数名の巻き上げやthisの束縛を目的として、あるいはわかりやすさから、こちらを選ぶこともある。
+// クラス定義と見分けがつきにくいのが問題。
+// thisの束縛、変数名の巻き上げ、ジェネレータ構文の使用を目的として、あるいはわかりやすさから、こちらを選ぶこともある。
 function foo() {
     // 関数の本体
 }
@@ -393,7 +381,7 @@ $ npx tsc --init  # TypeScriptの初期化。tsconfig.jsonが生成される。
 </code></pre>
 <p><code>main.ts</code> のようなファイルを作り、コードを書き、コマンドプロンプト（ターミナル）上で <code>npx tsc</code> と打てば、TypeScriptからJavaScriptへ変換されます。</p>
 <p>TypeScriptでは、変換先のJavaScriptのバージョンが低いときJavaScriptのいくつかの最新の機能（Arrayの関数やMapなど）を使えません。
-<code>tsconfig.json</code> の <code>&quot;target&quot;</code> を <code>&quot;ES2017&quot;</code> とかにすれば使えるようになります。</p>
+<code>tsconfig.json</code> の <code>&quot;target&quot;</code> を <code>&quot;ES2017&quot;</code> などに変更すれば使えるようになります。</p>
 <p><strong>TypeScriptはJavaScriptとほぼ同じ</strong> です。最低限覚えるべき文法を記しておきます。
 細かい使い方はサンプルプログラムを見てください。
 これを読んだら、次に<a href="https://qiita.com/uhyo/items/da21e2b3c10c8a03952f">TypeScriptの型初級</a>を見ることをお勧めします。</p>
@@ -460,13 +448,12 @@ if (typeof x === &quot;number&quot;) {
 
 // 他にも extends/infer, typeof, keyof, ...といろいろあるが、軽く使う分には必要ない。
 </code></pre>
-<h1><a class="header" href="#クロスブラウザについて" id="クロスブラウザについて">クロスブラウザについて</a></h1>
+<h1><a class="header" href="#クロスブラウザ対応について" id="クロスブラウザ対応について">クロスブラウザ対応について</a></h1>
 <p><img src="./images/can_i_use_es6.jpg" alt="caniuseのスクリーンショット" /></p>
 <p>各ブラウザのJavaScriptのバージョン（実装状況）は<a href="https://caniuse.com/">caniuse.com</a>などで確認できます。<br />
 例えばES2015 (ES6)を使えるかは、<a href="https://caniuse.com/#search=ES6">https://caniuse.com/#search=ES6</a> で確認できます。
 これを見ると、IE (Internet Explorer) ではES6をほとんど使えないことがわかります。
-現在は<a href="https://babeljs.io/">Babel</a>などを使ってES2015以降のコードをES5以前のコードに変換して対応するのが主流ですが、
-IEは2020年の1月にサポートが切れるので、それ以降はIEを切り捨てる方向になると思われます。</p>
+現在は<a href="https://babeljs.io/">Babel</a>などを使ってES2015以降のコードをES5以前のコードに変換して対応するのが主流です。</p>
 <blockquote>
 <p>（TypeScriptはデフォルトではES5のコードに変換されます。）</p>
 </blockquote>
@@ -474,8 +461,8 @@ IEは2020年の1月にサポートが切れるので、それ以降はIEを切�
 <h2><a class="header" href="#この節について" id="この節について">この節について</a></h2>
 <p>ためしに簡単なプログラムを書いて、各言語の雰囲気を感じてもらうために書きました。<br />
 パッケージマネージャの使い方を示すために、意味もなく外部ライブラリを持ち出しています。</p>
-<p>PythonやNode.jsのコードは、実行環境やライブラリのアップデートで動かなくなることがあります。最新バージョンの環境で動かないことを確認した方は、管理者にご報告ください。<br />
-今回は入門のため使いませんが、実際にはpackage-lock.json (各ライブラリのどのバージョンを使うか書かれたファイル) や nvm (Node Version Manager) などで対処できます。</p>
+<p>PythonやNode.jsのコードは、実行環境やライブラリのアップデートで動かなくなることがあります。もし最新バージョンの環境で動かなかったら、このページの管理者に報告してください。<br />
+今回は入門のため省略しますが、実際には <code>package-lock.json</code> (各ライブラリのどのバージョンを使うかが書かれたファイル) で対処できます。</p>
 <h2><a class="header" href="#パッケージマネージャとは" id="パッケージマネージャとは">パッケージマネージャとは</a></h2>
 <p>Pythonにはpip、Node.jsにはnpmというパッケージマネージャが付属している。</p>
 <p>パッケージマネージャは外部ライブラリのダウンロードに使うツールで、pipなら<a href="https://pypi.org">pypi.org</a>、npmなら<a href="https://www.npmjs.com/">npmjs.com</a>からダウンロードしてくる。<br />
@@ -702,6 +689,9 @@ if (keyIsDown((window as any).RIGHT_ARROW) {
 //        自分でdeclareで型定義を付け足す。
 declare const RIGHT_ARROW: number;  // main.tsの好きな場所に書く
 </code></pre>
+<blockquote>
+<p>どうしてもTypeScriptの型エラーを解決できない場合には，最終手段として <code>//@ts-ignore</code> があります。これは特定の行の型チェックを完全に無効化します。</p>
+</blockquote>
 <h2><a class="header" href="#シューティングゲーム" id="シューティングゲーム">シューティングゲーム</a></h2>
 <p><img
   src="./images/shooting.jpg"

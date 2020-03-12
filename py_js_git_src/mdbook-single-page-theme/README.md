@@ -1,0 +1,25 @@
+mdBookのデフォルトのテーマを単一ページ用に編集したもの。\
+追加で以下の変数を設定する必要がある。
+
+```css
+html:not(.dark) {
+    --theme-background: rgb(241, 143, 31);
+    --theme-font: rgb(0, 122, 204);
+    --complement: rgb(204, 82, 0);
+    --complement-light: rgb(236, 196, 169);
+    --border-gray: rgb(224, 224, 224);
+    --font-color: black;
+    --background-color: white;
+}
+
+html.dark {
+    --theme-background: #ffe3b0;
+    --theme-font: rgb(194, 232, 255);
+    --complement: rgb(155, 129, 112);
+    --complement-light: rgb(247, 228, 215);
+    --border-gray: rgb(119, 110, 110);
+    --font-color: white;
+    --background-color: rgb(29, 29, 29);
+}
+
+```

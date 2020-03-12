@@ -1,0 +1,18 @@
+[book]
+title = "Python, JavaScriptの始め方"
+authors = ["oguni"]
+description = "MIS.WのPythonとJavaScriptの入門記事" # <meta>に書かれるdescription
+language = "ja"
+multilingual = false
+src = "src"
+
+[build]
+build-dir = "book/"
+
+[output.html]
+theme = "../mdbook-single-page-theme"
+default-theme = "light"
+preferred-dark-theme = "light" # OS設定でダークテーマが選ばれているときのデフォルトテーマ
+curly-quotes = false # クオーテーションマークの自動変換
+mathjax-support = false # 数式のサポートの有無
+additional-css = ["src/theme-color.css"]
