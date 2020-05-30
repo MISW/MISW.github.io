@@ -38,7 +38,7 @@ A-frameはHTMLタグを用いて、箱や円柱などのオブジェクトをWeb
 
 すると、このような画面になります。
 `W` `A` `S` `D`で移動、右クリックで視点移動ができます。
-![](images/NPuAO55.png)
+![](https://i.imgur.com/NPuAO55.png)
 
 まず、A-frameのライブラリを読み込みます。
 次に、`<body>`の中の`<a-scene>`で空のシーンを作成し、その中の`<a-box>`で箱を生成します。
@@ -48,45 +48,46 @@ A-frameはHTMLタグを用いて、箱や円柱などのオブジェクトをWeb
 
 次に、インスペクター上で操作してみましょう。
 先程のシーンを選択した状態で`Ctrl`+`Alt`+`i`を押すとこのようなインスペクター画面が開きます。
-![](images/cj4lvLo.png)
+![](https://i.imgur.com/cj4lvLo.png)
 
 `ｈ`キーを押すとこのようなヘルプ画面が出ます。
-![](images/dmvsLOE.png)
+![](https://i.imgur.com/dmvsLOE.png)
 
 インスペクター上で球を生成してみましょう。
 左上の＋ボタンをクリックして、空のオブジェクトを生成します。
-![](images/YKyy5tf.png)
+![](https://i.imgur.com/YKyy5tf.png)
+
 
 次に、Add componentの部分にgeometryと入力します。
-![](images/CEJdhOf.png)
+![](https://i.imgur.com/CEJdhOf.png)
 
 今回は、球を作成したいので、primitiveの部分をboxからsphereに変更します。
-![](images/tS1UmNd.png)
+![](https://i.imgur.com/tS1UmNd.png)
 
 このままでは、球が見えにくいので移動させます。
 動かす前に、componentにpositionを追加します。
-![](images/0mtiDEh.png)
+![](https://i.imgur.com/0mtiDEh.png)
 
 マウスの左クリックで視点移動し、球を選択した状態で`w`キーを押すと、矢印が表示されます。
 この矢印を使って球を箱の隣まで移動させます。
-![](images/5fqFElY.png)
+![](https://i.imgur.com/5fqFElY.png)
 
 次に、色を設定します。
 先程と同様に、componentにmaterialと入力し、materialを追加します。
-![](images/4gLukSE.png)
+![](https://i.imgur.com/4gLukSE.png)
 
 materialのcolorのところから色を変更できます。
-![](images/j2ypQMv.png)
+![](https://i.imgur.com/j2ypQMv.png)
 
 次に、ここまでの変更点をhtmlに書き込みます。
 右上のコピーボタンを押して、htmlをコピーします。
-![](images/Fkt85zU.png)
+![](https://i.imgur.com/Fkt85zU.png)
 
 コピーしたものを左のHTMLの中の`<a-scene>`の中に貼り付けます。
-![](images/MRhCJHT.png)
+![](https://i.imgur.com/MRhCJHT.png)
 
 すると、このように球も表示されます。
-![](images/vB602r7.png)
+![](https://i.imgur.com/vB602r7.png)
 
 A-frameは理解出来ましたか？
 今度はこれをAR上で表示させてみましょう。
@@ -114,24 +115,24 @@ A-frameは理解出来ましたか？
 
 次に、[Glitch](https://glitch.com/)にアクセスします。
 右上のNew Projectからhello-webpageを選択し、プロジェクトを作成します。
-![](images/lpMGskP.png)
+![](https://i.imgur.com/lpMGskP.png)
 
 左からindex.htmlを選択し、中身を先ほどコピーしたものに変えます。
-![](images/vmKKQeS.png)
+![](https://i.imgur.com/vmKKQeS.png)
 
 左上のShareからLive Appを選択してURLをコピーします。(このURLは人によって違います)
-![](images/DsD7SWT.png)
+![](https://i.imgur.com/DsD7SWT.png)
 
 
 [QRCode Monkey](https://www.qrcode-monkey.com/)にアクセスして
 Your URLの部分に先ほどコピーしたものを貼り付け、Create QR Codeをクリックします。
-![](images/DusTdUa.png)
+![](https://i.imgur.com/DusTdUa.png)
 
 スマホでQRコードを読み込み、以下のマーカーにかざします。
-![](images/E50cBhW.png)
+![](https://i.imgur.com/E50cBhW.png)
 
 以下のようになれば完成！
-![](images/5R0KOax.jpg)
+![](https://i.imgur.com/5R0KOax.jpg)
 
 ## 応用編
 ここまで、A-frameとAR.jsの基本的な使い方について学んできました。
@@ -140,13 +141,13 @@ Your URLの部分に先ほどコピーしたものを貼り付け、Create QR Co
 ### 自作マーカーを使ってみる
 AR.jsではプリセットのマーカーだけでなく、自作のマーカーを使うこともできます。
 まずは、[AR.js Marker Training](https://ar-js-org.github.io/AR.js/three.js/examples/marker-training/examples/generator.html)にアクセスしてマーカーをにしたい画像をアップロードして、マーカーと画像ダウンロードします。QRコードをマーカーとして、使う場合はQRCode MonkeyでBody Shapeを変えてください。
-![](images/5eGuf6t.png)
+![](https://i.imgur.com/5eGuf6t.png)
 
 マーカーがダウンロード出来たら、Glitchのプロジェクトの左上のNew Fileの中のUpload Fileから先ほどダウンロードした拡張子が.pattのファイルをアップロードしてください。
-![](images/UIixek8.png)
+![](https://i.imgur.com/UIixek8.png)
 
 アップロードが完了したら、assetsの中にある先ほどアップロードしたファイルを選択して、リンクをコピーします。
-![](images/3Aacavy.png)
+![](https://i.imgur.com/3Aacavy.png)
 
 コピーが出来たら、`<a-maker>`の属性を以下のように書き換えます。画像のURLの部分は先ほどコピーしたものを貼り付けてください。
 ```html:index.html
@@ -172,22 +173,22 @@ Glitchはログインしないと、５日でデータが消えてしまいま�
 消えないように、このサイトにも使われているGitHub Pagesを使ってみましょう。
 [GitHub](https://github.com/)にログインして、New repositoryをクリック
 Repository nameに好きな名前を付け、Create Repositoryをクリック
-![](images/dYYN9NZ.png)
+![](https://i.imgur.com/dYYN9NZ.png)
 
 creating new fileをクリック
-![](images/riLbFLW.png)
+![](https://i.imgur.com/riLbFLW.png)
 
 
 file nameにindex.htmlと入力
 Edit new fileに先ほどコピーしたコードを貼り付けて
 Commit new fileをクリック
-![](images/7KBVrYt.png)
+![](https://i.imgur.com/7KBVrYt.png)
 
 
 Settingsをクリック
 下にスクロールしてGitHub PagesのSourceを
 Noneからmaster branchに変更
-![](images/dYDtYlg.png)
+![](https://i.imgur.com/dYDtYlg.png)
 
 https[]()://ユーザー名.github.io/レポジトリ名前からアクセスできます。
 [Progate](https://prog-8.com/docs/github-pages)にも同様のことが書いてあるのでわからなかったそちらも参照してください。
@@ -197,7 +198,7 @@ https[]()://ユーザー名.github.io/レポジトリ名前からアクセスで
 A-frameは、glTFやobj形式の3Dモデルを読み込むことができます。
 glTFファイルはblender2.8などの3DCGソフトで出力することができます。
 今回は、blenderで作ったこのモデルを使います。
-![](images/3yv9Xf5.png)
+![](https://i.imgur.com/3yv9Xf5.png)
 
 先ほど同様に、GitHubのリポジトリを作成して、index.htmlに以下のコードを貼り付けます。
 idは何でも大丈夫です。3Dモデルのファイル名は、後でアップロードするファイルの名前を入れてください。
@@ -221,10 +222,10 @@ A-frameでは、他のファイルを使う場合は、`<a-asset>`でアセッ�
 ```
 
 次に、GitHubにファイルをアップロードします。リポジトリ上のUpload filesからファイルのアップロードができます。
-![](images/zboicii.png)
+![](https://i.imgur.com/zboicii.png)
 
 アップロード出来たらCommit changesをクリックして、保存します。
-![](images/7m9v3i4.png)
+![](https://i.imgur.com/7m9v3i4.png)
 
 アップロードが完了したら先ほど同様にして、スマホから見ると以下のようになります。
-![](images/pbevHmh.png)
+![](https://i.imgur.com/pbevHmh.png)
