@@ -64,6 +64,8 @@ WAなどを出すと、その問題の提出した時間がプラス5分され�
 
 ~~[https://not-522.appspot.com/](https://not-522.appspot.com/)~~
 
+(※2020/08/09 追記)
+
 2020年5月16日を持ちましてAtCoder Virtual Contestはサービスを終了したそうです。しかし、代わりに[AtCoder Problems](https://kenkoooo.com/atcoder#/table/)というサイトにVirtual Contest機能があり、非常に便利です。
 
 ![](https://i.imgur.com/9h8kQDn.png)
