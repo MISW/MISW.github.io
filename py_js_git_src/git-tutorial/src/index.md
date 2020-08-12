@@ -131,7 +131,7 @@ gitはバージョン管理システム。GitHubは **Microsoftの，** gitの�
 
 たとえばGitHubで新しくレポジトリを作成すると，このように表示される。※レポジトリ名は加工してfoo/fooに変更しました\
 なお， `git push -u` の `-u` は[上流ブランチ](https://git-scm.com/book/ja/v2/Git-のブランチ機能-リモートブランチ#r_tracking_branches)の設定を行うオプションで， `git pull` での省略記法を可能にする役割がある。
-<img src="./assets/git-tutorial3.png" style="width: 60%; display: block
+<img src="./assets/git-tutorial3.png" style="width: 60%; display: block">
 
 ## git clone
 リモートレポジトリのデータをローカルレポジトリにもってくる作業は，以上のように `git remote add` と `git pull` でやっても良いが， `git clone` を使うと簡単にできる。

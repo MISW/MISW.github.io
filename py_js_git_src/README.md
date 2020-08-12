@@ -4,10 +4,14 @@ py_js/ と git/ のソースコード。
 
 `single-page-theme` はmdBookのデフォルトのテーマを改変したもの。
 
-実行方法
+インストールが必要なもの
+- Rust
+- mdbook （コマンドラインで `cargo install mdbook`）
+
+変更の確認
 
 ```shell
-$ cargo install mdbook
+$ cd py_js
 $ mdbook serve --open
 ```
 
