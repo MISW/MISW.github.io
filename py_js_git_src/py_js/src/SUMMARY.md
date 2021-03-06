@@ -1,3 +1,0 @@
-# Summary
-
-- [index](./index.md)
